@@ -119,3 +119,26 @@ This analysis rejects subjective punditry in favor of a demonstrable, mathematic
 2.  Elo, A. E. (1978). *The Rating of Chessplayers, Past and Present*. Arco. (Adapted for World Football).
 3.  Expected Goals (xG) methodology grounded in Opta/StatsBomb definitions of shot quality variables (distance, angle, body part, defender proximity).
 4.  PPDA (Passes Allowed Per Defensive Action) concepts established by Colin Trainor.
+
+## Technical Appendix A: Full 48-Team Group Stage Poisson Simulation
+
+To validate the initial group stage progressions for the Monte Carlo simulations, a complete 48-team Poisson-binomial distribution was recalculated across all 12 groups.
+
+The full output detailing the Expected Points and Top-2 Advancement Probabilities for all 48 nations is available in the generated dataset: `48_team_group_stage_poisson.csv`.
+
+*Methodology Highlight:* The simulation converts $\Delta$Elo into Expected Goals ($xG$), calculating the exact probability matrices for home wins, away wins, and draws for every group stage match before aggregating into expected points.
+
+## Technical Appendix B: Order Statistics for Tournament Extremes
+
+To further demonstrate the mathematical rigor of this model, we calculate the exact Order Statistics for extreme values in the tournament. Specifically, we modeled the expected maximum goals scored by the tournament's highest-scoring team.
+
+Using the cumulative distribution function (CDF) of independent Poisson variables:
+$F_{max}(k) = [F_{single}(k)]^N$
+$E[Max] = \sum_{k=0}^{\infty} (1 - F_{max}(k))$
+
+**Calculation Output:**
+Assuming 8 elite teams (Tier 1 & Tier 2) play an average of 7 matches (reaching the semi-finals) with an average $\lambda = 12.6$ expected goals over the tournament:
+*   **Expected Maximum Goals by the Highest Scoring Team:** $17.86$ goals.
+*   **Probability that at least one team exceeds 15 goals:** $83.58\%$
+
+*(The Python script `order_statistics_calc.py` utilized for this exact Order Statistic calculation is provided alongside this documentation.)*
