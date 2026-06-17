@@ -1,0 +1,3002 @@
+[
+  {
+    "id": 1,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "England",
+    "reasoning": "England benefits from extra rest days between key fixtures."
+  },
+  {
+    "id": 2,
+    "camp": "Manager's View",
+    "predicted_winner": "Brazil",
+    "reasoning": "Squad rotation will be key, and Brazil has the deepest bench."
+  },
+  {
+    "id": 3,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Argentina",
+    "reasoning": "The line movement suggests insiders know Argentina is peaking."
+  },
+  {
+    "id": 4,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Argentina",
+    "reasoning": "It's about the badge on the front, and Argentina knows how to wear it."
+  },
+  {
+    "id": 5,
+    "camp": "Manager's View",
+    "predicted_winner": "Germany",
+    "reasoning": "The tactical flexibility of Germany is unmatched in this tournament."
+  },
+  {
+    "id": 6,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Portugal",
+    "reasoning": "It's about the badge on the front, and Portugal knows how to wear it."
+  },
+  {
+    "id": 7,
+    "camp": "Manager's View",
+    "predicted_winner": "France",
+    "reasoning": "The tactical flexibility of France is unmatched in this tournament."
+  },
+  {
+    "id": 8,
+    "camp": "Odds-Makers",
+    "predicted_winner": "England",
+    "reasoning": "The line movement suggests insiders know England is peaking."
+  },
+  {
+    "id": 9,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Brazil",
+    "reasoning": "The stars are aligned for Brazil in 2026."
+  },
+  {
+    "id": 10,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Spain",
+    "reasoning": "Spain benefits from extra rest days between key fixtures."
+  },
+  {
+    "id": 11,
+    "camp": "Manager's View",
+    "predicted_winner": "France",
+    "reasoning": "Man-management is perfect at France; they play as a single unit."
+  },
+  {
+    "id": 12,
+    "camp": "Manager's View",
+    "predicted_winner": "USA",
+    "reasoning": "Man-management is perfect at USA; they play as a single unit."
+  },
+  {
+    "id": 13,
+    "camp": "Data Nerds",
+    "predicted_winner": "Argentina",
+    "reasoning": "Expected points model heavily favors Argentina based on group stage paths."
+  },
+  {
+    "id": 14,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Portugal",
+    "reasoning": "The stars are aligned for Portugal in 2026."
+  },
+  {
+    "id": 15,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Germany",
+    "reasoning": "Implied probability based on futures markets puts Germany ahead."
+  },
+  {
+    "id": 16,
+    "camp": "Old-School Fans",
+    "predicted_winner": "England",
+    "reasoning": "England has the heritage and the grit needed for the big stage."
+  },
+  {
+    "id": 17,
+    "camp": "Manager's View",
+    "predicted_winner": "Spain",
+    "reasoning": "Man-management is perfect at Spain; they play as a single unit."
+  },
+  {
+    "id": 18,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Brazil",
+    "reasoning": "It's about the badge on the front, and Brazil knows how to wear it."
+  },
+  {
+    "id": 19,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "The host curse will bypass Argentina thanks to their kit colors."
+  },
+  {
+    "id": 20,
+    "camp": "Manager's View",
+    "predicted_winner": "Brazil",
+    "reasoning": "The tactical flexibility of Brazil is unmatched in this tournament."
+  },
+  {
+    "id": 21,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Uruguay",
+    "reasoning": "Uruguay benefits from extra rest days between key fixtures."
+  },
+  {
+    "id": 22,
+    "camp": "Manager's View",
+    "predicted_winner": "France",
+    "reasoning": "The tactical flexibility of France is unmatched in this tournament."
+  },
+  {
+    "id": 23,
+    "camp": "Data Nerds",
+    "predicted_winner": "Spain",
+    "reasoning": "With a high PPDA, Spain recovers the ball faster than any opponent."
+  },
+  {
+    "id": 24,
+    "camp": "Old-School Fans",
+    "predicted_winner": "England",
+    "reasoning": "England plays proper football, none of that modern nonsense."
+  },
+  {
+    "id": 25,
+    "camp": "Data Nerds",
+    "predicted_winner": "Portugal",
+    "reasoning": "Underlying metrics show Portugal dominating possession in crucial zones."
+  },
+  {
+    "id": 26,
+    "camp": "Data Nerds",
+    "predicted_winner": "Argentina",
+    "reasoning": "Expected points model heavily favors Argentina based on group stage paths."
+  },
+  {
+    "id": 27,
+    "camp": "Data Nerds",
+    "predicted_winner": "Brazil",
+    "reasoning": "Expected points model heavily favors Brazil based on group stage paths."
+  },
+  {
+    "id": 28,
+    "camp": "Data Nerds",
+    "predicted_winner": "Argentina",
+    "reasoning": "Expected points model heavily favors Argentina based on group stage paths."
+  },
+  {
+    "id": 29,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Portugal",
+    "reasoning": "Value is all on Portugal given the current betting spreads."
+  },
+  {
+    "id": 30,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Portugal",
+    "reasoning": "It's about the badge on the front, and Portugal knows how to wear it."
+  },
+  {
+    "id": 31,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Portugal",
+    "reasoning": "The altitude won't affect Portugal as much as their opponents."
+  },
+  {
+    "id": 32,
+    "camp": "Data Nerds",
+    "predicted_winner": "Spain",
+    "reasoning": "Underlying metrics show Spain dominating possession in crucial zones."
+  },
+  {
+    "id": 33,
+    "camp": "Data Nerds",
+    "predicted_winner": "Spain",
+    "reasoning": "Expected points model heavily favors Spain based on group stage paths."
+  },
+  {
+    "id": 34,
+    "camp": "Old-School Fans",
+    "predicted_winner": "France",
+    "reasoning": "It's about the badge on the front, and France knows how to wear it."
+  },
+  {
+    "id": 35,
+    "camp": "Old-School Fans",
+    "predicted_winner": "England",
+    "reasoning": "You can't buy the passion England brings to the pitch."
+  },
+  {
+    "id": 36,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Uruguay",
+    "reasoning": "Uruguay has the heritage and the grit needed for the big stage."
+  },
+  {
+    "id": 37,
+    "camp": "Manager's View",
+    "predicted_winner": "France",
+    "reasoning": "France's manager has a foolproof plan for the knockout stages."
+  },
+  {
+    "id": 38,
+    "camp": "Data Nerds",
+    "predicted_winner": "France",
+    "reasoning": "Underlying metrics show France dominating possession in crucial zones."
+  },
+  {
+    "id": 39,
+    "camp": "Old-School Fans",
+    "predicted_winner": "USA",
+    "reasoning": "It's about the badge on the front, and USA knows how to wear it."
+  },
+  {
+    "id": 40,
+    "camp": "Manager's View",
+    "predicted_winner": "Portugal",
+    "reasoning": "The tactical flexibility of Portugal is unmatched in this tournament."
+  },
+  {
+    "id": 41,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Brazil",
+    "reasoning": "Implied probability based on futures markets puts Brazil ahead."
+  },
+  {
+    "id": 42,
+    "camp": "Data Nerds",
+    "predicted_winner": "Germany",
+    "reasoning": "With a high PPDA, Germany recovers the ball faster than any opponent."
+  },
+  {
+    "id": 43,
+    "camp": "Manager's View",
+    "predicted_winner": "Brazil",
+    "reasoning": "Man-management is perfect at Brazil; they play as a single unit."
+  },
+  {
+    "id": 44,
+    "camp": "Manager's View",
+    "predicted_winner": "USA",
+    "reasoning": "USA's manager has a foolproof plan for the knockout stages."
+  },
+  {
+    "id": 45,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "England",
+    "reasoning": "England has the most favorable travel schedule across the US/Mexico/Canada."
+  },
+  {
+    "id": 46,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Spain",
+    "reasoning": "Spain won't face the dreaded third-match jinx."
+  },
+  {
+    "id": 47,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Portugal",
+    "reasoning": "The line movement suggests insiders know Portugal is peaking."
+  },
+  {
+    "id": 48,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Portugal",
+    "reasoning": "The stars are aligned for Portugal in 2026."
+  },
+  {
+    "id": 49,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Brazil",
+    "reasoning": "It's about the badge on the front, and Brazil knows how to wear it."
+  },
+  {
+    "id": 50,
+    "camp": "Data Nerds",
+    "predicted_winner": "England",
+    "reasoning": "Expected points model heavily favors England based on group stage paths."
+  },
+  {
+    "id": 51,
+    "camp": "Data Nerds",
+    "predicted_winner": "Spain",
+    "reasoning": "Expected points model heavily favors Spain based on group stage paths."
+  },
+  {
+    "id": 52,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Germany",
+    "reasoning": "You can't buy the passion Germany brings to the pitch."
+  },
+  {
+    "id": 53,
+    "camp": "Odds-Makers",
+    "predicted_winner": "England",
+    "reasoning": "Implied probability based on futures markets puts England ahead."
+  },
+  {
+    "id": 54,
+    "camp": "Manager's View",
+    "predicted_winner": "Uruguay",
+    "reasoning": "Uruguay's manager has a foolproof plan for the knockout stages."
+  },
+  {
+    "id": 55,
+    "camp": "Manager's View",
+    "predicted_winner": "Argentina",
+    "reasoning": "Squad rotation will be key, and Argentina has the deepest bench."
+  },
+  {
+    "id": 56,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Germany",
+    "reasoning": "Germany has the most favorable travel schedule across the US/Mexico/Canada."
+  },
+  {
+    "id": 57,
+    "camp": "Manager's View",
+    "predicted_winner": "Brazil",
+    "reasoning": "Squad rotation will be key, and Brazil has the deepest bench."
+  },
+  {
+    "id": 58,
+    "camp": "Superstition Camp",
+    "predicted_winner": "USA",
+    "reasoning": "The stars are aligned for USA in 2026."
+  },
+  {
+    "id": 59,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "France",
+    "reasoning": "With minimal injury concerns, France arrives fully fit."
+  },
+  {
+    "id": 60,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Brazil",
+    "reasoning": "Brazil plays proper football, none of that modern nonsense."
+  },
+  {
+    "id": 61,
+    "camp": "Data Nerds",
+    "predicted_winner": "England",
+    "reasoning": "Underlying metrics show England dominating possession in crucial zones."
+  },
+  {
+    "id": 62,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "A lunar eclipse during the final favors Argentina."
+  },
+  {
+    "id": 63,
+    "camp": "Manager's View",
+    "predicted_winner": "France",
+    "reasoning": "France's manager has a foolproof plan for the knockout stages."
+  },
+  {
+    "id": 64,
+    "camp": "Manager's View",
+    "predicted_winner": "France",
+    "reasoning": "Squad rotation will be key, and France has the deepest bench."
+  },
+  {
+    "id": 65,
+    "camp": "Odds-Makers",
+    "predicted_winner": "France",
+    "reasoning": "The line movement suggests insiders know France is peaking."
+  },
+  {
+    "id": 66,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Germany",
+    "reasoning": "The line movement suggests insiders know Germany is peaking."
+  },
+  {
+    "id": 67,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Germany",
+    "reasoning": "Germany plays proper football, none of that modern nonsense."
+  },
+  {
+    "id": 68,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Brazil",
+    "reasoning": "Value is all on Brazil given the current betting spreads."
+  },
+  {
+    "id": 69,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Spain",
+    "reasoning": "Implied probability based on futures markets puts Spain ahead."
+  },
+  {
+    "id": 70,
+    "camp": "Manager's View",
+    "predicted_winner": "Germany",
+    "reasoning": "Squad rotation will be key, and Germany has the deepest bench."
+  },
+  {
+    "id": 71,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Germany",
+    "reasoning": "You can't buy the passion Germany brings to the pitch."
+  },
+  {
+    "id": 72,
+    "camp": "Manager's View",
+    "predicted_winner": "Argentina",
+    "reasoning": "Argentina's manager has a foolproof plan for the knockout stages."
+  },
+  {
+    "id": 73,
+    "camp": "Superstition Camp",
+    "predicted_winner": "USA",
+    "reasoning": "USA won't face the dreaded third-match jinx."
+  },
+  {
+    "id": 74,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Spain",
+    "reasoning": "The altitude won't affect Spain as much as their opponents."
+  },
+  {
+    "id": 75,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Argentina",
+    "reasoning": "Argentina has the heritage and the grit needed for the big stage."
+  },
+  {
+    "id": 76,
+    "camp": "Data Nerds",
+    "predicted_winner": "France",
+    "reasoning": "France leads the projected xG differential."
+  },
+  {
+    "id": 77,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "England",
+    "reasoning": "England has the most favorable travel schedule across the US/Mexico/Canada."
+  },
+  {
+    "id": 78,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Spain",
+    "reasoning": "Implied probability based on futures markets puts Spain ahead."
+  },
+  {
+    "id": 79,
+    "camp": "Old-School Fans",
+    "predicted_winner": "USA",
+    "reasoning": "You can't buy the passion USA brings to the pitch."
+  },
+  {
+    "id": 80,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Netherlands",
+    "reasoning": "Netherlands won't face the dreaded third-match jinx."
+  },
+  {
+    "id": 81,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Brazil",
+    "reasoning": "The host curse will bypass Brazil thanks to their kit colors."
+  },
+  {
+    "id": 82,
+    "camp": "Superstition Camp",
+    "predicted_winner": "USA",
+    "reasoning": "The stars are aligned for USA in 2026."
+  },
+  {
+    "id": 83,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Portugal",
+    "reasoning": "It's about the badge on the front, and Portugal knows how to wear it."
+  },
+  {
+    "id": 84,
+    "camp": "Superstition Camp",
+    "predicted_winner": "USA",
+    "reasoning": "USA won't face the dreaded third-match jinx."
+  },
+  {
+    "id": 85,
+    "camp": "Odds-Makers",
+    "predicted_winner": "France",
+    "reasoning": "Implied probability based on futures markets puts France ahead."
+  },
+  {
+    "id": 86,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Brazil",
+    "reasoning": "The host curse will bypass Brazil thanks to their kit colors."
+  },
+  {
+    "id": 87,
+    "camp": "Data Nerds",
+    "predicted_winner": "Germany",
+    "reasoning": "With a high PPDA, Germany recovers the ball faster than any opponent."
+  },
+  {
+    "id": 88,
+    "camp": "Data Nerds",
+    "predicted_winner": "Germany",
+    "reasoning": "Germany leads the projected xG differential."
+  },
+  {
+    "id": 89,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "USA",
+    "reasoning": "The altitude won't affect USA as much as their opponents."
+  },
+  {
+    "id": 90,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Brazil",
+    "reasoning": "It's about the badge on the front, and Brazil knows how to wear it."
+  },
+  {
+    "id": 91,
+    "camp": "Manager's View",
+    "predicted_winner": "France",
+    "reasoning": "The tactical flexibility of France is unmatched in this tournament."
+  },
+  {
+    "id": 92,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Brazil",
+    "reasoning": "The altitude won't affect Brazil as much as their opponents."
+  },
+  {
+    "id": 93,
+    "camp": "Odds-Makers",
+    "predicted_winner": "England",
+    "reasoning": "Value is all on England given the current betting spreads."
+  },
+  {
+    "id": 94,
+    "camp": "Data Nerds",
+    "predicted_winner": "Spain",
+    "reasoning": "Expected points model heavily favors Spain based on group stage paths."
+  },
+  {
+    "id": 95,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Brazil",
+    "reasoning": "It's about the badge on the front, and Brazil knows how to wear it."
+  },
+  {
+    "id": 96,
+    "camp": "Old-School Fans",
+    "predicted_winner": "England",
+    "reasoning": "You can't buy the passion England brings to the pitch."
+  },
+  {
+    "id": 97,
+    "camp": "Manager's View",
+    "predicted_winner": "England",
+    "reasoning": "Man-management is perfect at England; they play as a single unit."
+  },
+  {
+    "id": 98,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Brazil",
+    "reasoning": "The stars are aligned for Brazil in 2026."
+  },
+  {
+    "id": 99,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "The host curse will bypass Argentina thanks to their kit colors."
+  },
+  {
+    "id": 100,
+    "camp": "Data Nerds",
+    "predicted_winner": "England",
+    "reasoning": "Underlying metrics show England dominating possession in crucial zones."
+  },
+  {
+    "id": 101,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Brazil",
+    "reasoning": "The stars are aligned for Brazil in 2026."
+  },
+  {
+    "id": 102,
+    "camp": "Data Nerds",
+    "predicted_winner": "France",
+    "reasoning": "France leads the projected xG differential."
+  },
+  {
+    "id": 103,
+    "camp": "Data Nerds",
+    "predicted_winner": "France",
+    "reasoning": "With a high PPDA, France recovers the ball faster than any opponent."
+  },
+  {
+    "id": 104,
+    "camp": "Data Nerds",
+    "predicted_winner": "England",
+    "reasoning": "England leads the projected xG differential."
+  },
+  {
+    "id": 105,
+    "camp": "Manager's View",
+    "predicted_winner": "Brazil",
+    "reasoning": "The tactical flexibility of Brazil is unmatched in this tournament."
+  },
+  {
+    "id": 106,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Germany",
+    "reasoning": "Germany plays proper football, none of that modern nonsense."
+  },
+  {
+    "id": 107,
+    "camp": "Manager's View",
+    "predicted_winner": "Germany",
+    "reasoning": "Squad rotation will be key, and Germany has the deepest bench."
+  },
+  {
+    "id": 108,
+    "camp": "Old-School Fans",
+    "predicted_winner": "England",
+    "reasoning": "It's about the badge on the front, and England knows how to wear it."
+  },
+  {
+    "id": 109,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Argentina",
+    "reasoning": "Argentina has the heritage and the grit needed for the big stage."
+  },
+  {
+    "id": 110,
+    "camp": "Manager's View",
+    "predicted_winner": "France",
+    "reasoning": "Squad rotation will be key, and France has the deepest bench."
+  },
+  {
+    "id": 111,
+    "camp": "Data Nerds",
+    "predicted_winner": "Spain",
+    "reasoning": "Spain leads the projected xG differential."
+  },
+  {
+    "id": 112,
+    "camp": "Old-School Fans",
+    "predicted_winner": "USA",
+    "reasoning": "USA plays proper football, none of that modern nonsense."
+  },
+  {
+    "id": 113,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Argentina",
+    "reasoning": "With minimal injury concerns, Argentina arrives fully fit."
+  },
+  {
+    "id": 114,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Brazil",
+    "reasoning": "Brazil has the heritage and the grit needed for the big stage."
+  },
+  {
+    "id": 115,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Brazil",
+    "reasoning": "Brazil has the most favorable travel schedule across the US/Mexico/Canada."
+  },
+  {
+    "id": 116,
+    "camp": "Manager's View",
+    "predicted_winner": "Spain",
+    "reasoning": "Man-management is perfect at Spain; they play as a single unit."
+  },
+  {
+    "id": 117,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Spain",
+    "reasoning": "Value is all on Spain given the current betting spreads."
+  },
+  {
+    "id": 118,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Netherlands",
+    "reasoning": "The host curse will bypass Netherlands thanks to their kit colors."
+  },
+  {
+    "id": 119,
+    "camp": "Data Nerds",
+    "predicted_winner": "Spain",
+    "reasoning": "Expected points model heavily favors Spain based on group stage paths."
+  },
+  {
+    "id": 120,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Brazil",
+    "reasoning": "The stars are aligned for Brazil in 2026."
+  },
+  {
+    "id": 121,
+    "camp": "Manager's View",
+    "predicted_winner": "France",
+    "reasoning": "France's manager has a foolproof plan for the knockout stages."
+  },
+  {
+    "id": 122,
+    "camp": "Data Nerds",
+    "predicted_winner": "Brazil",
+    "reasoning": "Brazil leads the projected xG differential."
+  },
+  {
+    "id": 123,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Argentina",
+    "reasoning": "It's about the badge on the front, and Argentina knows how to wear it."
+  },
+  {
+    "id": 124,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Netherlands",
+    "reasoning": "A lunar eclipse during the final favors Netherlands."
+  },
+  {
+    "id": 125,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Spain",
+    "reasoning": "Spain benefits from extra rest days between key fixtures."
+  },
+  {
+    "id": 126,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Portugal",
+    "reasoning": "Sharp money is heavily backing Portugal right now."
+  },
+  {
+    "id": 127,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Argentina",
+    "reasoning": "Value is all on Argentina given the current betting spreads."
+  },
+  {
+    "id": 128,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "France",
+    "reasoning": "With minimal injury concerns, France arrives fully fit."
+  },
+  {
+    "id": 129,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Brazil",
+    "reasoning": "Brazil benefits from extra rest days between key fixtures."
+  },
+  {
+    "id": 130,
+    "camp": "Superstition Camp",
+    "predicted_winner": "France",
+    "reasoning": "The host curse will bypass France thanks to their kit colors."
+  },
+  {
+    "id": 131,
+    "camp": "Data Nerds",
+    "predicted_winner": "France",
+    "reasoning": "Underlying metrics show France dominating possession in crucial zones."
+  },
+  {
+    "id": 132,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Spain",
+    "reasoning": "Spain has the heritage and the grit needed for the big stage."
+  },
+  {
+    "id": 133,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Spain",
+    "reasoning": "A lunar eclipse during the final favors Spain."
+  },
+  {
+    "id": 134,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "England",
+    "reasoning": "England benefits from extra rest days between key fixtures."
+  },
+  {
+    "id": 135,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Argentina",
+    "reasoning": "The line movement suggests insiders know Argentina is peaking."
+  },
+  {
+    "id": 136,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Spain",
+    "reasoning": "Value is all on Spain given the current betting spreads."
+  },
+  {
+    "id": 137,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "England",
+    "reasoning": "England benefits from extra rest days between key fixtures."
+  },
+  {
+    "id": 138,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Spain",
+    "reasoning": "Spain benefits from extra rest days between key fixtures."
+  },
+  {
+    "id": 139,
+    "camp": "Data Nerds",
+    "predicted_winner": "France",
+    "reasoning": "With a high PPDA, France recovers the ball faster than any opponent."
+  },
+  {
+    "id": 140,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Brazil",
+    "reasoning": "A lunar eclipse during the final favors Brazil."
+  },
+  {
+    "id": 141,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Brazil",
+    "reasoning": "Sharp money is heavily backing Brazil right now."
+  },
+  {
+    "id": 142,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Brazil",
+    "reasoning": "You can't buy the passion Brazil brings to the pitch."
+  },
+  {
+    "id": 143,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "France",
+    "reasoning": "France benefits from extra rest days between key fixtures."
+  },
+  {
+    "id": 144,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Germany",
+    "reasoning": "Germany plays proper football, none of that modern nonsense."
+  },
+  {
+    "id": 145,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "England",
+    "reasoning": "England has the most favorable travel schedule across the US/Mexico/Canada."
+  },
+  {
+    "id": 146,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Germany",
+    "reasoning": "The altitude won't affect Germany as much as their opponents."
+  },
+  {
+    "id": 147,
+    "camp": "Data Nerds",
+    "predicted_winner": "Spain",
+    "reasoning": "Underlying metrics show Spain dominating possession in crucial zones."
+  },
+  {
+    "id": 148,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Spain",
+    "reasoning": "Spain plays proper football, none of that modern nonsense."
+  },
+  {
+    "id": 149,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Spain",
+    "reasoning": "The line movement suggests insiders know Spain is peaking."
+  },
+  {
+    "id": 150,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "France",
+    "reasoning": "The altitude won't affect France as much as their opponents."
+  },
+  {
+    "id": 151,
+    "camp": "Manager's View",
+    "predicted_winner": "Brazil",
+    "reasoning": "The tactical flexibility of Brazil is unmatched in this tournament."
+  },
+  {
+    "id": 152,
+    "camp": "Odds-Makers",
+    "predicted_winner": "England",
+    "reasoning": "Value is all on England given the current betting spreads."
+  },
+  {
+    "id": 153,
+    "camp": "Odds-Makers",
+    "predicted_winner": "England",
+    "reasoning": "Value is all on England given the current betting spreads."
+  },
+  {
+    "id": 154,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "England",
+    "reasoning": "England has the most favorable travel schedule across the US/Mexico/Canada."
+  },
+  {
+    "id": 155,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "The stars are aligned for Argentina in 2026."
+  },
+  {
+    "id": 156,
+    "camp": "Manager's View",
+    "predicted_winner": "Argentina",
+    "reasoning": "Squad rotation will be key, and Argentina has the deepest bench."
+  },
+  {
+    "id": 157,
+    "camp": "Data Nerds",
+    "predicted_winner": "Argentina",
+    "reasoning": "Expected points model heavily favors Argentina based on group stage paths."
+  },
+  {
+    "id": 158,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "England",
+    "reasoning": "England benefits from extra rest days between key fixtures."
+  },
+  {
+    "id": 159,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Spain",
+    "reasoning": "Spain plays proper football, none of that modern nonsense."
+  },
+  {
+    "id": 160,
+    "camp": "Old-School Fans",
+    "predicted_winner": "France",
+    "reasoning": "France has the heritage and the grit needed for the big stage."
+  },
+  {
+    "id": 161,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Germany",
+    "reasoning": "With minimal injury concerns, Germany arrives fully fit."
+  },
+  {
+    "id": 162,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Spain",
+    "reasoning": "The line movement suggests insiders know Spain is peaking."
+  },
+  {
+    "id": 163,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Germany",
+    "reasoning": "The host curse will bypass Germany thanks to their kit colors."
+  },
+  {
+    "id": 164,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Brazil",
+    "reasoning": "The altitude won't affect Brazil as much as their opponents."
+  },
+  {
+    "id": 165,
+    "camp": "Manager's View",
+    "predicted_winner": "Portugal",
+    "reasoning": "Portugal's manager has a foolproof plan for the knockout stages."
+  },
+  {
+    "id": 166,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Germany",
+    "reasoning": "A lunar eclipse during the final favors Germany."
+  },
+  {
+    "id": 167,
+    "camp": "Manager's View",
+    "predicted_winner": "France",
+    "reasoning": "Squad rotation will be key, and France has the deepest bench."
+  },
+  {
+    "id": 168,
+    "camp": "Data Nerds",
+    "predicted_winner": "Spain",
+    "reasoning": "Spain leads the projected xG differential."
+  },
+  {
+    "id": 169,
+    "camp": "Data Nerds",
+    "predicted_winner": "France",
+    "reasoning": "France leads the projected xG differential."
+  },
+  {
+    "id": 170,
+    "camp": "Manager's View",
+    "predicted_winner": "Spain",
+    "reasoning": "The tactical flexibility of Spain is unmatched in this tournament."
+  },
+  {
+    "id": 171,
+    "camp": "Odds-Makers",
+    "predicted_winner": "France",
+    "reasoning": "Implied probability based on futures markets puts France ahead."
+  },
+  {
+    "id": 172,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Spain",
+    "reasoning": "It's about the badge on the front, and Spain knows how to wear it."
+  },
+  {
+    "id": 173,
+    "camp": "Data Nerds",
+    "predicted_winner": "France",
+    "reasoning": "France leads the projected xG differential."
+  },
+  {
+    "id": 174,
+    "camp": "Manager's View",
+    "predicted_winner": "France",
+    "reasoning": "France's manager has a foolproof plan for the knockout stages."
+  },
+  {
+    "id": 175,
+    "camp": "Data Nerds",
+    "predicted_winner": "Spain",
+    "reasoning": "With a high PPDA, Spain recovers the ball faster than any opponent."
+  },
+  {
+    "id": 176,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "England",
+    "reasoning": "England has the most favorable travel schedule across the US/Mexico/Canada."
+  },
+  {
+    "id": 177,
+    "camp": "Odds-Makers",
+    "predicted_winner": "France",
+    "reasoning": "Value is all on France given the current betting spreads."
+  },
+  {
+    "id": 178,
+    "camp": "Manager's View",
+    "predicted_winner": "Netherlands",
+    "reasoning": "Squad rotation will be key, and Netherlands has the deepest bench."
+  },
+  {
+    "id": 179,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Germany",
+    "reasoning": "It's about the badge on the front, and Germany knows how to wear it."
+  },
+  {
+    "id": 180,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Uruguay",
+    "reasoning": "It's about the badge on the front, and Uruguay knows how to wear it."
+  },
+  {
+    "id": 181,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "England",
+    "reasoning": "England benefits from extra rest days between key fixtures."
+  },
+  {
+    "id": 182,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Germany",
+    "reasoning": "A lunar eclipse during the final favors Germany."
+  },
+  {
+    "id": 183,
+    "camp": "Data Nerds",
+    "predicted_winner": "Spain",
+    "reasoning": "With a high PPDA, Spain recovers the ball faster than any opponent."
+  },
+  {
+    "id": 184,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Germany",
+    "reasoning": "Germany plays proper football, none of that modern nonsense."
+  },
+  {
+    "id": 185,
+    "camp": "Manager's View",
+    "predicted_winner": "Portugal",
+    "reasoning": "Man-management is perfect at Portugal; they play as a single unit."
+  },
+  {
+    "id": 186,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "The stars are aligned for Argentina in 2026."
+  },
+  {
+    "id": 187,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Netherlands",
+    "reasoning": "Sharp money is heavily backing Netherlands right now."
+  },
+  {
+    "id": 188,
+    "camp": "Manager's View",
+    "predicted_winner": "France",
+    "reasoning": "The tactical flexibility of France is unmatched in this tournament."
+  },
+  {
+    "id": 189,
+    "camp": "Odds-Makers",
+    "predicted_winner": "England",
+    "reasoning": "Implied probability based on futures markets puts England ahead."
+  },
+  {
+    "id": 190,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Argentina",
+    "reasoning": "It's about the badge on the front, and Argentina knows how to wear it."
+  },
+  {
+    "id": 191,
+    "camp": "Manager's View",
+    "predicted_winner": "Netherlands",
+    "reasoning": "The tactical flexibility of Netherlands is unmatched in this tournament."
+  },
+  {
+    "id": 192,
+    "camp": "Data Nerds",
+    "predicted_winner": "France",
+    "reasoning": "Underlying metrics show France dominating possession in crucial zones."
+  },
+  {
+    "id": 193,
+    "camp": "Data Nerds",
+    "predicted_winner": "Argentina",
+    "reasoning": "Underlying metrics show Argentina dominating possession in crucial zones."
+  },
+  {
+    "id": 194,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Germany",
+    "reasoning": "The host curse will bypass Germany thanks to their kit colors."
+  },
+  {
+    "id": 195,
+    "camp": "Manager's View",
+    "predicted_winner": "Spain",
+    "reasoning": "Squad rotation will be key, and Spain has the deepest bench."
+  },
+  {
+    "id": 196,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Brazil",
+    "reasoning": "The host curse will bypass Brazil thanks to their kit colors."
+  },
+  {
+    "id": 197,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Uruguay",
+    "reasoning": "Uruguay plays proper football, none of that modern nonsense."
+  },
+  {
+    "id": 198,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Spain",
+    "reasoning": "The stars are aligned for Spain in 2026."
+  },
+  {
+    "id": 199,
+    "camp": "Data Nerds",
+    "predicted_winner": "England",
+    "reasoning": "With a high PPDA, England recovers the ball faster than any opponent."
+  },
+  {
+    "id": 200,
+    "camp": "Data Nerds",
+    "predicted_winner": "Brazil",
+    "reasoning": "Brazil leads the projected xG differential."
+  },
+  {
+    "id": 201,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Germany",
+    "reasoning": "Germany won't face the dreaded third-match jinx."
+  },
+  {
+    "id": 202,
+    "camp": "Odds-Makers",
+    "predicted_winner": "France",
+    "reasoning": "Sharp money is heavily backing France right now."
+  },
+  {
+    "id": 203,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Germany",
+    "reasoning": "The host curse will bypass Germany thanks to their kit colors."
+  },
+  {
+    "id": 204,
+    "camp": "Old-School Fans",
+    "predicted_winner": "England",
+    "reasoning": "It's about the badge on the front, and England knows how to wear it."
+  },
+  {
+    "id": 205,
+    "camp": "Data Nerds",
+    "predicted_winner": "Germany",
+    "reasoning": "Germany leads the projected xG differential."
+  },
+  {
+    "id": 206,
+    "camp": "Manager's View",
+    "predicted_winner": "Brazil",
+    "reasoning": "Squad rotation will be key, and Brazil has the deepest bench."
+  },
+  {
+    "id": 207,
+    "camp": "Manager's View",
+    "predicted_winner": "Portugal",
+    "reasoning": "Squad rotation will be key, and Portugal has the deepest bench."
+  },
+  {
+    "id": 208,
+    "camp": "Odds-Makers",
+    "predicted_winner": "France",
+    "reasoning": "Sharp money is heavily backing France right now."
+  },
+  {
+    "id": 209,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Argentina",
+    "reasoning": "Value is all on Argentina given the current betting spreads."
+  },
+  {
+    "id": 210,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "England",
+    "reasoning": "With minimal injury concerns, England arrives fully fit."
+  },
+  {
+    "id": 211,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Argentina",
+    "reasoning": "It's about the badge on the front, and Argentina knows how to wear it."
+  },
+  {
+    "id": 212,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "The stars are aligned for Argentina in 2026."
+  },
+  {
+    "id": 213,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Netherlands",
+    "reasoning": "Sharp money is heavily backing Netherlands right now."
+  },
+  {
+    "id": 214,
+    "camp": "Old-School Fans",
+    "predicted_winner": "France",
+    "reasoning": "France plays proper football, none of that modern nonsense."
+  },
+  {
+    "id": 215,
+    "camp": "Data Nerds",
+    "predicted_winner": "Brazil",
+    "reasoning": "Expected points model heavily favors Brazil based on group stage paths."
+  },
+  {
+    "id": 216,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "France",
+    "reasoning": "France benefits from extra rest days between key fixtures."
+  },
+  {
+    "id": 217,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Portugal",
+    "reasoning": "Portugal has the most favorable travel schedule across the US/Mexico/Canada."
+  },
+  {
+    "id": 218,
+    "camp": "Manager's View",
+    "predicted_winner": "Netherlands",
+    "reasoning": "Squad rotation will be key, and Netherlands has the deepest bench."
+  },
+  {
+    "id": 219,
+    "camp": "Data Nerds",
+    "predicted_winner": "Argentina",
+    "reasoning": "Expected points model heavily favors Argentina based on group stage paths."
+  },
+  {
+    "id": 220,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Brazil",
+    "reasoning": "Brazil has the most favorable travel schedule across the US/Mexico/Canada."
+  },
+  {
+    "id": 221,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "The stars are aligned for Argentina in 2026."
+  },
+  {
+    "id": 222,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Germany",
+    "reasoning": "Germany has the heritage and the grit needed for the big stage."
+  },
+  {
+    "id": 223,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Argentina",
+    "reasoning": "You can't buy the passion Argentina brings to the pitch."
+  },
+  {
+    "id": 224,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "France",
+    "reasoning": "France benefits from extra rest days between key fixtures."
+  },
+  {
+    "id": 225,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Spain",
+    "reasoning": "It's about the badge on the front, and Spain knows how to wear it."
+  },
+  {
+    "id": 226,
+    "camp": "Odds-Makers",
+    "predicted_winner": "France",
+    "reasoning": "Implied probability based on futures markets puts France ahead."
+  },
+  {
+    "id": 227,
+    "camp": "Data Nerds",
+    "predicted_winner": "Germany",
+    "reasoning": "Germany leads the projected xG differential."
+  },
+  {
+    "id": 228,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Portugal",
+    "reasoning": "With minimal injury concerns, Portugal arrives fully fit."
+  },
+  {
+    "id": 229,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "England",
+    "reasoning": "England benefits from extra rest days between key fixtures."
+  },
+  {
+    "id": 230,
+    "camp": "Manager's View",
+    "predicted_winner": "Brazil",
+    "reasoning": "The tactical flexibility of Brazil is unmatched in this tournament."
+  },
+  {
+    "id": 231,
+    "camp": "Manager's View",
+    "predicted_winner": "Germany",
+    "reasoning": "The tactical flexibility of Germany is unmatched in this tournament."
+  },
+  {
+    "id": 232,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Brazil",
+    "reasoning": "It's about the badge on the front, and Brazil knows how to wear it."
+  },
+  {
+    "id": 233,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Brazil",
+    "reasoning": "You can't buy the passion Brazil brings to the pitch."
+  },
+  {
+    "id": 234,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "France",
+    "reasoning": "With minimal injury concerns, France arrives fully fit."
+  },
+  {
+    "id": 235,
+    "camp": "Data Nerds",
+    "predicted_winner": "France",
+    "reasoning": "Underlying metrics show France dominating possession in crucial zones."
+  },
+  {
+    "id": 236,
+    "camp": "Manager's View",
+    "predicted_winner": "Argentina",
+    "reasoning": "Argentina's manager has a foolproof plan for the knockout stages."
+  },
+  {
+    "id": 237,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Portugal",
+    "reasoning": "Portugal has the heritage and the grit needed for the big stage."
+  },
+  {
+    "id": 238,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Spain",
+    "reasoning": "The line movement suggests insiders know Spain is peaking."
+  },
+  {
+    "id": 239,
+    "camp": "Data Nerds",
+    "predicted_winner": "Netherlands",
+    "reasoning": "With a high PPDA, Netherlands recovers the ball faster than any opponent."
+  },
+  {
+    "id": 240,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Brazil",
+    "reasoning": "The stars are aligned for Brazil in 2026."
+  },
+  {
+    "id": 241,
+    "camp": "Superstition Camp",
+    "predicted_winner": "France",
+    "reasoning": "The stars are aligned for France in 2026."
+  },
+  {
+    "id": 242,
+    "camp": "Data Nerds",
+    "predicted_winner": "Spain",
+    "reasoning": "Underlying metrics show Spain dominating possession in crucial zones."
+  },
+  {
+    "id": 243,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Brazil",
+    "reasoning": "You can't buy the passion Brazil brings to the pitch."
+  },
+  {
+    "id": 244,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Spain",
+    "reasoning": "The host curse will bypass Spain thanks to their kit colors."
+  },
+  {
+    "id": 245,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Germany",
+    "reasoning": "Germany won't face the dreaded third-match jinx."
+  },
+  {
+    "id": 246,
+    "camp": "Data Nerds",
+    "predicted_winner": "Brazil",
+    "reasoning": "With a high PPDA, Brazil recovers the ball faster than any opponent."
+  },
+  {
+    "id": 247,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "The host curse will bypass Argentina thanks to their kit colors."
+  },
+  {
+    "id": 248,
+    "camp": "Data Nerds",
+    "predicted_winner": "Germany",
+    "reasoning": "With a high PPDA, Germany recovers the ball faster than any opponent."
+  },
+  {
+    "id": 249,
+    "camp": "Old-School Fans",
+    "predicted_winner": "England",
+    "reasoning": "It's about the badge on the front, and England knows how to wear it."
+  },
+  {
+    "id": 250,
+    "camp": "Odds-Makers",
+    "predicted_winner": "France",
+    "reasoning": "Implied probability based on futures markets puts France ahead."
+  },
+  {
+    "id": 251,
+    "camp": "Data Nerds",
+    "predicted_winner": "England",
+    "reasoning": "Underlying metrics show England dominating possession in crucial zones."
+  },
+  {
+    "id": 252,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "A lunar eclipse during the final favors Argentina."
+  },
+  {
+    "id": 253,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Brazil",
+    "reasoning": "Value is all on Brazil given the current betting spreads."
+  },
+  {
+    "id": 254,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Argentina",
+    "reasoning": "Value is all on Argentina given the current betting spreads."
+  },
+  {
+    "id": 255,
+    "camp": "Old-School Fans",
+    "predicted_winner": "England",
+    "reasoning": "You can't buy the passion England brings to the pitch."
+  },
+  {
+    "id": 256,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Spain",
+    "reasoning": "Implied probability based on futures markets puts Spain ahead."
+  },
+  {
+    "id": 257,
+    "camp": "Manager's View",
+    "predicted_winner": "Netherlands",
+    "reasoning": "The tactical flexibility of Netherlands is unmatched in this tournament."
+  },
+  {
+    "id": 258,
+    "camp": "Odds-Makers",
+    "predicted_winner": "England",
+    "reasoning": "Implied probability based on futures markets puts England ahead."
+  },
+  {
+    "id": 259,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Brazil",
+    "reasoning": "A lunar eclipse during the final favors Brazil."
+  },
+  {
+    "id": 260,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "France",
+    "reasoning": "France has the most favorable travel schedule across the US/Mexico/Canada."
+  },
+  {
+    "id": 261,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "Argentina won't face the dreaded third-match jinx."
+  },
+  {
+    "id": 262,
+    "camp": "Manager's View",
+    "predicted_winner": "Germany",
+    "reasoning": "Squad rotation will be key, and Germany has the deepest bench."
+  },
+  {
+    "id": 263,
+    "camp": "Data Nerds",
+    "predicted_winner": "Brazil",
+    "reasoning": "With a high PPDA, Brazil recovers the ball faster than any opponent."
+  },
+  {
+    "id": 264,
+    "camp": "Manager's View",
+    "predicted_winner": "Netherlands",
+    "reasoning": "Man-management is perfect at Netherlands; they play as a single unit."
+  },
+  {
+    "id": 265,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Spain",
+    "reasoning": "Spain has the heritage and the grit needed for the big stage."
+  },
+  {
+    "id": 266,
+    "camp": "Data Nerds",
+    "predicted_winner": "Spain",
+    "reasoning": "Expected points model heavily favors Spain based on group stage paths."
+  },
+  {
+    "id": 267,
+    "camp": "Manager's View",
+    "predicted_winner": "France",
+    "reasoning": "Man-management is perfect at France; they play as a single unit."
+  },
+  {
+    "id": 268,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "The host curse will bypass Argentina thanks to their kit colors."
+  },
+  {
+    "id": 269,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Germany",
+    "reasoning": "Germany has the most favorable travel schedule across the US/Mexico/Canada."
+  },
+  {
+    "id": 270,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "England",
+    "reasoning": "England has the most favorable travel schedule across the US/Mexico/Canada."
+  },
+  {
+    "id": 271,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Brazil",
+    "reasoning": "The host curse will bypass Brazil thanks to their kit colors."
+  },
+  {
+    "id": 272,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Portugal",
+    "reasoning": "Portugal has the most favorable travel schedule across the US/Mexico/Canada."
+  },
+  {
+    "id": 273,
+    "camp": "Superstition Camp",
+    "predicted_winner": "USA",
+    "reasoning": "USA won't face the dreaded third-match jinx."
+  },
+  {
+    "id": 274,
+    "camp": "Data Nerds",
+    "predicted_winner": "Argentina",
+    "reasoning": "Argentina leads the projected xG differential."
+  },
+  {
+    "id": 275,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "France",
+    "reasoning": "With minimal injury concerns, France arrives fully fit."
+  },
+  {
+    "id": 276,
+    "camp": "Manager's View",
+    "predicted_winner": "England",
+    "reasoning": "Squad rotation will be key, and England has the deepest bench."
+  },
+  {
+    "id": 277,
+    "camp": "Odds-Makers",
+    "predicted_winner": "England",
+    "reasoning": "Implied probability based on futures markets puts England ahead."
+  },
+  {
+    "id": 278,
+    "camp": "Data Nerds",
+    "predicted_winner": "Spain",
+    "reasoning": "Spain leads the projected xG differential."
+  },
+  {
+    "id": 279,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Netherlands",
+    "reasoning": "A lunar eclipse during the final favors Netherlands."
+  },
+  {
+    "id": 280,
+    "camp": "Odds-Makers",
+    "predicted_winner": "England",
+    "reasoning": "Value is all on England given the current betting spreads."
+  },
+  {
+    "id": 281,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "The stars are aligned for Argentina in 2026."
+  },
+  {
+    "id": 282,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Germany",
+    "reasoning": "Germany has the heritage and the grit needed for the big stage."
+  },
+  {
+    "id": 283,
+    "camp": "Data Nerds",
+    "predicted_winner": "France",
+    "reasoning": "France leads the projected xG differential."
+  },
+  {
+    "id": 284,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Netherlands",
+    "reasoning": "Implied probability based on futures markets puts Netherlands ahead."
+  },
+  {
+    "id": 285,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Brazil",
+    "reasoning": "A lunar eclipse during the final favors Brazil."
+  },
+  {
+    "id": 286,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Germany",
+    "reasoning": "It's about the badge on the front, and Germany knows how to wear it."
+  },
+  {
+    "id": 287,
+    "camp": "Manager's View",
+    "predicted_winner": "France",
+    "reasoning": "Squad rotation will be key, and France has the deepest bench."
+  },
+  {
+    "id": 288,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Germany",
+    "reasoning": "The host curse will bypass Germany thanks to their kit colors."
+  },
+  {
+    "id": 289,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Uruguay",
+    "reasoning": "The stars are aligned for Uruguay in 2026."
+  },
+  {
+    "id": 290,
+    "camp": "Old-School Fans",
+    "predicted_winner": "France",
+    "reasoning": "It's about the badge on the front, and France knows how to wear it."
+  },
+  {
+    "id": 291,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Spain",
+    "reasoning": "It's about the badge on the front, and Spain knows how to wear it."
+  },
+  {
+    "id": 292,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Argentina",
+    "reasoning": "Argentina plays proper football, none of that modern nonsense."
+  },
+  {
+    "id": 293,
+    "camp": "Data Nerds",
+    "predicted_winner": "Spain",
+    "reasoning": "Underlying metrics show Spain dominating possession in crucial zones."
+  },
+  {
+    "id": 294,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Brazil",
+    "reasoning": "Implied probability based on futures markets puts Brazil ahead."
+  },
+  {
+    "id": 295,
+    "camp": "Data Nerds",
+    "predicted_winner": "France",
+    "reasoning": "Underlying metrics show France dominating possession in crucial zones."
+  },
+  {
+    "id": 296,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Netherlands",
+    "reasoning": "Netherlands benefits from extra rest days between key fixtures."
+  },
+  {
+    "id": 297,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Uruguay",
+    "reasoning": "Uruguay has the heritage and the grit needed for the big stage."
+  },
+  {
+    "id": 298,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Portugal",
+    "reasoning": "The altitude won't affect Portugal as much as their opponents."
+  },
+  {
+    "id": 299,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Spain",
+    "reasoning": "It's about the badge on the front, and Spain knows how to wear it."
+  },
+  {
+    "id": 300,
+    "camp": "Odds-Makers",
+    "predicted_winner": "France",
+    "reasoning": "Implied probability based on futures markets puts France ahead."
+  },
+  {
+    "id": 301,
+    "camp": "Data Nerds",
+    "predicted_winner": "Brazil",
+    "reasoning": "With a high PPDA, Brazil recovers the ball faster than any opponent."
+  },
+  {
+    "id": 302,
+    "camp": "Manager's View",
+    "predicted_winner": "England",
+    "reasoning": "Squad rotation will be key, and England has the deepest bench."
+  },
+  {
+    "id": 303,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Brazil",
+    "reasoning": "The stars are aligned for Brazil in 2026."
+  },
+  {
+    "id": 304,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Brazil",
+    "reasoning": "Brazil plays proper football, none of that modern nonsense."
+  },
+  {
+    "id": 305,
+    "camp": "Data Nerds",
+    "predicted_winner": "France",
+    "reasoning": "Underlying metrics show France dominating possession in crucial zones."
+  },
+  {
+    "id": 306,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Germany",
+    "reasoning": "Germany benefits from extra rest days between key fixtures."
+  },
+  {
+    "id": 307,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Portugal",
+    "reasoning": "With minimal injury concerns, Portugal arrives fully fit."
+  },
+  {
+    "id": 308,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Argentina",
+    "reasoning": "Argentina has the most favorable travel schedule across the US/Mexico/Canada."
+  },
+  {
+    "id": 309,
+    "camp": "Data Nerds",
+    "predicted_winner": "Brazil",
+    "reasoning": "Expected points model heavily favors Brazil based on group stage paths."
+  },
+  {
+    "id": 310,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Portugal",
+    "reasoning": "Portugal benefits from extra rest days between key fixtures."
+  },
+  {
+    "id": 311,
+    "camp": "Odds-Makers",
+    "predicted_winner": "France",
+    "reasoning": "Implied probability based on futures markets puts France ahead."
+  },
+  {
+    "id": 312,
+    "camp": "Manager's View",
+    "predicted_winner": "USA",
+    "reasoning": "Man-management is perfect at USA; they play as a single unit."
+  },
+  {
+    "id": 313,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "England",
+    "reasoning": "England has the most favorable travel schedule across the US/Mexico/Canada."
+  },
+  {
+    "id": 314,
+    "camp": "Superstition Camp",
+    "predicted_winner": "France",
+    "reasoning": "The stars are aligned for France in 2026."
+  },
+  {
+    "id": 315,
+    "camp": "Data Nerds",
+    "predicted_winner": "Argentina",
+    "reasoning": "Underlying metrics show Argentina dominating possession in crucial zones."
+  },
+  {
+    "id": 316,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Brazil",
+    "reasoning": "With minimal injury concerns, Brazil arrives fully fit."
+  },
+  {
+    "id": 317,
+    "camp": "Manager's View",
+    "predicted_winner": "England",
+    "reasoning": "Man-management is perfect at England; they play as a single unit."
+  },
+  {
+    "id": 318,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "A lunar eclipse during the final favors Argentina."
+  },
+  {
+    "id": 319,
+    "camp": "Data Nerds",
+    "predicted_winner": "England",
+    "reasoning": "With a high PPDA, England recovers the ball faster than any opponent."
+  },
+  {
+    "id": 320,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "A lunar eclipse during the final favors Argentina."
+  },
+  {
+    "id": 321,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "Argentina won't face the dreaded third-match jinx."
+  },
+  {
+    "id": 322,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Portugal",
+    "reasoning": "Portugal won't face the dreaded third-match jinx."
+  },
+  {
+    "id": 323,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "England",
+    "reasoning": "England has the most favorable travel schedule across the US/Mexico/Canada."
+  },
+  {
+    "id": 324,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "France",
+    "reasoning": "France benefits from extra rest days between key fixtures."
+  },
+  {
+    "id": 325,
+    "camp": "Manager's View",
+    "predicted_winner": "Brazil",
+    "reasoning": "Man-management is perfect at Brazil; they play as a single unit."
+  },
+  {
+    "id": 326,
+    "camp": "Data Nerds",
+    "predicted_winner": "France",
+    "reasoning": "France leads the projected xG differential."
+  },
+  {
+    "id": 327,
+    "camp": "Manager's View",
+    "predicted_winner": "France",
+    "reasoning": "Squad rotation will be key, and France has the deepest bench."
+  },
+  {
+    "id": 328,
+    "camp": "Manager's View",
+    "predicted_winner": "Germany",
+    "reasoning": "The tactical flexibility of Germany is unmatched in this tournament."
+  },
+  {
+    "id": 329,
+    "camp": "Data Nerds",
+    "predicted_winner": "France",
+    "reasoning": "Expected points model heavily favors France based on group stage paths."
+  },
+  {
+    "id": 330,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "France",
+    "reasoning": "The altitude won't affect France as much as their opponents."
+  },
+  {
+    "id": 331,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Uruguay",
+    "reasoning": "Value is all on Uruguay given the current betting spreads."
+  },
+  {
+    "id": 332,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Germany",
+    "reasoning": "Germany benefits from extra rest days between key fixtures."
+  },
+  {
+    "id": 333,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Spain",
+    "reasoning": "It's about the badge on the front, and Spain knows how to wear it."
+  },
+  {
+    "id": 334,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "France",
+    "reasoning": "France benefits from extra rest days between key fixtures."
+  },
+  {
+    "id": 335,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Spain",
+    "reasoning": "Implied probability based on futures markets puts Spain ahead."
+  },
+  {
+    "id": 336,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Germany",
+    "reasoning": "Germany has the most favorable travel schedule across the US/Mexico/Canada."
+  },
+  {
+    "id": 337,
+    "camp": "Manager's View",
+    "predicted_winner": "Portugal",
+    "reasoning": "Man-management is perfect at Portugal; they play as a single unit."
+  },
+  {
+    "id": 338,
+    "camp": "Data Nerds",
+    "predicted_winner": "Spain",
+    "reasoning": "Expected points model heavily favors Spain based on group stage paths."
+  },
+  {
+    "id": 339,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "France",
+    "reasoning": "With minimal injury concerns, France arrives fully fit."
+  },
+  {
+    "id": 340,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Brazil",
+    "reasoning": "A lunar eclipse during the final favors Brazil."
+  },
+  {
+    "id": 341,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Germany",
+    "reasoning": "Implied probability based on futures markets puts Germany ahead."
+  },
+  {
+    "id": 342,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Germany",
+    "reasoning": "The host curse will bypass Germany thanks to their kit colors."
+  },
+  {
+    "id": 343,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Netherlands",
+    "reasoning": "Implied probability based on futures markets puts Netherlands ahead."
+  },
+  {
+    "id": 344,
+    "camp": "Old-School Fans",
+    "predicted_winner": "USA",
+    "reasoning": "USA plays proper football, none of that modern nonsense."
+  },
+  {
+    "id": 345,
+    "camp": "Manager's View",
+    "predicted_winner": "Brazil",
+    "reasoning": "Man-management is perfect at Brazil; they play as a single unit."
+  },
+  {
+    "id": 346,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Germany",
+    "reasoning": "It's about the badge on the front, and Germany knows how to wear it."
+  },
+  {
+    "id": 347,
+    "camp": "Data Nerds",
+    "predicted_winner": "Argentina",
+    "reasoning": "Expected points model heavily favors Argentina based on group stage paths."
+  },
+  {
+    "id": 348,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Brazil",
+    "reasoning": "Value is all on Brazil given the current betting spreads."
+  },
+  {
+    "id": 349,
+    "camp": "Odds-Makers",
+    "predicted_winner": "England",
+    "reasoning": "Value is all on England given the current betting spreads."
+  },
+  {
+    "id": 350,
+    "camp": "Superstition Camp",
+    "predicted_winner": "England",
+    "reasoning": "England won't face the dreaded third-match jinx."
+  },
+  {
+    "id": 351,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Argentina",
+    "reasoning": "Implied probability based on futures markets puts Argentina ahead."
+  },
+  {
+    "id": 352,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Netherlands",
+    "reasoning": "The altitude won't affect Netherlands as much as their opponents."
+  },
+  {
+    "id": 353,
+    "camp": "Manager's View",
+    "predicted_winner": "Portugal",
+    "reasoning": "Man-management is perfect at Portugal; they play as a single unit."
+  },
+  {
+    "id": 354,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "USA",
+    "reasoning": "The altitude won't affect USA as much as their opponents."
+  },
+  {
+    "id": 355,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Netherlands",
+    "reasoning": "Netherlands has the most favorable travel schedule across the US/Mexico/Canada."
+  },
+  {
+    "id": 356,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "France",
+    "reasoning": "The altitude won't affect France as much as their opponents."
+  },
+  {
+    "id": 357,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Argentina",
+    "reasoning": "It's about the badge on the front, and Argentina knows how to wear it."
+  },
+  {
+    "id": 358,
+    "camp": "Data Nerds",
+    "predicted_winner": "Portugal",
+    "reasoning": "With a high PPDA, Portugal recovers the ball faster than any opponent."
+  },
+  {
+    "id": 359,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Uruguay",
+    "reasoning": "A lunar eclipse during the final favors Uruguay."
+  },
+  {
+    "id": 360,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Brazil",
+    "reasoning": "The stars are aligned for Brazil in 2026."
+  },
+  {
+    "id": 361,
+    "camp": "Manager's View",
+    "predicted_winner": "Portugal",
+    "reasoning": "The tactical flexibility of Portugal is unmatched in this tournament."
+  },
+  {
+    "id": 362,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Netherlands",
+    "reasoning": "Netherlands plays proper football, none of that modern nonsense."
+  },
+  {
+    "id": 363,
+    "camp": "Data Nerds",
+    "predicted_winner": "Spain",
+    "reasoning": "Expected points model heavily favors Spain based on group stage paths."
+  },
+  {
+    "id": 364,
+    "camp": "Manager's View",
+    "predicted_winner": "Spain",
+    "reasoning": "The tactical flexibility of Spain is unmatched in this tournament."
+  },
+  {
+    "id": 365,
+    "camp": "Manager's View",
+    "predicted_winner": "England",
+    "reasoning": "Man-management is perfect at England; they play as a single unit."
+  },
+  {
+    "id": 366,
+    "camp": "Odds-Makers",
+    "predicted_winner": "France",
+    "reasoning": "Implied probability based on futures markets puts France ahead."
+  },
+  {
+    "id": 367,
+    "camp": "Data Nerds",
+    "predicted_winner": "Brazil",
+    "reasoning": "Underlying metrics show Brazil dominating possession in crucial zones."
+  },
+  {
+    "id": 368,
+    "camp": "Data Nerds",
+    "predicted_winner": "France",
+    "reasoning": "With a high PPDA, France recovers the ball faster than any opponent."
+  },
+  {
+    "id": 369,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "England",
+    "reasoning": "The altitude won't affect England as much as their opponents."
+  },
+  {
+    "id": 370,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "France",
+    "reasoning": "France benefits from extra rest days between key fixtures."
+  },
+  {
+    "id": 371,
+    "camp": "Data Nerds",
+    "predicted_winner": "Brazil",
+    "reasoning": "Expected points model heavily favors Brazil based on group stage paths."
+  },
+  {
+    "id": 372,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Germany",
+    "reasoning": "It's about the badge on the front, and Germany knows how to wear it."
+  },
+  {
+    "id": 373,
+    "camp": "Superstition Camp",
+    "predicted_winner": "England",
+    "reasoning": "England won't face the dreaded third-match jinx."
+  },
+  {
+    "id": 374,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Germany",
+    "reasoning": "With minimal injury concerns, Germany arrives fully fit."
+  },
+  {
+    "id": 375,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "The stars are aligned for Argentina in 2026."
+  },
+  {
+    "id": 376,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "The stars are aligned for Argentina in 2026."
+  },
+  {
+    "id": 377,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Brazil",
+    "reasoning": "Brazil benefits from extra rest days between key fixtures."
+  },
+  {
+    "id": 378,
+    "camp": "Data Nerds",
+    "predicted_winner": "England",
+    "reasoning": "Underlying metrics show England dominating possession in crucial zones."
+  },
+  {
+    "id": 379,
+    "camp": "Manager's View",
+    "predicted_winner": "Spain",
+    "reasoning": "The tactical flexibility of Spain is unmatched in this tournament."
+  },
+  {
+    "id": 380,
+    "camp": "Data Nerds",
+    "predicted_winner": "England",
+    "reasoning": "Underlying metrics show England dominating possession in crucial zones."
+  },
+  {
+    "id": 381,
+    "camp": "Manager's View",
+    "predicted_winner": "Portugal",
+    "reasoning": "Man-management is perfect at Portugal; they play as a single unit."
+  },
+  {
+    "id": 382,
+    "camp": "Data Nerds",
+    "predicted_winner": "England",
+    "reasoning": "Expected points model heavily favors England based on group stage paths."
+  },
+  {
+    "id": 383,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "The host curse will bypass Argentina thanks to their kit colors."
+  },
+  {
+    "id": 384,
+    "camp": "Old-School Fans",
+    "predicted_winner": "England",
+    "reasoning": "It's about the badge on the front, and England knows how to wear it."
+  },
+  {
+    "id": 385,
+    "camp": "Data Nerds",
+    "predicted_winner": "England",
+    "reasoning": "Expected points model heavily favors England based on group stage paths."
+  },
+  {
+    "id": 386,
+    "camp": "Data Nerds",
+    "predicted_winner": "Spain",
+    "reasoning": "With a high PPDA, Spain recovers the ball faster than any opponent."
+  },
+  {
+    "id": 387,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "A lunar eclipse during the final favors Argentina."
+  },
+  {
+    "id": 388,
+    "camp": "Manager's View",
+    "predicted_winner": "Spain",
+    "reasoning": "Man-management is perfect at Spain; they play as a single unit."
+  },
+  {
+    "id": 389,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Netherlands",
+    "reasoning": "It's about the badge on the front, and Netherlands knows how to wear it."
+  },
+  {
+    "id": 390,
+    "camp": "Manager's View",
+    "predicted_winner": "France",
+    "reasoning": "France's manager has a foolproof plan for the knockout stages."
+  },
+  {
+    "id": 391,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Portugal",
+    "reasoning": "A lunar eclipse during the final favors Portugal."
+  },
+  {
+    "id": 392,
+    "camp": "Manager's View",
+    "predicted_winner": "Brazil",
+    "reasoning": "Brazil's manager has a foolproof plan for the knockout stages."
+  },
+  {
+    "id": 393,
+    "camp": "Data Nerds",
+    "predicted_winner": "Germany",
+    "reasoning": "With a high PPDA, Germany recovers the ball faster than any opponent."
+  },
+  {
+    "id": 394,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "The host curse will bypass Argentina thanks to their kit colors."
+  },
+  {
+    "id": 395,
+    "camp": "Superstition Camp",
+    "predicted_winner": "USA",
+    "reasoning": "The stars are aligned for USA in 2026."
+  },
+  {
+    "id": 396,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Argentina",
+    "reasoning": "Sharp money is heavily backing Argentina right now."
+  },
+  {
+    "id": 397,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Brazil",
+    "reasoning": "You can't buy the passion Brazil brings to the pitch."
+  },
+  {
+    "id": 398,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Germany",
+    "reasoning": "The stars are aligned for Germany in 2026."
+  },
+  {
+    "id": 399,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "France",
+    "reasoning": "The altitude won't affect France as much as their opponents."
+  },
+  {
+    "id": 400,
+    "camp": "Data Nerds",
+    "predicted_winner": "England",
+    "reasoning": "England leads the projected xG differential."
+  },
+  {
+    "id": 401,
+    "camp": "Data Nerds",
+    "predicted_winner": "Portugal",
+    "reasoning": "Expected points model heavily favors Portugal based on group stage paths."
+  },
+  {
+    "id": 402,
+    "camp": "Manager's View",
+    "predicted_winner": "Germany",
+    "reasoning": "Germany's manager has a foolproof plan for the knockout stages."
+  },
+  {
+    "id": 403,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Germany",
+    "reasoning": "The host curse will bypass Germany thanks to their kit colors."
+  },
+  {
+    "id": 404,
+    "camp": "Data Nerds",
+    "predicted_winner": "Brazil",
+    "reasoning": "Expected points model heavily favors Brazil based on group stage paths."
+  },
+  {
+    "id": 405,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "France",
+    "reasoning": "France benefits from extra rest days between key fixtures."
+  },
+  {
+    "id": 406,
+    "camp": "Odds-Makers",
+    "predicted_winner": "USA",
+    "reasoning": "Implied probability based on futures markets puts USA ahead."
+  },
+  {
+    "id": 407,
+    "camp": "Odds-Makers",
+    "predicted_winner": "France",
+    "reasoning": "Value is all on France given the current betting spreads."
+  },
+  {
+    "id": 408,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Portugal",
+    "reasoning": "Portugal benefits from extra rest days between key fixtures."
+  },
+  {
+    "id": 409,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "England",
+    "reasoning": "England has the most favorable travel schedule across the US/Mexico/Canada."
+  },
+  {
+    "id": 410,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "France",
+    "reasoning": "The altitude won't affect France as much as their opponents."
+  },
+  {
+    "id": 411,
+    "camp": "Manager's View",
+    "predicted_winner": "England",
+    "reasoning": "Man-management is perfect at England; they play as a single unit."
+  },
+  {
+    "id": 412,
+    "camp": "Manager's View",
+    "predicted_winner": "Germany",
+    "reasoning": "Man-management is perfect at Germany; they play as a single unit."
+  },
+  {
+    "id": 413,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Portugal",
+    "reasoning": "A lunar eclipse during the final favors Portugal."
+  },
+  {
+    "id": 414,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Brazil",
+    "reasoning": "A lunar eclipse during the final favors Brazil."
+  },
+  {
+    "id": 415,
+    "camp": "Manager's View",
+    "predicted_winner": "Netherlands",
+    "reasoning": "Netherlands's manager has a foolproof plan for the knockout stages."
+  },
+  {
+    "id": 416,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Netherlands",
+    "reasoning": "The altitude won't affect Netherlands as much as their opponents."
+  },
+  {
+    "id": 417,
+    "camp": "Odds-Makers",
+    "predicted_winner": "France",
+    "reasoning": "Sharp money is heavily backing France right now."
+  },
+  {
+    "id": 418,
+    "camp": "Manager's View",
+    "predicted_winner": "France",
+    "reasoning": "France's manager has a foolproof plan for the knockout stages."
+  },
+  {
+    "id": 419,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "The stars are aligned for Argentina in 2026."
+  },
+  {
+    "id": 420,
+    "camp": "Old-School Fans",
+    "predicted_winner": "England",
+    "reasoning": "It's about the badge on the front, and England knows how to wear it."
+  },
+  {
+    "id": 421,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Spain",
+    "reasoning": "Value is all on Spain given the current betting spreads."
+  },
+  {
+    "id": 422,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "A lunar eclipse during the final favors Argentina."
+  },
+  {
+    "id": 423,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Germany",
+    "reasoning": "The altitude won't affect Germany as much as their opponents."
+  },
+  {
+    "id": 424,
+    "camp": "Manager's View",
+    "predicted_winner": "England",
+    "reasoning": "England's manager has a foolproof plan for the knockout stages."
+  },
+  {
+    "id": 425,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Portugal",
+    "reasoning": "The host curse will bypass Portugal thanks to their kit colors."
+  },
+  {
+    "id": 426,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "France",
+    "reasoning": "With minimal injury concerns, France arrives fully fit."
+  },
+  {
+    "id": 427,
+    "camp": "Data Nerds",
+    "predicted_winner": "Spain",
+    "reasoning": "With a high PPDA, Spain recovers the ball faster than any opponent."
+  },
+  {
+    "id": 428,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Uruguay",
+    "reasoning": "You can't buy the passion Uruguay brings to the pitch."
+  },
+  {
+    "id": 429,
+    "camp": "Odds-Makers",
+    "predicted_winner": "France",
+    "reasoning": "Sharp money is heavily backing France right now."
+  },
+  {
+    "id": 430,
+    "camp": "Manager's View",
+    "predicted_winner": "Spain",
+    "reasoning": "Squad rotation will be key, and Spain has the deepest bench."
+  },
+  {
+    "id": 431,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Brazil",
+    "reasoning": "With minimal injury concerns, Brazil arrives fully fit."
+  },
+  {
+    "id": 432,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Netherlands",
+    "reasoning": "The host curse will bypass Netherlands thanks to their kit colors."
+  },
+  {
+    "id": 433,
+    "camp": "Superstition Camp",
+    "predicted_winner": "France",
+    "reasoning": "The stars are aligned for France in 2026."
+  },
+  {
+    "id": 434,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Spain",
+    "reasoning": "A lunar eclipse during the final favors Spain."
+  },
+  {
+    "id": 435,
+    "camp": "Manager's View",
+    "predicted_winner": "Netherlands",
+    "reasoning": "Man-management is perfect at Netherlands; they play as a single unit."
+  },
+  {
+    "id": 436,
+    "camp": "Old-School Fans",
+    "predicted_winner": "USA",
+    "reasoning": "It's about the badge on the front, and USA knows how to wear it."
+  },
+  {
+    "id": 437,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "England",
+    "reasoning": "England has the most favorable travel schedule across the US/Mexico/Canada."
+  },
+  {
+    "id": 438,
+    "camp": "Old-School Fans",
+    "predicted_winner": "France",
+    "reasoning": "France plays proper football, none of that modern nonsense."
+  },
+  {
+    "id": 439,
+    "camp": "Manager's View",
+    "predicted_winner": "England",
+    "reasoning": "The tactical flexibility of England is unmatched in this tournament."
+  },
+  {
+    "id": 440,
+    "camp": "Old-School Fans",
+    "predicted_winner": "USA",
+    "reasoning": "It's about the badge on the front, and USA knows how to wear it."
+  },
+  {
+    "id": 441,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "The stars are aligned for Argentina in 2026."
+  },
+  {
+    "id": 442,
+    "camp": "Data Nerds",
+    "predicted_winner": "England",
+    "reasoning": "With a high PPDA, England recovers the ball faster than any opponent."
+  },
+  {
+    "id": 443,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Portugal",
+    "reasoning": "The stars are aligned for Portugal in 2026."
+  },
+  {
+    "id": 444,
+    "camp": "Manager's View",
+    "predicted_winner": "Germany",
+    "reasoning": "Squad rotation will be key, and Germany has the deepest bench."
+  },
+  {
+    "id": 445,
+    "camp": "Manager's View",
+    "predicted_winner": "Spain",
+    "reasoning": "Man-management is perfect at Spain; they play as a single unit."
+  },
+  {
+    "id": 446,
+    "camp": "Odds-Makers",
+    "predicted_winner": "USA",
+    "reasoning": "The line movement suggests insiders know USA is peaking."
+  },
+  {
+    "id": 447,
+    "camp": "Manager's View",
+    "predicted_winner": "Spain",
+    "reasoning": "Man-management is perfect at Spain; they play as a single unit."
+  },
+  {
+    "id": 448,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "England",
+    "reasoning": "With minimal injury concerns, England arrives fully fit."
+  },
+  {
+    "id": 449,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "A lunar eclipse during the final favors Argentina."
+  },
+  {
+    "id": 450,
+    "camp": "Manager's View",
+    "predicted_winner": "France",
+    "reasoning": "Squad rotation will be key, and France has the deepest bench."
+  },
+  {
+    "id": 451,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Uruguay",
+    "reasoning": "You can't buy the passion Uruguay brings to the pitch."
+  },
+  {
+    "id": 452,
+    "camp": "Data Nerds",
+    "predicted_winner": "USA",
+    "reasoning": "USA leads the projected xG differential."
+  },
+  {
+    "id": 453,
+    "camp": "Manager's View",
+    "predicted_winner": "Brazil",
+    "reasoning": "Brazil's manager has a foolproof plan for the knockout stages."
+  },
+  {
+    "id": 454,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Portugal",
+    "reasoning": "Portugal benefits from extra rest days between key fixtures."
+  },
+  {
+    "id": 455,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Brazil",
+    "reasoning": "The stars are aligned for Brazil in 2026."
+  },
+  {
+    "id": 456,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Brazil",
+    "reasoning": "The host curse will bypass Brazil thanks to their kit colors."
+  },
+  {
+    "id": 457,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Portugal",
+    "reasoning": "The host curse will bypass Portugal thanks to their kit colors."
+  },
+  {
+    "id": 458,
+    "camp": "Data Nerds",
+    "predicted_winner": "England",
+    "reasoning": "Expected points model heavily favors England based on group stage paths."
+  },
+  {
+    "id": 459,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Brazil",
+    "reasoning": "Brazil has the most favorable travel schedule across the US/Mexico/Canada."
+  },
+  {
+    "id": 460,
+    "camp": "Odds-Makers",
+    "predicted_winner": "England",
+    "reasoning": "The line movement suggests insiders know England is peaking."
+  },
+  {
+    "id": 461,
+    "camp": "Manager's View",
+    "predicted_winner": "Brazil",
+    "reasoning": "Brazil's manager has a foolproof plan for the knockout stages."
+  },
+  {
+    "id": 462,
+    "camp": "Data Nerds",
+    "predicted_winner": "Germany",
+    "reasoning": "With a high PPDA, Germany recovers the ball faster than any opponent."
+  },
+  {
+    "id": 463,
+    "camp": "Odds-Makers",
+    "predicted_winner": "England",
+    "reasoning": "Value is all on England given the current betting spreads."
+  },
+  {
+    "id": 464,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "Argentina won't face the dreaded third-match jinx."
+  },
+  {
+    "id": 465,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "France",
+    "reasoning": "France has the most favorable travel schedule across the US/Mexico/Canada."
+  },
+  {
+    "id": 466,
+    "camp": "Data Nerds",
+    "predicted_winner": "Uruguay",
+    "reasoning": "With a high PPDA, Uruguay recovers the ball faster than any opponent."
+  },
+  {
+    "id": 467,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Brazil",
+    "reasoning": "With minimal injury concerns, Brazil arrives fully fit."
+  },
+  {
+    "id": 468,
+    "camp": "Data Nerds",
+    "predicted_winner": "England",
+    "reasoning": "With a high PPDA, England recovers the ball faster than any opponent."
+  },
+  {
+    "id": 469,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Brazil",
+    "reasoning": "Brazil benefits from extra rest days between key fixtures."
+  },
+  {
+    "id": 470,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Germany",
+    "reasoning": "Germany won't face the dreaded third-match jinx."
+  },
+  {
+    "id": 471,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Portugal",
+    "reasoning": "The altitude won't affect Portugal as much as their opponents."
+  },
+  {
+    "id": 472,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Spain",
+    "reasoning": "The line movement suggests insiders know Spain is peaking."
+  },
+  {
+    "id": 473,
+    "camp": "Data Nerds",
+    "predicted_winner": "Portugal",
+    "reasoning": "Portugal leads the projected xG differential."
+  },
+  {
+    "id": 474,
+    "camp": "Odds-Makers",
+    "predicted_winner": "France",
+    "reasoning": "Implied probability based on futures markets puts France ahead."
+  },
+  {
+    "id": 475,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Germany",
+    "reasoning": "It's about the badge on the front, and Germany knows how to wear it."
+  },
+  {
+    "id": 476,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Brazil",
+    "reasoning": "The stars are aligned for Brazil in 2026."
+  },
+  {
+    "id": 477,
+    "camp": "Odds-Makers",
+    "predicted_winner": "France",
+    "reasoning": "The line movement suggests insiders know France is peaking."
+  },
+  {
+    "id": 478,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Germany",
+    "reasoning": "You can't buy the passion Germany brings to the pitch."
+  },
+  {
+    "id": 479,
+    "camp": "Odds-Makers",
+    "predicted_winner": "England",
+    "reasoning": "Value is all on England given the current betting spreads."
+  },
+  {
+    "id": 480,
+    "camp": "Data Nerds",
+    "predicted_winner": "Portugal",
+    "reasoning": "Underlying metrics show Portugal dominating possession in crucial zones."
+  },
+  {
+    "id": 481,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "The host curse will bypass Argentina thanks to their kit colors."
+  },
+  {
+    "id": 482,
+    "camp": "Data Nerds",
+    "predicted_winner": "Portugal",
+    "reasoning": "Expected points model heavily favors Portugal based on group stage paths."
+  },
+  {
+    "id": 483,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Germany",
+    "reasoning": "Sharp money is heavily backing Germany right now."
+  },
+  {
+    "id": 484,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Uruguay",
+    "reasoning": "Uruguay has the heritage and the grit needed for the big stage."
+  },
+  {
+    "id": 485,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Germany",
+    "reasoning": "It's about the badge on the front, and Germany knows how to wear it."
+  },
+  {
+    "id": 486,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Germany",
+    "reasoning": "It's about the badge on the front, and Germany knows how to wear it."
+  },
+  {
+    "id": 487,
+    "camp": "Manager's View",
+    "predicted_winner": "Spain",
+    "reasoning": "Spain's manager has a foolproof plan for the knockout stages."
+  },
+  {
+    "id": 488,
+    "camp": "Odds-Makers",
+    "predicted_winner": "USA",
+    "reasoning": "Value is all on USA given the current betting spreads."
+  },
+  {
+    "id": 489,
+    "camp": "Data Nerds",
+    "predicted_winner": "Portugal",
+    "reasoning": "Expected points model heavily favors Portugal based on group stage paths."
+  },
+  {
+    "id": 490,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "A lunar eclipse during the final favors Argentina."
+  },
+  {
+    "id": 491,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Brazil",
+    "reasoning": "It's about the badge on the front, and Brazil knows how to wear it."
+  },
+  {
+    "id": 492,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Portugal",
+    "reasoning": "A lunar eclipse during the final favors Portugal."
+  },
+  {
+    "id": 493,
+    "camp": "Superstition Camp",
+    "predicted_winner": "Argentina",
+    "reasoning": "The stars are aligned for Argentina in 2026."
+  },
+  {
+    "id": 494,
+    "camp": "Manager's View",
+    "predicted_winner": "England",
+    "reasoning": "Man-management is perfect at England; they play as a single unit."
+  },
+  {
+    "id": 495,
+    "camp": "Odds-Makers",
+    "predicted_winner": "Brazil",
+    "reasoning": "Implied probability based on futures markets puts Brazil ahead."
+  },
+  {
+    "id": 496,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Spain",
+    "reasoning": "It's about the badge on the front, and Spain knows how to wear it."
+  },
+  {
+    "id": 497,
+    "camp": "Data Nerds",
+    "predicted_winner": "Argentina",
+    "reasoning": "With a high PPDA, Argentina recovers the ball faster than any opponent."
+  },
+  {
+    "id": 498,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "France",
+    "reasoning": "With minimal injury concerns, France arrives fully fit."
+  },
+  {
+    "id": 499,
+    "camp": "Injury & Fixture Analysts",
+    "predicted_winner": "Spain",
+    "reasoning": "With minimal injury concerns, Spain arrives fully fit."
+  },
+  {
+    "id": 500,
+    "camp": "Old-School Fans",
+    "predicted_winner": "Germany",
+    "reasoning": "Germany plays proper football, none of that modern nonsense."
+  }
+]
