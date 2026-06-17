@@ -1,0 +1,6 @@
+Technical Appendix B: Order Statistics Calculation
+--------------------------------------------------
+Number of Elite Teams (n): 8
+Expected Goals per Elite Team over Tournament (λ): 12.6
+Expected Maximum Goals by the Highest Scoring Team: 17.86
+Probability that at least one team scores > 15 goals: 83.58%
