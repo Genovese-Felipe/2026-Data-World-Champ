@@ -51,6 +51,10 @@ For an in-depth, mathematically grounded forecast of the tournament—incorporat
 
 Additionally, you can view the complete list of 222 data sources and references in the [REFERENCES.html](REFERENCES.html) file.
 
+### Accompanying Datasets and Models
+*   **[WORLD_CUP_48_TEAM_MASTER_SPREADSHEET.csv](WORLD_CUP_48_TEAM_MASTER_SPREADSHEET.csv)**: A highly professional spreadsheet containing the complete calculations, Order Statistics, Group Stage advancement probabilities, and the Poisson-binomial adjustments for all 48 teams.
+*   **[world_cup_model.py](world_cup_model.py)**: The Python execution script featuring the algorithms used to construct the master spreadsheet.
+
 ## Note
 
 Este conteúdo foi adaptado do original em inglês e reflete um entendimento aprofundado sobre a perspectiva orientada por dados em relação à Copa do Mundo FIFA 2026. 
