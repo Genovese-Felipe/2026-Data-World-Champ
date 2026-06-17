@@ -1,6 +1,22 @@
 # 2026-Data-World-Champ
 A data-driven champion perspective for the 2026 FIFA World Cup
 
+## 🏆 Interactive demo — "300 Analysts, One Question"
+
+Open **[`index.html`](index.html)** in any browser (no build step, no server).
+
+300 AI analyst personas across **10 lenses** — data nerds, old-school romantics,
+odds-makers, the superstition camp, manager-watchers, injury & fixture wonks,
+youth scouts, climate & travel hawks, form trackers and dark-horse hunters —
+each independently named a 2026 World Cup winner. The page renders three views:
+
+- **Process** — all 300 verdicts landing live as a colour-coded tile grid, beside a scrolling camp wire.
+- **Heat ranking** — a blended title-probability bar chart (70% consensus + 30% conviction) with count-up numbers; France leads at 22.3%.
+- **Divergence** — the real spread camp-by-camp (stacked bars + a heat matrix), because an average hides the argument.
+
+Data is regenerated with `python3 build_data.py`, which tallies the verdicts and
+writes `data.js`. _For entertainment only — not betting advice._
+
 A data-driven champion perspective for the FIFA World Cup 2026 will be documented and demonstrated, along with strategies and methodologies for real data applications powered by AI in the context of the World Cup.
 
 ---
