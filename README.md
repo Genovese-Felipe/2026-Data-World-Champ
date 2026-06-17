@@ -1,54 +1,100 @@
 # 2026-Data-World-Champ
-A data-driven champion perspective for the 2026 FIFA World Cup
+### A data-driven champion forecast for the 2026 FIFA World Cup
 
-A data-driven champion perspective for the FIFA World Cup 2026 will be documented and demonstrated, along with strategies and methodologies for real data applications powered by AI in the context of the World Cup.
+A **rigorous, reproducible, quantitative** prediction of the 2026 FIFA World Cup
+(Canada · Mexico · USA) — built as a transparent statistical pipeline, **not** an
+opinion. Every number is reproduced by the code in [`src/`](src/) from grounded,
+cited data.
+
+> **Headline pick (consensus model): 🇪🇸 Spain**, narrowly over **France** and a
+> market-defying **Argentina**. The *pure* statistical model actually makes
+> **Argentina** its single most likely winner — a quantified, defensible
+> disagreement with the betting market that independently matches Nate Silver's
+> *PELE* model. **See the full analysis in [`REPORT.md`](REPORT.md).**
 
 ---
 
-# Data-Driven Champion Perspective for the 2026 FIFA World Cup
+## 📊 The method in one line
 
-## Introduction
+**World Football Elo → calibrated Poisson goal model → exact Poisson-binomial
+group stage → 200,000-simulation Monte-Carlo knockout**, with rating/form
+uncertainty, host advantage, the official FIFA bracket, and the best-third-place
+combination assignment — fully validated and seeded.
 
-The 2026 FIFA World Cup presents a unique opportunity to explore the intersection of sports and technology. With advancements in artificial intelligence (AI) and data analytics, we can gain deeper insights into the game and enhance the overall experience for players, teams, and fans alike. This document outlines a data-driven champion perspective for the tournament, highlighting strategies and methodologies for applying real data powered by AI in the context of the World Cup.
+| Layer | Technique | Status |
+|-------|-----------|--------|
+| Ratings | World Football Elo (eloratings.net, Jun 2026) | grounded |
+| Match outcome | Elo logistic → Skellam/Poisson, **calibrated to 0.4% error** | proven |
+| Group stage | **Exact** Poisson-binomial + 3⁶ enumeration (= DFT = MC) | exact |
+| Knockout | 200k Monte-Carlo over FIFA R32 bracket; 495 third-place patterns valid | simulated |
+| Uncertainty | per-tournament form random effect (σ = 70 Elo) + MC standard errors | quantified |
 
-## Objectives
+---
 
-- To document a comprehensive overview of data-driven strategies used during the World Cup.
-- To demonstrate the application of AI and data analytics in various aspects of the tournament.
-- To explore the potential benefits for players, teams, and fans through data insights.
+## 🏆 Top of the board (consensus)
 
-## Strategies and Methodologies
+| # | Team | Model | Market | **Consensus** |
+|--:|------|------:|-------:|--------------:|
+| 1 | Spain | 21.1% | 14.2% | **18.4%** |
+| 2 | France | 15.8% | 17.0% | **17.1%** |
+| 3 | Argentina | 21.8% | 8.5% | **15.2%** |
+| 4 | England | 7.6% | 10.6% | **9.2%** |
+| 5 | Portugal | 4.6% | 9.5% | **6.7%** |
 
-### 1. Data Collection
+*Full 48-team forecast and the math behind it: **[`REPORT.md`](REPORT.md)**.*
 
-- **Player Performance Metrics:** Utilize wearable technology to gather real-time data on player movements, heart rates, and fatigue levels.
-- **Match Statistics:** Collect data on goals, assists, possession percentages, and other key performance indicators (KPIs).
-- **Fan Engagement Data:** Use social media analytics to track fan reactions and engagement levels during the tournament.
+---
 
-### 2. Data Analysis
+## 📁 What's in this repo
 
-- **Predictive Analytics:** Employ machine learning algorithms to predict match outcomes based on historical data and player statistics.
-- **Game Strategy Optimization:** Analyze data to inform coaching decisions, such as formations and player substitutions.
-- **Injury Prevention:** Utilize data trends to predict potential injuries and create preventative measures for athletes.
+```
+data/
+  teams_2026.csv              # 48 teams: group, Elo, FIFA pts, market odds, confederation
+  bracket_structure.json      # official FIFA R32→Final bracket + 3rd-place eligibility
+src/
+  worldcup2026_model.py       # the engine: ratings→Poisson→Poisson-binomial→Monte-Carlo
+  build_deliverables.py       # 6 figures + the Excel workbook
+  build_report.py             # regenerates REPORT.md from the outputs
+outputs/
+  champion_probabilities.csv          # title odds, all 48
+  group_stage_probabilities.csv       # win-group / advance, all 48
+  technical_appendix_A_poisson_binomial.csv   # exact per-team PB distribution
+  match_matrix_group.csv              # all 72 group fixtures: W/D/L + xG
+  expected_score_matrix_48x48.csv     # full head-to-head matrix
+  sensitivity_form_sd.csv, calibration.csv, forecast_full.csv
+  figures/*.png                       # 6 publication-quality charts
+  WorldCup2026_Forecast.xlsx          # ⭐ 8-sheet professional workbook
+REPORT.md                     # the full analysis: proofs, calculations, references
+```
 
-### 3. Real-Time Application
+### ⭐ The spreadsheet — `outputs/WorldCup2026_Forecast.xlsx`
+Eight formatted, colour-scaled sheets with embedded charts: **Overview ·
+Champion Forecast (48) · Group Stage · Appendix A (Poisson-Binomial) · Match
+Matrix · Model vs Market · Sensitivity · Methodology & Sources.**
 
-- **AI-Powered Decision Making:** Implement AI systems that provide real-time insights to coaches regarding player performance and strategies.
-- **Enhanced Viewing Experience:** Leverage augmented reality (AR) to provide fans with interactive experiences during matches.
+---
 
-### 4. Post-Tournament Analysis
+## ▶️ Reproduce everything
+```bash
+pip install numpy pandas scipy openpyxl matplotlib
+python3 src/worldcup2026_model.py     # model + CSVs + self-validation  (~17 s)
+python3 src/build_deliverables.py     # figures + Excel workbook
+python3 src/build_report.py           # regenerates REPORT.md
+```
 
-- **Performance Evaluation:** Assess team and player performances using comprehensive data analytics to inform future strategies.
-- **Data-Driven Insights for Future Tournaments:** Identify patterns and trends that can be utilized to improve future World Cup and national team performances.
+---
 
-## Conclusion
+## ✅ Why trust it (validation)
+- **Poisson-binomial by convolution = by DFT** (max diff `0.0`) — implementation proof.
+- **Goal model = Elo logistic** to a max error of **0.0040**.
+- **Monte-Carlo = exact analytic** expected points (max diff < 0.02).
+- **All 495** third-place qualification patterns produce a valid bracket assignment.
+- Every probability distribution **sums to 1.000**; MC standard error ≈ 0.09 pp.
+- Reproduces the market's elite-tier *size*, and the *PELE* model's Argentina↑/Portugal↓ tilts.
 
-The 2026 FIFA World Cup is not just a celebration of sports; it is a platform for innovation through data. By adopting a data-driven champion perspective, we can harness the power of AI and real data applications to revolutionize how we understand and experience football. As we prepare for this prestigious event, we are excited to explore the endless possibilities that await us in the realm of sports analytics.
+---
 
-## Note
-
-Este conteúdo foi adaptado do original em inglês e reflete um entendimento aprofundado sobre a perspectiva orientada por dados em relação à Copa do Mundo FIFA 2026. 
-
---- 
-
-This format enhances clarity and makes it easier for readers to follow the main ideas while allowing for a bilingual approach.
+*Built as a benchmark of quantitative rigour (the development chain, proofs,
+calculations, grounding and references) versus opinion-based forecasting. See the
+`Kimi_Agent_World Cup 300-Agent Forecast/` directory for the qualitative-ensemble
+foil this project is contrasted against.*

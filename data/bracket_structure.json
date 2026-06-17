@@ -1,0 +1,44 @@
+{
+  "_comment": "2026 FIFA World Cup knockout bracket. Source: FIFA fixed match schedule (Wikipedia 2026 FIFA World Cup knockout stage). Top 2 of each of 12 groups + 8 best 3rd-placed teams = 32. 'W'=group winner, 'R'=runner-up, '3P:{set}'=best-3rd-place team from one of the listed eligible groups, assigned per FIFA's published combination table (we solve the equivalent bipartite assignment respecting eligibility).",
+  "r32": {
+    "M73": ["R:A", "R:B"],
+    "M74": ["W:E", "3P:A,B,C,D,F"],
+    "M75": ["W:F", "R:C"],
+    "M76": ["W:C", "R:F"],
+    "M77": ["W:I", "3P:C,D,F,G,H"],
+    "M78": ["R:E", "R:I"],
+    "M79": ["W:A", "3P:C,E,F,H,I"],
+    "M80": ["W:L", "3P:E,H,I,J,K"],
+    "M81": ["W:D", "3P:B,E,F,I,J"],
+    "M82": ["W:G", "3P:A,E,H,I,J"],
+    "M83": ["R:K", "R:L"],
+    "M84": ["W:H", "R:J"],
+    "M85": ["W:B", "3P:E,F,G,I,J"],
+    "M86": ["W:J", "R:H"],
+    "M87": ["W:K", "3P:D,E,I,J,L"],
+    "M88": ["R:D", "R:G"]
+  },
+  "r16": {
+    "R16_1": ["M73", "M75"],
+    "R16_2": ["M74", "M77"],
+    "R16_3": ["M76", "M78"],
+    "R16_4": ["M79", "M80"],
+    "R16_5": ["M83", "M84"],
+    "R16_6": ["M81", "M82"],
+    "R16_7": ["M86", "M88"],
+    "R16_8": ["M85", "M87"]
+  },
+  "qf": {
+    "QF1": ["R16_1", "R16_2"],
+    "QF2": ["R16_3", "R16_4"],
+    "QF3": ["R16_5", "R16_6"],
+    "QF4": ["R16_7", "R16_8"]
+  },
+  "sf": {
+    "SF1": ["QF1", "QF2"],
+    "SF2": ["QF3", "QF4"]
+  },
+  "final": {
+    "FINAL": ["SF1", "SF2"]
+  }
+}

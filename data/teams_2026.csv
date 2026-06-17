@@ -1,0 +1,49 @@
+group,slot,team,elo_code,confederation,host,elo,fifa_points,market_dec_odds
+A,1,Mexico,MX,CONCACAF,1,1881,1687.48,51
+A,2,South Africa,ZA,CAF,0,1511,,
+A,3,South Korea,KR,AFC,0,1786,,
+A,4,Czech Republic,CZ,UEFA,0,1712,,
+B,1,Canada,CA,CONCACAF,1,1767,,
+B,2,Bosnia and Herzegovina,BA,UEFA,0,1616,,
+B,3,Qatar,QA,AFC,0,1447,,
+B,4,Switzerland,CH,UEFA,0,1865,1650.06,81
+C,1,Brazil,BR,CONMEBOL,0,1978,1765.86,11
+C,2,Morocco,MA,CAF,0,1840,1755.10,41
+C,3,Haiti,HT,CONCACAF,0,1536,,
+C,4,Scotland,SQ,UEFA,0,1794,,
+D,1,United States,US,CONCACAF,1,1780,1671.23,41
+D,2,Paraguay,PY,CONMEBOL,0,1780,,
+D,3,Australia,AU,AFC,0,1839,,
+D,4,Turkey,TR,UEFA,0,1849,,
+E,1,Germany,DE,UEFA,0,1939,1735.77,15
+E,2,Curacao,CW,CONCACAF,0,1427,,
+E,3,Ivory Coast,CI,CAF,0,1743,,
+E,4,Ecuador,EC,CONMEBOL,0,1890,,
+F,1,Netherlands,NL,UEFA,0,1944,1753.57,19
+F,2,Japan,JP,AFC,0,1910,1661.58,46
+F,3,Sweden,SE,UEFA,0,1755,,
+F,4,Tunisia,TN,CAF,0,1585,,
+G,1,Belgium,BE,UEFA,0,1879,1742.24,36
+G,2,Egypt,EG,CAF,0,1711,,
+G,3,Iran,IR,AFC,0,1756,1619.58,
+G,4,New Zealand,NZ,OFC,0,1578,,
+H,1,Spain,ES,UEFA,0,2129,1874.71,6
+H,2,Cape Verde,CV,CAF,0,1606,,
+H,3,Saudi Arabia,SA,AFC,0,1598,,
+H,4,Uruguay,UY,CONMEBOL,0,1870,1673.07,76
+I,1,France,FR,UEFA,0,2084,1870.70,5
+I,2,Senegal,SN,CAF,0,1839,1684.07,
+I,3,Iraq,IQ,AFC,0,1592,,
+I,4,Norway,NO,UEFA,0,1929,,28
+J,1,Argentina,AR,CONMEBOL,0,2128,1877.27,10
+J,2,Algeria,DZ,CAF,0,1759,,
+J,3,Austria,AT,UEFA,0,1857,,
+J,4,Jordan,JO,AFC,0,1653,,
+K,1,Portugal,PT,UEFA,0,1989,1767.85,9
+K,2,DR Congo,CD,CAF,0,1652,,
+K,3,Uzbekistan,UZ,AFC,0,1714,,
+K,4,Colombia,CO,CONMEBOL,0,1982,1698.35,46
+L,1,England,EN,UEFA,0,2024,1828.02,8
+L,2,Croatia,HR,UEFA,0,1912,1714.87,76
+L,3,Ghana,GH,CAF,0,1510,,
+L,4,Panama,PA,CONCACAF,0,1730,,
