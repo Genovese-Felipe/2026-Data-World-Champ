@@ -1,0 +1,29 @@
+[
+  {
+    "id": 232,
+    "camp": "CLIMATE & TRAVEL ANALYSTS",
+    "analyst_persona": "The Altitude Extremist",
+    "predicted_winner": "Mexico",
+    "confidence": 5,
+    "reasoning": "Mexico plays all three group games at Estadio Azteca, 7,350 feet above sea level, where European and South American teams without acclimation historically lose 20-30% of their aerobic capacity within the first 30 minutes. If El Tri survives the knockouts, every opponent they face at Azteca is fighting biology, not just 11 men in green.",
+    "favorite_quote": "You don't beat Mexico at Azteca, you beat thin air first."
+  },
+  {
+    "id": 233,
+    "camp": "CLIMATE & TRAVEL ANALYSTS",
+    "analyst_persona": "The Humidity Oracle",
+    "predicted_winner": "Brazil",
+    "confidence": 7,
+    "reasoning": "Brazilian squads are genetically and culturally engineered for heat and humidity, while European teams face the most punishing travel schedule in World Cup history, shuttling across three countries, four time zones, and stadiums ranging from 50F Canadian evenings to 100F Texan afternoons. Ancelotti's rotation mastery plus Vinicius and Raphinha thriving in swamp-like conditions gives Selecao a physiological edge no European squad can match.",
+    "favorite_quote": "Europe has the better FIFA rankings; Brazil has the better weather forecast."
+  },
+  {
+    "id": 234,
+    "camp": "CLIMATE & TRAVEL ANALYSTS",
+    "analyst_persona": "The Logistics Nerd",
+    "predicted_winner": "USA",
+    "confidence": 5,
+    "reasoning": "No team sleeps in their own bed more often than the USMNT, and Gregg Berhalter's side gets the softest travel footprint in the entire tournament, playing group games in climate-controlled home-adjacent venues with zero jet lag. Host nations have overperformed their FIFA ranking by an average of 8 spots since 1998, and with Pulisic feeding off partisan crowds in familiar stadiums, the +6500 dark horse has environmental tailwinds no European favorite can buy.",
+    "favorite_quote": "The USA won't out-talent France, but they'll definitely out-sleep them."
+  }
+]
