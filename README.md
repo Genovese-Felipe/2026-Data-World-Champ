@@ -45,6 +45,12 @@ The 2026 FIFA World Cup presents a unique opportunity to explore the intersectio
 
 The 2026 FIFA World Cup is not just a celebration of sports; it is a platform for innovation through data. By adopting a data-driven champion perspective, we can harness the power of AI and real data applications to revolutionize how we understand and experience football. As we prepare for this prestigious event, we are excited to explore the endless possibilities that await us in the realm of sports analytics.
 
+## Predictive Modeling & Research
+
+For an in-depth, mathematically grounded forecast of the tournament—incorporating xG variance, betting odds, and logistical constraints—please review our definitive [Advanced 2026 World Cup Analysis](ADVANCED_WORLD_CUP_ANALYSIS.html).
+
+Additionally, you can view the complete list of 222 data sources and references in the [REFERENCES.html](REFERENCES.html) file.
+
 ## Note
 
 Este conteúdo foi adaptado do original em inglês e reflete um entendimento aprofundado sobre a perspectiva orientada por dados em relação à Copa do Mundo FIFA 2026. 
