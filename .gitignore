@@ -1,0 +1,4 @@
+# Local tooling used only to render preview screenshots
+node_modules/
+package.json
+package-lock.json
