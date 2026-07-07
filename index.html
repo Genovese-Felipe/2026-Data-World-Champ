@@ -313,8 +313,13 @@
 <script>
 (function(){
   const D = window.WC_DATA;
-  const TEAMCOLOR = t => getComputedStyle(document.documentElement)
-      .getPropertyValue('--t-'+t).trim() || getComputedStyle(document.documentElement).getPropertyValue('--t-default').trim();
+  const _colorCache = {};
+  const TEAMCOLOR = t => {
+    if (_colorCache[t]) return _colorCache[t];
+    const val = getComputedStyle(document.documentElement).getPropertyValue('--t-'+t).trim() || getComputedStyle(document.documentElement).getPropertyValue('--t-default').trim();
+    _colorCache[t] = val;
+    return val;
+  };
 
   // ---------- hero meta ----------
   const teamsWithVotes = D.ranking.length;
