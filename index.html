@@ -313,8 +313,13 @@
 <script>
 (function(){
   const D = window.WC_DATA;
-  const TEAMCOLOR = t => getComputedStyle(document.documentElement)
-      .getPropertyValue('--t-'+t).trim() || getComputedStyle(document.documentElement).getPropertyValue('--t-default').trim();
+  const _colorCache = {};
+  const TEAMCOLOR = t => {
+    if (!_colorCache[t]) {
+      _colorCache[t] = getComputedStyle(document.documentElement).getPropertyValue('--t-'+t).trim() || getComputedStyle(document.documentElement).getPropertyValue('--t-default').trim();
+    }
+    return _colorCache[t];
+  };
 
   // ---------- hero meta ----------
   const teamsWithVotes = D.ranking.length;
@@ -331,14 +336,16 @@
 
   const grid = document.getElementById('grid');
   const cells = [];
+  const gridFrag = document.createDocumentFragment();
   preds.forEach((p,i)=>{
     const c = document.createElement('div');
     c.className='cell';
     c.dataset.idx=i;
     c.style.setProperty('--c', TEAMCOLOR(p.team));
-    grid.appendChild(c);
+    gridFrag.appendChild(c);
     cells.push(c);
   });
+  grid.appendChild(gridFrag);
 
   // inspect on hover
   const insWho=document.getElementById('ins-who'),
