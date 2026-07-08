@@ -1,0 +1,3 @@
+## 2024-05-24 - DocumentFragment and getComputedStyle bottleneck
+**Learning:** Calling `getComputedStyle` repeatedly inside loops, especially interleaved with DOM modifications, leads to massive layout thrashing and severe performance degradation due to redundant style recalculations.
+**Action:** Always memoize `getComputedStyle` results if they are static for a given key, and use `DocumentFragment` to batch DOM insertions outside the main document tree before appending them all at once.
