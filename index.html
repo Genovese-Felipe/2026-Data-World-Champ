@@ -313,8 +313,15 @@
 <script>
 (function(){
   const D = window.WC_DATA;
-  const TEAMCOLOR = t => getComputedStyle(document.documentElement)
-      .getPropertyValue('--t-'+t).trim() || getComputedStyle(document.documentElement).getPropertyValue('--t-default').trim();
+  // memoize color fetching to avoid repeating expensive getComputedStyle calls in loops
+  const _colorCache = Object.create(null);
+  const TEAMCOLOR = t => {
+    if (_colorCache[t]) return _colorCache[t];
+    const rootStyle = getComputedStyle(document.documentElement);
+    const val = rootStyle.getPropertyValue('--t-'+t).trim() || rootStyle.getPropertyValue('--t-default').trim();
+    _colorCache[t] = val;
+    return val;
+  };
 
   // ---------- hero meta ----------
   const teamsWithVotes = D.ranking.length;
