@@ -313,8 +313,18 @@
 <script>
 (function(){
   const D = window.WC_DATA;
-  const TEAMCOLOR = t => getComputedStyle(document.documentElement)
-      .getPropertyValue('--t-'+t).trim() || getComputedStyle(document.documentElement).getPropertyValue('--t-default').trim();
+  const __colorCache = {};
+
+  // ⚡ Bolt: Cache computed CSS variables to prevent synchronous DOM access and reflows
+  // during large iteration loops (e.g. rendering 300+ grid items or heat matrix cells).
+  // This avoids expensive O(n) styling recalculations.
+  const TEAMCOLOR = t => {
+    if (!__colorCache[t]) {
+      const docStyle = getComputedStyle(document.documentElement);
+      __colorCache[t] = docStyle.getPropertyValue('--t-'+t).trim() || docStyle.getPropertyValue('--t-default').trim();
+    }
+    return __colorCache[t];
+  };
 
   // ---------- hero meta ----------
   const teamsWithVotes = D.ranking.length;
