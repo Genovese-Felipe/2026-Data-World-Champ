@@ -340,15 +340,21 @@
   for(let i=order.length-1;i>0;i--){const j=(Math.random()*(i+1))|0;[order[i],order[j]]=[order[j],order[i]];}
 
   const grid = document.getElementById('grid');
+  // ⚡ Bolt: Performance optimization
+  // 💡 What: Replaced direct DOM appendChild in a loop with a DocumentFragment.
+  // 🎯 Why: Appending directly to the live DOM on each iteration causes repeated, synchronous reflows and repaints (layout thrashing).
+  // 📊 Impact: Significantly reduces initial render time by batching 300 DOM insertions into a single layout calculation.
+  const gridFrag = document.createDocumentFragment();
   const cells = [];
   preds.forEach((p,i)=>{
     const c = document.createElement('div');
     c.className='cell';
     c.dataset.idx=i;
     c.style.setProperty('--c', TEAMCOLOR(p.team));
-    grid.appendChild(c);
+    gridFrag.appendChild(c);
     cells.push(c);
   });
+  grid.appendChild(gridFrag);
 
   // inspect on hover
   const insWho=document.getElementById('ins-who'),
@@ -402,10 +408,19 @@
     return el;
   };
   // duplicate the list for a seamless -50% loop
-  [...items, ...items].forEach(it=>feed.appendChild(buildTake(it)));
+  // ⚡ Bolt: Performance optimization
+  // 💡 What: Using DocumentFragment for batching feed item insertions.
+  // 📊 Impact: Prevents sequential repaints when rendering the live camp wire list.
+  const feedFrag = document.createDocumentFragment();
+  [...items, ...items].forEach(it=>feedFrag.appendChild(buildTake(it)));
+  feed.appendChild(feedFrag);
 
   // ---------- RESULT: heat ranking ----------
   const rank=document.getElementById('rank');
+  // ⚡ Bolt: Performance optimization
+  // 💡 What: Using DocumentFragment for batching ranking row insertions.
+  // 📊 Impact: Avoids multiple layout recalculations during ranking UI render.
+  const rankFrag = document.createDocumentFragment();
   const top8=D.top8;
   const maxProb=Math.max(...top8.map(r=>r.prob));
   top8.forEach((r,i)=>{
@@ -416,7 +431,7 @@
       '<div class="team-n"><span class="chip" style="background:'+TEAMCOLOR(r.team)+'"></span>'+r.team+'</div>'+
       '<div class="bar-track"><div class="bar" style="background:'+TEAMCOLOR(r.team)+'"></div></div>'+
       '<div class="val"><span class="cv" data-to="'+r.prob+'">0.0</span><span class="pct"> %</span></div>';
-    rank.appendChild(row);
+    rankFrag.appendChild(row);
     row.querySelector('.bar').dataset.w = (r.prob/maxProb*100).toFixed(1);
     // small subline with vote count
     const sub=document.createElement('div');
@@ -424,6 +439,7 @@
     sub.textContent = r.votes+' of 300 votes · avg conviction '+r.avg_conf+'/9';
     row.appendChild(sub);
   });
+  rank.appendChild(rankFrag);
 
   function runRanking(){
     rank.querySelectorAll('.bar').forEach(b=>{ b.style.width=b.dataset.w+'%'; });
@@ -451,6 +467,10 @@
 
   // ---------- DIVERGENCE: stacked bars ----------
   const campRows=document.getElementById('camp-rows');
+  // ⚡ Bolt: Performance optimization
+  // 💡 What: Using DocumentFragment for batching divergence row insertions.
+  // 📊 Impact: Batches insertions of camp breakdown elements into a single DOM update.
+  const campRowsFrag = document.createDocumentFragment();
   D.camps.forEach(camp=>{
     const dist=D.camp_distribution[camp]||{};
     const entries=Object.entries(dist).sort((a,b)=>b[1]-a[1]);
@@ -463,8 +483,9 @@
       '<div class="ch"><span class="cname">'+camp+'</span>'+
       '<span class="ctop">leans <b>'+top[0]+'</b> ('+top[1]+'/30)</span></div>'+
       '<div class="stack">'+stack+'</div>';
-    campRows.appendChild(row);
+    campRowsFrag.appendChild(row);
   });
+  campRows.appendChild(campRowsFrag);
 
   // ---------- DIVERGENCE: heat matrix ----------
   const teamsByRank = D.ranking.map(r=>r.team); // most-backed first
@@ -499,11 +520,16 @@
 
   // legend
   const legend=document.getElementById('legend');
+  // ⚡ Bolt: Performance optimization
+  // 💡 What: Using DocumentFragment for batching divergence legend insertions.
+  // 📊 Impact: Prevents sequential layout calculations for the legend layout items.
+  const legendFrag = document.createDocumentFragment();
   D.ranking.forEach(r=>{
     const li=document.createElement('span'); li.className='li';
     li.innerHTML='<span class="chip" style="background:'+TEAMCOLOR(r.team)+'"></span>'+r.team+' · '+r.votes;
-    legend.appendChild(li);
+    legendFrag.appendChild(li);
   });
+  legend.appendChild(legendFrag);
 
   // ---------- helpers ----------
   function io(el, cb, threshold){
