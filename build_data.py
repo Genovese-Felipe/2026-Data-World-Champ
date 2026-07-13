@@ -355,13 +355,23 @@ def main():
         })
     ranking.sort(key=lambda r: (-r["prob"], -r["votes"]))
 
+    # ⚡ Bolt: Performance optimization
+    # 💡 What: Replaced O(N*C) nested list comprehensions with a single O(N) grouping pass.
+    # 🎯 Why: Iterating over all 300 PREDICTIONS for each of the 10 CAMPS causes repeated O(N) scans. Grouping once via a dictionary scales linearly.
+    # 📊 Impact: Reduces iteration overhead from O(N*C) to O(N), improving build speed and scaling safely for larger datasets.
+    preds_by_camp = {c: [] for c in CAMPS}
+    for p in PREDICTIONS:
+        if p["camp"] in preds_by_camp:
+            preds_by_camp[p["camp"]].append(p)
+
     # camp x team divergence matrix
-    camp_dist = {c: dict(Counter(p["team"] for p in PREDICTIONS if p["camp"] == c)) for c in CAMPS}
+    camp_dist = {c: dict(Counter(p["team"] for p in cp)) for c, cp in preds_by_camp.items()}
 
     # representative take per camp (the camp's own top pick, highest confidence)
     feed = []
     for c in CAMPS:
-        cp = [p for p in PREDICTIONS if p["camp"] == c]
+        cp = preds_by_camp.get(c, [])
+        if not cp: continue
         top_team = Counter(p["team"] for p in cp).most_common(1)[0][0]
         rep = max((p for p in cp if p["team"] == top_team), key=lambda p: p["confidence"])
         feed.append({"camp": c, "team": top_team, "persona": rep["persona"], "quote": rep["quote"]})
