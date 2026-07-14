@@ -115,8 +115,15 @@
   /* feed */
   .feed-card{background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;height:100%}
   .feed-head{padding:13px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}
-  .feed-head .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(168,132,43,.5);animation:pulse 1.8s infinite}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(168,132,43,.45)}70%{box-shadow:0 0 0 7px rgba(168,132,43,0)}100%{box-shadow:0 0 0 0 rgba(168,132,43,0)}}
+  /* ⚡ Bolt: Performance optimization
+     💡 What: Replaced box-shadow animation with transform/opacity on a pseudo-element
+     🎯 Why: Animating box-shadow triggers expensive layout and paint operations continuously.
+            Using transform and opacity offloads the animation to the GPU (compositor thread).
+     📊 Impact: Eliminates main-thread jank and reduces CPU usage, improving scroll performance and battery life.
+     🔬 Measurement: Check Chrome DevTools Performance tab -> Rendering -> Paint flashing. The dot area should no longer constantly flash green. */
+  .feed-head .dot{position:relative;z-index:0;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+  .feed-head .dot::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;border-radius:50%;background:rgba(168,132,43,.45);animation:pulse-gpu 1.8s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;z-index:-1}
+  @keyframes pulse-gpu{0%{transform:scale(1);opacity:1}70%{transform:scale(3);opacity:0}100%{transform:scale(3);opacity:0}}
   .feed-head .t{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
   .feed-view{position:relative;height:430px;overflow:hidden;mask-image:linear-gradient(180deg,transparent,#000 9%,#000 91%,transparent)}
   .feed-track{position:absolute;top:0;left:0;right:0;display:flex;flex-direction:column;animation:scrollfeed 38s linear infinite}
