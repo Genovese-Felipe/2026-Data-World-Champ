@@ -1,5 +1,3 @@
-## 2026-07-11 - Costly Synchronous DOM Access in Iteration
-
-**Learning:** `getComputedStyle` is an expensive DOM operation that calculates all styles for an element. When called synchronously inside a large loop, such as rendering hundreds of grid items, it causes significant main thread blocking and jank. The previous `TEAMCOLOR` function in `index.html` fetched CSS variables dynamically for every single item.
-
-**Action:** Memoize values derived from `getComputedStyle` using a cache map whenever they will be read repeatedly during a render cycle, especially in purely static setups without a modern reactive framework.
+## 2024-07-18 - Nested Iteration in Python Aggregation Script
+**Learning:** In a Python script aggregating data (`build_data.py`), applying multiple list comprehensions to filter a global list for each category inside a loop (e.g., `[p for p in PREDICTIONS if p["camp"] == c]` for each camp in `CAMPS`) creates an O(C*N) bottleneck. This is an anti-pattern when processing larger datasets or running repeatedly.
+**Action:** Replace nested comprehensions with a single pass `O(N)` loop over the dataset to bucket data into dictionaries beforehand. This significantly reduces iterations and improves aggregation speed.
