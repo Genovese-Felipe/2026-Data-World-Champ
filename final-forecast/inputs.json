@@ -1,0 +1,48 @@
+{
+  "_provenance": {
+    "as_of": "2026-07-19, match day; odds are the final pre-kickoff set (morning ET), live state is 0-0 at halftime (~16:19 ET)",
+    "market_odds_sets": "Set 1: FanDuel closing 1X2 Spain +130 / Draw +195 / Argentina +260, cross-checked vs DraftKings (+125/+200/+260) and Oddschecker US aggregate (+132/+200/+265); adversarially verified. Set 2: Kalshi 3-way regulation contract Spain 43c / Draw 33c / Argentina 27c, converted to decimal.",
+    "to_lift_market_reference": "DefiRate cross-platform aggregate Spain 58.3 / Argentina 42.9 (normalized 57.6/42.4); FanDuel Spain -156 / Argentina +136; Opta 59.5/40.5.",
+    "elo": "World Football Elo Ratings (eloratings.net/World.tsv fetched 2026-07-19): Spain 2232 (world #1), Argentina 2200 (#2). Verified directly against the raw data file.",
+    "published_models": "Opta supercomputer (theanalyst.com, 25,000 sims, published 2026-07-19): Spain 45.0 / draw 29.0 / Argentina 26.0 in 90 minutes.",
+    "expected_total_goals": "Kalshi total-goals contract implies ~2.2; O/U 2.5 priced Under -160 (about 62% under), consistent with a 2.2-goal Poisson mean. Finals skew low-scoring.",
+    "pen_win_spain": "0.45. Argentina's shootout edge: Emiliano Martinez won shootouts at WC 2022 (Netherlands QF, France final) and Copa America 2024 (Ecuador); Spain lost its last WC shootout (Morocco 2022, 0-3) though Unai Simon won two at Euro 2020. A 55/45 tilt is a conservative reading of that record.",
+    "dc_rho": "-0.10, standard Dixon-Coles low-score correlation for international football.",
+    "draw_base": "0.30, tuned to the draw-heavy pricing of finals (market ~32%, Opta 29%).",
+    "et_intensity": "0.85: extra time historically produces goals at a lower per-minute rate than regulation (fatigue, risk aversion).",
+    "live_halftime": "Verified 0-0 at halftime (CBS, Yahoo, NBC, Heavy, SBS live blogs; kickoff was 15:07 ET). First-half xG Spain 0.23, Argentina 0.00. Lisandro Martinez injured off 43' (Otamendi on) - modest downgrade of Argentina's left CB, +3 percent to Spain's second-half goal rate. second_half_share 0.55 = empirical share of goals scored after the break; caginess_deflator 0.90 regresses the ultra-low first-half xG modestly toward the prior.",
+    "blend_weights": "Market 0.55 (best-calibrated public signal), published models 0.30 (Opta, independent structural information), raw Elo 0.15 (coarsest signal). Scenario blends probe sensitivity."
+  },
+  "n_sims": 500000,
+  "dc_rho": -0.1,
+  "draw_base": 0.3,
+  "market_odds_sets": [
+    [2.3, 2.95, 3.6],
+    [2.3256, 3.0303, 3.7037]
+  ],
+  "elo_spain": 2232,
+  "elo_argentina": 2200,
+  "published_models_1x2": [
+    [0.45, 0.29, 0.26]
+  ],
+  "blend_weights": {
+    "market": 0.55,
+    "elo": 0.15,
+    "published": 0.3
+  },
+  "expected_total_goals": 2.2,
+  "et_intensity": 0.85,
+  "pen_win_spain": 0.45,
+  "scenarios": {
+    "scenario_market_heavy": { "market": 0.8, "elo": 0.05, "published": 0.15 },
+    "scenario_model_heavy": { "market": 0.3, "elo": 0.3, "published": 0.4 }
+  },
+  "live_halftime": {
+    "score": "0-0",
+    "minutes_played": 45,
+    "second_half_share": 0.55,
+    "caginess_deflator": 0.9,
+    "spain_adjust": 1.03,
+    "argentina_adjust": 1.0
+  }
+}

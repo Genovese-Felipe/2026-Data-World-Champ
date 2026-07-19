@@ -222,9 +222,10 @@ def run(params):
     n = params["n_sims"]
     rho = params["dc_rho"]
 
-    # --- market signal
-    mo = params["market_odds_1x2"]  # [spain, draw, argentina] decimal
-    p_market = devig(mo)
+    # --- market signal: de-vig each odds set (books, exchanges), then average
+    sets = params["market_odds_sets"]  # list of [spain, draw, argentina] decimal
+    devigged = [devig(mo) for mo in sets]
+    p_market = [sum(d[i] for d in devigged) / len(devigged) for i in range(3)]
 
     # --- Elo signal
     p_elo = elo_1x2(params["elo_spain"], params["elo_argentina"],
@@ -305,11 +306,75 @@ def run(params):
     return results
 
 
+def run_live_halftime(params, base):
+    """Conditional update given the live state: 0-0 at halftime.
+
+    The pre-match goal rates (lambda per 90) are rescaled to the remaining 45
+    minutes using the empirical second-half share of goals (~55% of a match's
+    goals arrive after the break), then damped by a caginess factor that
+    regresses the observed ultra-low first-half xG toward the prior, plus any
+    live personnel adjustments. Extra time and penalties as in the base model.
+    """
+    live = params["live_halftime"]
+    lam90 = base["inputs_summary"]["lambda_spain"]
+    mu90 = base["inputs_summary"]["lambda_argentina"]
+    rho = params["dc_rho"]
+    n = params["n_sims"]
+
+    lam2h = lam90 * live["second_half_share"] * live["caginess_deflator"] * \
+        live["spain_adjust"]
+    mu2h = mu90 * live["second_half_share"] * live["caginess_deflator"] * \
+        live["argentina_adjust"]
+    grid2h = score_grid(lam2h, mu2h, rho)
+
+    counts, scores2h = simulate(
+        n, grid2h, lam2h, mu2h, rho,
+        params["et_intensity"], params["pen_win_spain"], seed=20260720)
+
+    def pct(k):
+        return counts[k] / n
+
+    spain_title = pct("spain_90") + pct("spain_et") + pct("spain_pens")
+    arg_title = pct("argentina_90") + pct("argentina_et") + pct("argentina_pens")
+    top = sorted(scores2h.items(), key=lambda kv: -kv[1])[:8]
+
+    return {
+        "state": "0-0 at halftime; Lisandro Martinez off injured (Otamendi on)",
+        "second_half_lambdas": {"spain": round(lam2h, 3), "argentina": round(mu2h, 3)},
+        "ninety_minutes_from_here": {
+            "spain_win": round(pct("spain_90"), 4),
+            "draw_level_after_90": round(pct("draw_90"), 4),
+            "argentina_win": round(pct("argentina_90"), 4),
+        },
+        "championship": {
+            "spain_lifts_trophy": round(spain_title, 4),
+            "argentina_lifts_trophy": round(arg_title, 4),
+        },
+        "match_shape": {
+            "goes_to_extra_time": round(pct("extra_time"), 4),
+            "goes_to_penalties": round(pct("penalties"), 4),
+        },
+        "path_to_title": {
+            "spain_in_90": round(pct("spain_90"), 4),
+            "spain_in_extra_time": round(pct("spain_et"), 4),
+            "spain_on_penalties": round(pct("spain_pens"), 4),
+            "argentina_in_90": round(pct("argentina_90"), 4),
+            "argentina_in_extra_time": round(pct("argentina_et"), 4),
+            "argentina_on_penalties": round(pct("argentina_pens"), 4),
+        },
+        "most_likely_final_scores_90": [
+            {"score": f"{s}-{a} (Spain-Argentina)", "prob": round(c / n, 4)}
+            for (s, a), c in top
+        ],
+    }
+
+
 def main():
     with open(os.path.join(HERE, "inputs.json")) as f:
         params = json.load(f)
 
-    results = {"base_case": run(params)}
+    base = run(params)
+    results = {"base_case_prematch": base}
 
     # scenario sensitivity: market-heavy vs model-heavy blends
     for name, weights in params["scenarios"].items():
@@ -317,12 +382,21 @@ def main():
         p2["blend_weights"] = weights
         results[name] = run(p2)
 
+    # live in-play update conditioned on the halftime state
+    if params.get("live_halftime"):
+        results["live_update_halftime_0_0"] = run_live_halftime(params, base)
+
     with open(os.path.join(HERE, "results.json"), "w") as f:
         json.dump(results, f, indent=2)
 
-    b = results["base_case"]
-    print("=== 2026 World Cup final: Spain vs Argentina ===")
+    b = results["base_case_prematch"]
+    print("=== 2026 World Cup final: Spain vs Argentina (pre-match baseline) ===")
+    print(f"Signals  market={b['inputs_summary']['market_devig_1x2']} "
+          f"elo={b['inputs_summary']['elo_1x2']} "
+          f"published={b['inputs_summary']['published_avg_1x2']}")
     print(f"Blended 90-min probabilities: {b['inputs_summary']['blended_1x2']}")
+    print(f"Lambdas: Spain {b['inputs_summary']['lambda_spain']}, "
+          f"Argentina {b['inputs_summary']['lambda_argentina']}")
     print(f"Championship: Spain {b['championship']['spain_lifts_trophy']:.1%}, "
           f"Argentina {b['championship']['argentina_lifts_trophy']:.1%}")
     print(f"Extra time: {b['match_shape']['goes_to_extra_time']:.1%}, "
@@ -330,6 +404,15 @@ def main():
     print("Top scorelines (90 min):")
     for row in b["most_likely_scorelines_90"][:6]:
         print(f"  {row['score']}: {row['prob']:.1%}")
+    if "live_update_halftime_0_0" in results:
+        lv = results["live_update_halftime_0_0"]
+        print("\n=== LIVE UPDATE: 0-0 at halftime ===")
+        print(f"Championship: Spain {lv['championship']['spain_lifts_trophy']:.1%}, "
+              f"Argentina {lv['championship']['argentina_lifts_trophy']:.1%}")
+        print(f"Extra time: {lv['match_shape']['goes_to_extra_time']:.1%}, "
+              f"Penalties: {lv['match_shape']['goes_to_penalties']:.1%}")
+        for row in lv["most_likely_final_scores_90"][:5]:
+            print(f"  {row['score']}: {row['prob']:.1%}")
 
 
 if __name__ == "__main__":

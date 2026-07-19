@@ -1,0 +1,340 @@
+{
+  "base_case_prematch": {
+    "inputs_summary": {
+      "market_devig_1x2": [
+        0.4171,
+        0.321,
+        0.2619
+      ],
+      "elo_1x2": [
+        0.3832,
+        0.2981,
+        0.3187
+      ],
+      "published_avg_1x2": [
+        0.45,
+        0.29,
+        0.26
+      ],
+      "blended_1x2": [
+        0.4219,
+        0.3083,
+        0.2698
+      ],
+      "lambda_spain": 1.252,
+      "lambda_argentina": 0.948
+    },
+    "ninety_minutes": {
+      "spain_win": 0.4192,
+      "draw": 0.3139,
+      "argentina_win": 0.2669
+    },
+    "path_to_title": {
+      "spain_in_90": 0.4192,
+      "spain_in_extra_time": 0.0733,
+      "spain_on_penalties": 0.085,
+      "argentina_in_90": 0.2669,
+      "argentina_in_extra_time": 0.0525,
+      "argentina_on_penalties": 0.103
+    },
+    "championship": {
+      "spain_lifts_trophy": 0.5775,
+      "argentina_lifts_trophy": 0.4225
+    },
+    "match_shape": {
+      "goes_to_extra_time": 0.3139,
+      "goes_to_penalties": 0.188,
+      "both_teams_score_90": 0.4504,
+      "over_1_5_goals_90": 0.6585,
+      "over_2_5_goals_90": 0.3762
+    },
+    "most_likely_scorelines_90": [
+      {
+        "score": "1-1 (Spain-Argentina)",
+        "prob": 0.1454
+      },
+      {
+        "score": "1-0 (Spain-Argentina)",
+        "prob": 0.1253
+      },
+      {
+        "score": "0-0 (Spain-Argentina)",
+        "prob": 0.1241
+      },
+      {
+        "score": "0-1 (Spain-Argentina)",
+        "prob": 0.092
+      },
+      {
+        "score": "2-0 (Spain-Argentina)",
+        "prob": 0.0873
+      },
+      {
+        "score": "2-1 (Spain-Argentina)",
+        "prob": 0.0821
+      },
+      {
+        "score": "1-2 (Spain-Argentina)",
+        "prob": 0.0625
+      },
+      {
+        "score": "0-2 (Spain-Argentina)",
+        "prob": 0.0495
+      },
+      {
+        "score": "2-2 (Spain-Argentina)",
+        "prob": 0.0388
+      },
+      {
+        "score": "3-0 (Spain-Argentina)",
+        "prob": 0.0359
+      }
+    ]
+  },
+  "scenario_market_heavy": {
+    "inputs_summary": {
+      "market_devig_1x2": [
+        0.4171,
+        0.321,
+        0.2619
+      ],
+      "elo_1x2": [
+        0.3832,
+        0.2981,
+        0.3187
+      ],
+      "published_avg_1x2": [
+        0.45,
+        0.29,
+        0.26
+      ],
+      "blended_1x2": [
+        0.4203,
+        0.3152,
+        0.2644
+      ],
+      "lambda_spain": 1.256,
+      "lambda_argentina": 0.944
+    },
+    "ninety_minutes": {
+      "spain_win": 0.4214,
+      "draw": 0.3135,
+      "argentina_win": 0.2651
+    },
+    "path_to_title": {
+      "spain_in_90": 0.4214,
+      "spain_in_extra_time": 0.0734,
+      "spain_on_penalties": 0.0849,
+      "argentina_in_90": 0.2651,
+      "argentina_in_extra_time": 0.0522,
+      "argentina_on_penalties": 0.103
+    },
+    "championship": {
+      "spain_lifts_trophy": 0.5797,
+      "argentina_lifts_trophy": 0.4203
+    },
+    "match_shape": {
+      "goes_to_extra_time": 0.3135,
+      "goes_to_penalties": 0.1878,
+      "both_teams_score_90": 0.45,
+      "over_1_5_goals_90": 0.6585,
+      "over_2_5_goals_90": 0.3762
+    },
+    "most_likely_scorelines_90": [
+      {
+        "score": "1-1 (Spain-Argentina)",
+        "prob": 0.1452
+      },
+      {
+        "score": "1-0 (Spain-Argentina)",
+        "prob": 0.1258
+      },
+      {
+        "score": "0-0 (Spain-Argentina)",
+        "prob": 0.1241
+      },
+      {
+        "score": "0-1 (Spain-Argentina)",
+        "prob": 0.0917
+      },
+      {
+        "score": "2-0 (Spain-Argentina)",
+        "prob": 0.0879
+      },
+      {
+        "score": "2-1 (Spain-Argentina)",
+        "prob": 0.0824
+      },
+      {
+        "score": "1-2 (Spain-Argentina)",
+        "prob": 0.0622
+      },
+      {
+        "score": "0-2 (Spain-Argentina)",
+        "prob": 0.0491
+      },
+      {
+        "score": "2-2 (Spain-Argentina)",
+        "prob": 0.0387
+      },
+      {
+        "score": "3-0 (Spain-Argentina)",
+        "prob": 0.0362
+      }
+    ]
+  },
+  "scenario_model_heavy": {
+    "inputs_summary": {
+      "market_devig_1x2": [
+        0.4171,
+        0.321,
+        0.2619
+      ],
+      "elo_1x2": [
+        0.3832,
+        0.2981,
+        0.3187
+      ],
+      "published_avg_1x2": [
+        0.45,
+        0.29,
+        0.26
+      ],
+      "blended_1x2": [
+        0.4201,
+        0.3017,
+        0.2782
+      ],
+      "lambda_spain": 1.241,
+      "lambda_argentina": 0.959
+    },
+    "ninety_minutes": {
+      "spain_win": 0.4139,
+      "draw": 0.3148,
+      "argentina_win": 0.2712
+    },
+    "path_to_title": {
+      "spain_in_90": 0.4139,
+      "spain_in_extra_time": 0.0729,
+      "spain_on_penalties": 0.0854,
+      "argentina_in_90": 0.2712,
+      "argentina_in_extra_time": 0.0535,
+      "argentina_on_penalties": 0.1031
+    },
+    "championship": {
+      "spain_lifts_trophy": 0.5722,
+      "argentina_lifts_trophy": 0.4278
+    },
+    "match_shape": {
+      "goes_to_extra_time": 0.3148,
+      "goes_to_penalties": 0.1885,
+      "both_teams_score_90": 0.4512,
+      "over_1_5_goals_90": 0.6585,
+      "over_2_5_goals_90": 0.3757
+    },
+    "most_likely_scorelines_90": [
+      {
+        "score": "1-1 (Spain-Argentina)",
+        "prob": 0.1459
+      },
+      {
+        "score": "1-0 (Spain-Argentina)",
+        "prob": 0.1242
+      },
+      {
+        "score": "0-0 (Spain-Argentina)",
+        "prob": 0.1242
+      },
+      {
+        "score": "0-1 (Spain-Argentina)",
+        "prob": 0.0931
+      },
+      {
+        "score": "2-0 (Spain-Argentina)",
+        "prob": 0.086
+      },
+      {
+        "score": "2-1 (Spain-Argentina)",
+        "prob": 0.0816
+      },
+      {
+        "score": "1-2 (Spain-Argentina)",
+        "prob": 0.0632
+      },
+      {
+        "score": "0-2 (Spain-Argentina)",
+        "prob": 0.0508
+      },
+      {
+        "score": "2-2 (Spain-Argentina)",
+        "prob": 0.0392
+      },
+      {
+        "score": "3-0 (Spain-Argentina)",
+        "prob": 0.035
+      }
+    ]
+  },
+  "live_update_halftime_0_0": {
+    "state": "0-0 at halftime; Lisandro Martinez off injured (Otamendi on)",
+    "second_half_lambdas": {
+      "spain": 0.638,
+      "argentina": 0.469
+    },
+    "ninety_minutes_from_here": {
+      "spain_win": 0.3274,
+      "draw_level_after_90": 0.4556,
+      "argentina_win": 0.217
+    },
+    "championship": {
+      "spain_lifts_trophy": 0.5472,
+      "argentina_lifts_trophy": 0.4528
+    },
+    "match_shape": {
+      "goes_to_extra_time": 0.4556,
+      "goes_to_penalties": 0.3429
+    },
+    "path_to_title": {
+      "spain_in_90": 0.3274,
+      "spain_in_extra_time": 0.0661,
+      "spain_on_penalties": 0.1537,
+      "argentina_in_90": 0.217,
+      "argentina_in_extra_time": 0.0466,
+      "argentina_on_penalties": 0.1892
+    },
+    "most_likely_final_scores_90": [
+      {
+        "score": "0-0 (Spain-Argentina)",
+        "prob": 0.3394
+      },
+      {
+        "score": "1-0 (Spain-Argentina)",
+        "prob": 0.2016
+      },
+      {
+        "score": "0-1 (Spain-Argentina)",
+        "prob": 0.1456
+      },
+      {
+        "score": "1-1 (Spain-Argentina)",
+        "prob": 0.1083
+      },
+      {
+        "score": "2-0 (Spain-Argentina)",
+        "prob": 0.0677
+      },
+      {
+        "score": "0-2 (Spain-Argentina)",
+        "prob": 0.0364
+      },
+      {
+        "score": "2-1 (Spain-Argentina)",
+        "prob": 0.0315
+      },
+      {
+        "score": "1-2 (Spain-Argentina)",
+        "prob": 0.0234
+      }
+    ]
+  }
+}

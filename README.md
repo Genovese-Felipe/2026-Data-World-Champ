@@ -1,6 +1,14 @@
 # 2026-Data-World-Champ
 A data-driven champion perspective for the 2026 FIFA World Cup
 
+## Final forecast — Spain vs Argentina (19 July 2026)
+
+See [`final-forecast/`](final-forecast/) for a verified, reproducible
+outcome-scenario estimate of the final: market de-vigging, Elo, the Opta
+supercomputer, a Dixon-Coles score engine and a 500,000-trial Monte Carlo,
+including a live update conditioned on the 0-0 halftime state.
+Headline: Spain 57.8% pre-match / 54.7% at halftime to lift the trophy.
+
 ## 🏆 Interactive demo — "300 Analysts, One Question"
 
 Open **[`index.html`](index.html)** in any browser (no build step, no server).
