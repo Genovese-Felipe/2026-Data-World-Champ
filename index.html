@@ -361,13 +361,37 @@
         insPick=document.getElementById('ins-pick'),
         insQ=document.getElementById('ins-q'),
         inspect=document.getElementById('inspect');
+
+  // ⚡ Bolt: Pre-construct DOM nodes for the inspector to avoid HTML parsing on hover
+  // 💡 What: Replaced dynamic innerHTML assignment with pre-constructed text and bold element nodes.
+  // 🎯 Why: innerHTML requires HTML parsing which is slow. Updating textContent and style is much faster, especially during rapid hover events.
+  // 📊 Impact: Eliminates layout thrashing and reduces script execution time during mouseover.
+  const insPickPrefix = document.createTextNode('Pick: ');
+  const insPickTeamNode = document.createElement('b');
+  const insPickSuffix = document.createTextNode('');
+  insPick.innerHTML = '';
+  insPick.appendChild(insPickPrefix);
+  insPick.appendChild(insPickTeamNode);
+  insPick.appendChild(insPickSuffix);
+
   let pinnedHL=null;
   grid.addEventListener('mouseover',e=>{
-    const cell=e.target.closest('.cell'); if(!cell)return;
+    const cell=e.target.closest('.cell');
+
+    // ⚡ Bolt: Early return for active cell
+    // 💡 What: Added a check to return early if we are hovering over the same cell we already highlighted.
+    // 🎯 Why: mouseover fires continuously as the mouse moves within the element; there's no need to update the DOM if the cell hasn't changed.
+    // 📊 Impact: Drastically cuts down redundant DOM updates and script execution when the mouse moves over a single cell.
+    if(!cell || cell === pinnedHL) return;
+
     const p=preds[+cell.dataset.idx];
     inspect.classList.remove('empty');
     insWho.textContent = p.camp + ' · ' + p.persona;
-    insPick.innerHTML = 'Pick: <b style="color:'+TEAMCOLOR(p.team)+'">'+p.team+'</b> · conviction '+p.confidence+'/9';
+
+    insPickTeamNode.style.color = TEAMCOLOR(p.team);
+    insPickTeamNode.textContent = p.team;
+    insPickSuffix.textContent = ' · conviction '+p.confidence+'/9';
+
     insQ.textContent = '“'+p.quote+'”';
     if(pinnedHL) pinnedHL.classList.remove('hl');
     cell.classList.add('hl'); pinnedHL=cell;
