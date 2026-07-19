@@ -63,6 +63,45 @@ shootout: 18.9 points of their 45.3% come from penalties alone, versus
 
 ---
 
+### Minute-82 update — Spain 0-0 Argentina (`live_min82.py`)
+
+With the clock at ~82:00, still 0-0, Spain territorially dominant (~63%
+possession, 10 shots/7 on target) but Argentina generating nothing (0
+shots, 0 xG), the estimate is recomputed exactly (closed-form Poisson over
+the ~12 remaining regulation minutes, then extra time, then a shootout).
+
+| Outcome from the 82nd minute | Probability |
+|---|---|
+| Still level at 90' (goes to extra time) | 78.4% |
+| Spain wins in remaining regulation | 14.1% |
+| Argentina wins in remaining regulation | 7.4% |
+| Reaches a penalty shootout | 50.7% |
+| **Spain to lift the trophy (central)** | **52.7%** |
+| **Argentina to lift the trophy (central)** | **47.3%** |
+
+This is now a near coin-flip, and the verdict rests almost entirely on one
+number: the shootout win probability. The **funnel effect** is real — a
+scoreless, cagey final with little time left funnels toward penalties
+(~51% chance), and there Argentina's shootout pedigree (6 of 7 in World
+Cup history; Emiliano Martinez the era's premier shootout keeper) opposes
+Spain's poor record (1 of 5, including 0-3 vs Morocco in 2022). The
+sensitivity sweep shows exactly where the favorite flips:
+
+| Argentina shootout edge | Spain title | Argentina title | Favorite |
+|---|---|---|---|
+| 50% | 56.7% | 43.3% | Spain |
+| 55% | 54.2% | 45.8% | Spain |
+| 58% (central) | 52.7% | 47.3% | Spain |
+| 60% | 51.7% | 48.3% | Spain |
+| 65% | 49.1% | 50.9% | Argentina |
+
+**Decided verdict at minute 82:** a coin-flip tilting marginally to Spain
+(~53/47). Argentina becomes the favorite only if you credit the shootout
+at 63% or higher. Empirically, even elite shootout skill rarely pushes past
+~58-60%, so the central estimate keeps Spain a nose ahead — but every
+scoreless minute from here moves the needle toward Argentina, and if it
+reaches penalties, Argentina is the side to back.
+
 ## Method — what was done and why
 
 The approach is a standard forecasting stack for a single football match,
