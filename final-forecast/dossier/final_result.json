@@ -1,0 +1,22 @@
+{
+  "_provenance": "Yahoo Sports live blog (last updated 2026-07-20 00:05 UTC) and NBC News live blog (last updated 2026-07-19 19:53 EDT), cross-checked. FIFA.com and ESPN match pages listed but not directly fetchable (JS-rendered).",
+  "result": "Spain 1-0 Argentina (AET)",
+  "winner": "Spain",
+  "score_90min": "0-0",
+  "score_final": "1-0",
+  "decided_in": "extra_time",
+  "shootout_occurred": false,
+  "winning_goal": {
+    "scorer": "Ferran Torres",
+    "minute": "106 (2nd period of extra time)",
+    "detail": "Pedro Porro crossed, Nico Williams headed the ball back across goal, Torres finished from close range."
+  },
+  "key_events": [
+    "Enzo Fernandez (Argentina) sent off for a second yellow card in second-half stoppage time of regulation (foul on Pau Cubarsi) -- Argentina played the last ~30 minutes, including all of extra time, a man down.",
+    "Emiliano Martinez (Argentina GK) set a World Cup final record with 11 saves despite the loss.",
+    "Final shot count: Spain 20 (12 on target) vs Argentina 2 (0 on target).",
+    "Argentina held roughly 35% possession through 90 minutes."
+  ],
+  "significance": "Spain's second men's World Cup title (also 2010, also won 1-0 in extra time). Denies Argentina back-to-back titles -- would have been the first repeat champion since Brazil 1958/1962.",
+  "note_on_min82_checkpoint": "The Enzo Fernandez red card occurred in second-half STOPPAGE TIME of regulation -- after the minute-82 checkpoint used for the live forecast update. That information was not available to the minute-82 model and is a genuine blind spot, not a modeling error; see the audit notes."
+}

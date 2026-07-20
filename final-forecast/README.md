@@ -1,14 +1,28 @@
 # 2026 World Cup final — outcome-scenario estimate
 
+**FULL TIME: Spain 1-0 Argentina (after extra time).** Ferran Torres scored
+the winner in the 106th minute; Argentina played the last ~30 minutes a man
+down after Enzo Fernandez's second-half-stoppage-time red card. Spain's
+second men's title (also 2010, also 1-0 in extra time); Argentina misses
+out on becoming the first repeat champion since Brazil 1958/1962.
+
 **Spain vs Argentina, Sunday 19 July 2026, MetLife Stadium, East Rutherford NJ.**
-Estimate produced on match day. All inputs were gathered and then independently
-re-verified against primary sources on 19 July 2026 (full source list at the
-bottom). Status at the time of the run: the match kicked off at 15:07 ET and
-was **0-0 at halftime**, so this document gives both the pre-match baseline and
-a live estimate conditioned on that halftime state.
+This forecast was built and updated live across the match: a pre-match
+baseline, a halftime update (0-0), and a minute-82 update (still 0-0). Every
+checkpoint favored Spain, and Spain won — see `dossier/audit.json` and
+`dossier/exports/` for the full prediction-performance audit, scored against
+the confirmed result.
+
+**Full interactive dossier:** `dossier/` contains an interactive Plotly
+dashboard (`dashboard/dashboard.html`, self-contained, open in any browser),
+a runnable Dash app with live server callbacks (`dash_app.py`), static chart
+images and a GIF animation (`charts/`), a 36-month Elo trend for both teams,
+and XLSX/PDF prediction-performance dossiers (`exports/`). See
+`dossier/README.md` for the full breakdown.
 
 Contents: `model.py` (the engine), `inputs.json` (verified inputs with
-provenance notes), `results.json` (full output of the 500,000-trial run).
+provenance notes), `results.json` (full output of the 500,000-trial run),
+`live_min82.py` (closed-form minute-82 update with shootout sensitivity).
 Reproduce with `python3 model.py`. For entertainment and analysis practice
 only — not betting advice.
 
@@ -198,6 +212,48 @@ checks against primary sources before use:
   reflected above.
 - Live status: CONFIRMED across five live blogs (CBS, Yahoo, NBC, Heavy,
   SBS): kicked off 15:07 ET, 0-0 at halftime.
+
+## Prediction-performance audit
+
+Every checkpoint scored against the confirmed result using the Brier score
+(mean squared error between the stated probability and the outcome; 0 is
+perfect, 0.25 is what a coin flip scores, lower is better).
+
+| Checkpoint | Spain / Argentina predicted | Winner call | Result | Brier score |
+|---|---|---|---|---|
+| Pre-match | 57.8% / 42.2% | Spain | Correct | 0.1785 |
+| Halftime | 54.7% / 45.3% | Spain | Correct | 0.2050 |
+| Minute 82 | 52.7% / 47.3% | Spain | Correct | 0.2239 |
+
+All three beat the 0.25 coin-flip baseline. **Caveat:** this is one match
+(n=1) — a good Brier score here shows the forecast beat a naive baseline on
+the outcome that actually happened, not a validated calibration claim, which
+needs many repeated trials.
+
+**What went right:** the winner call at every checkpoint; the extra-time
+call (78.4% at minute 82, and the match went to extra time); the 90-minute
+scoreline (0-0 was the model's top pre-match-implied bucket by minute 82,
+and that's exactly the 90-minute result); the low-scoring-final read overall.
+1-0 was pre-match's #2 most likely 90-minute scoreline (12.5%) and is the
+exact final score — a strong hit, with the caveat that it arrived via extra
+time rather than the 90-minute bucket it was originally priced under.
+
+**What went untested, not wrong:** the minute-82 shootout-sensitivity
+analysis was the single most decision-relevant piece of reasoning at that
+stage of the match — and the game never reached penalties, so that branch
+was never checked against reality. Not a miss; a live, correctly-uncertain
+call that the match resolved before it had to pay off.
+
+**Blind spot:** Enzo Fernandez's red card landed in second-half stoppage
+time of regulation — after the minute-82 checkpoint. The model had no
+mechanism to react to live cards or dismissals, so it never got to price in
+Argentina playing a man down through extra time. Final shot count (Spain
+20-2, 12-0 on target) was far more lopsided than the minute-82 snapshot
+(10-0) suggested — a real gap between the model and the game's actual
+trajectory, worth fixing with a live-event layer next time.
+
+Full detail, the 36-month Elo trend, and the exportable XLSX/PDF versions of
+this audit are in `dossier/`.
 
 ## Key sources
 

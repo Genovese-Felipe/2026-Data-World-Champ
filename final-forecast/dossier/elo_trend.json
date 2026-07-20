@@ -1,0 +1,33 @@
+{
+  "_provenance": "World Football Elo Ratings (eloratings.net), pulled directly from the site's per-nation TSV data files (Spain.tsv, Argentina.tsv) -- exact match-by-match rating history, not interpolated. Cross-validated against eloratings.net's own published 3mo/6mo/1yr/2yr rolling-change columns (exact match). One correction applied: the source agent labeled Argentina's 2026-07-11 quarterfinal opponent as 'Chile' -- this is wrong and has been corrected to Switzerland (3-1 AET), per this session's earlier adversarially-verified tournament-path research (FIFA.com, Sky Sports, Al Jazeera live blogs, cross-checked). The Elo rating VALUE at that date is unaffected by the label error and is used as sourced.",
+  "_methodology": "Each point is the team's rating immediately after its most recent match on or before one of 15 target lookback dates (7d, 15d, 1-16mo, then every 4mo back to 36mo), counting back from the final on 2026-07-19, plus the post-final rating. Duplicate target dates that resolved to the same underlying match are collapsed to one point. This means the series is intentionally sparse between matches (Elo only changes on match days) -- it is NOT a complete list of every match either team played; it is exactly the primary-sourced points needed to answer 'what was the rating at each of these lookback horizons.' Pre-tournament historical points (Jul 2023 - Mar 2026) are single-sourced from this pull and were not independently cross-verified the way the June-July 2026 tournament matches were in the main forecast -- treat those opponent labels as lower-confidence context; the numeric ratings are primary-sourced regardless.",
+  "spain": [
+    {"date": "2023-06-18", "rating": 1990, "rank": 7, "context": "Drew Croatia 0-0 (Nations League)"},
+    {"date": "2023-11-19", "rating": 2034, "rank": 3, "context": "Beat Georgia 3-1 (Euro 2024 qualifying)"},
+    {"date": "2024-07-14", "rating": 2150, "rank": 2, "context": "Won Euro 2024 final, beat England 2-1"},
+    {"date": "2024-11-18", "rating": 2178, "rank": 1, "context": "Beat Switzerland 3-2 (Nations League)"},
+    {"date": "2025-06-08", "rating": 2157, "rank": 1, "context": "Nations League final vs Portugal, 2-2 (lost on penalties)"},
+    {"date": "2025-10-14", "rating": 2182, "rank": 1, "context": "Beat Bulgaria 4-0 (World Cup qualifying)"},
+    {"date": "2025-11-18", "rating": 2172, "rank": 1, "context": "Drew Turkey 2-2 (World Cup qualifying, clinched qualification)"},
+    {"date": "2026-03-31", "rating": 2165, "rank": 1, "context": "Drew Egypt 0-0 (friendly)"},
+    {"date": "2026-06-15", "rating": 2129, "rank": 1, "context": "Drew Cabo Verde 0-0 (World Cup group opener)"},
+    {"date": "2026-07-02", "rating": 2159, "rank": 1, "context": "Beat Austria 3-0 (World Cup Round of 32)"},
+    {"date": "2026-07-10", "rating": 2190, "rank": 1, "context": "Beat Belgium 2-1 (World Cup quarterfinal)"},
+    {"date": "2026-07-19", "rating": 2259, "rank": 1, "context": "WORLD CHAMPIONS -- beat Argentina 1-0 AET (World Cup final)"}
+  ],
+  "argentina": [
+    {"date": "2023-06-19", "rating": 2148, "rank": 1, "context": "Beat Indonesia 2-0 (friendly, reigning 2022 World Cup champions)"},
+    {"date": "2023-11-16", "rating": 2118, "rank": 2, "context": "Lost to Uruguay 0-2 (World Cup qualifying)"},
+    {"date": "2023-11-21", "rating": 2139, "rank": 1, "context": "Beat Brazil 1-0 away (World Cup qualifying)"},
+    {"date": "2024-07-14", "rating": 2169, "rank": 1, "context": "Won Copa America 2024 final, beat Colombia 1-0 (AET)"},
+    {"date": "2024-11-19", "rating": 2108, "rank": 2, "context": "Beat Peru 1-0 (World Cup qualifying)"},
+    {"date": "2025-06-10", "rating": 2132, "rank": 2, "context": "Drew Colombia 1-1 (World Cup qualifying)"},
+    {"date": "2025-10-14", "rating": 2111, "rank": 2, "context": "Beat Puerto Rico 6-0 (friendly, already qualified)"},
+    {"date": "2025-11-14", "rating": 2113, "rank": 2, "context": "Beat Angola 2-0 (friendly)"},
+    {"date": "2026-03-31", "rating": 2113, "rank": 2, "context": "Beat Zambia 5-0 (friendly)"},
+    {"date": "2026-06-16", "rating": 2128, "rank": 2, "context": "Beat Algeria 3-0 (World Cup group opener)"},
+    {"date": "2026-07-03", "rating": 2151, "rank": 2, "context": "Beat Cabo Verde 3-2 AET (World Cup Round of 32)"},
+    {"date": "2026-07-11", "rating": 2177, "rank": 2, "context": "Beat Switzerland 3-1 AET (World Cup quarterfinal) -- corrected from source label 'Chile'"},
+    {"date": "2026-07-19", "rating": 2173, "rank": 2, "context": "RUNNERS-UP -- lost to Spain 0-1 AET (World Cup final)"}
+  ]
+}

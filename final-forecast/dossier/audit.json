@@ -1,0 +1,65 @@
+{
+  "final_result_summary": "Spain 1-0 Argentina (AET)",
+  "rows": [
+    {
+      "checkpoint": "Pre-match",
+      "score_at_checkpoint": "0-0 (not started)",
+      "predicted_spain_title_pct": 57.8,
+      "predicted_argentina_title_pct": 42.2,
+      "winner_call": "Spain",
+      "winner_call_correct": true,
+      "brier_score": 0.1785,
+      "beat_coinflip_baseline": true,
+      "reach_extra_time_predicted_pct": 31.4,
+      "reach_penalties_predicted_pct": 18.8
+    },
+    {
+      "checkpoint": "Halftime",
+      "score_at_checkpoint": "0-0",
+      "predicted_spain_title_pct": 54.7,
+      "predicted_argentina_title_pct": 45.3,
+      "winner_call": "Spain",
+      "winner_call_correct": true,
+      "brier_score": 0.205,
+      "beat_coinflip_baseline": true,
+      "reach_extra_time_predicted_pct": 45.6,
+      "reach_penalties_predicted_pct": 34.3
+    },
+    {
+      "checkpoint": "Minute 82",
+      "score_at_checkpoint": "0-0",
+      "predicted_spain_title_pct": 52.7,
+      "predicted_argentina_title_pct": 47.3,
+      "winner_call": "Spain",
+      "winner_call_correct": true,
+      "brier_score": 0.2239,
+      "beat_coinflip_baseline": true,
+      "reach_extra_time_predicted_pct": 78.4,
+      "reach_penalties_predicted_pct": 50.7
+    }
+  ],
+  "n_caveat": "This is a single realized match (n=1). Brier scores below show this forecast beat the coin-flip baseline (0.25) on the outcome that actually happened -- they are evidence of a reasonable call, not a validated calibration claim. Calibration requires many repeated trials across many matches.",
+  "extra_time_call": {
+    "predicted_probability_at_min82_pct": 78.4,
+    "actual": "Match went to extra time",
+    "correct": true
+  },
+  "penalties_call": {
+    "predicted_probability_at_min82_pct": 50.7,
+    "actual": "Decided by an extra-time goal (106'), no shootout",
+    "call_direction": "above 50% -- model leaned toward penalties",
+    "materialized": false,
+    "note": "Not a wrong model output -- 78.4% chance of reaching extra time was correct, and within that, the game could plausibly have gone either way to 120' or to penalties. It resolved in the 45.6%-ish complementary bucket (decided inside extra time) rather than the ~34% penalties bucket. A probabilistic forecast assigning ~51% to an event that has a real ~46% complement is not falsified when the complement occurs."
+  },
+  "scoreline_check": {
+    "score_after_90": "0-0",
+    "prematch_rank_of_0_0": 3,
+    "final_score_incl_et": "1-0 Spain",
+    "prematch_rank_of_1_0": 2,
+    "note": "0-0 was the model's #3 most likely 90-minute scoreline pre-match (12.4%) and became the base case by minute 82 -- exactly what happened at 90'. 1-0 was the model's #2 most likely 90-minute scoreline pre-match (12.5%) and is also the exact final score -- but arrived via extra time, a different mechanism than the 90-minute bucket it was originally priced under. Presented as a strong directional hit with that mechanism caveat, not an unqualified exact-score hit."
+  },
+  "not_modeled": {
+    "red_card": "Enzo Fernandez's second-yellow dismissal came in second-half stoppage time of regulation, after the minute-82 checkpoint used for the live update. The model never had the chance to price a man-advantage into Spain's extra-time goal rate -- a genuine information gap, not a modeling failure. A forecast that ingested live cards/dismissals would have pushed Spain's extra-time and final win probability higher than the 52.7% quoted at minute 82.",
+    "shot_dominance_underestimate": "Minute-82 shot count was Spain 10-0; final was Spain 20-2 (12-0 on target). The model discounted Argentina's attack by a flat 0.72x multiplier at that checkpoint; the true gap (amplified by playing a man down) was larger."
+  }
+}
