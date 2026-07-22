@@ -362,15 +362,26 @@
         insQ=document.getElementById('ins-q'),
         inspect=document.getElementById('inspect');
   let pinnedHL=null;
+  let hoveredCell=null;
+  let rafId=null;
   grid.addEventListener('mouseover',e=>{
     const cell=e.target.closest('.cell'); if(!cell)return;
-    const p=preds[+cell.dataset.idx];
-    inspect.classList.remove('empty');
-    insWho.textContent = p.camp + ' · ' + p.persona;
-    insPick.innerHTML = 'Pick: <b style="color:'+TEAMCOLOR(p.team)+'">'+p.team+'</b> · conviction '+p.confidence+'/9';
-    insQ.textContent = '“'+p.quote+'”';
-    if(pinnedHL) pinnedHL.classList.remove('hl');
-    cell.classList.add('hl'); pinnedHL=cell;
+
+    // ⚡ Bolt: Early return if we're already processing this exact cell
+    if (cell === hoveredCell) return;
+    hoveredCell = cell;
+
+    // ⚡ Bolt: Batch DOM updates via requestAnimationFrame to prevent main thread layout thrashing
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(() => {
+      const p=preds[+cell.dataset.idx];
+      inspect.classList.remove('empty');
+      insWho.textContent = p.camp + ' · ' + p.persona;
+      insPick.innerHTML = 'Pick: <b style="color:'+TEAMCOLOR(p.team)+'">'+p.team+'</b> · conviction '+p.confidence+'/9';
+      insQ.textContent = '“'+p.quote+'”';
+      if(pinnedHL) pinnedHL.classList.remove('hl');
+      cell.classList.add('hl'); pinnedHL=cell;
+    });
   });
 
   // reveal animation + live tally
