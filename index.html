@@ -362,15 +362,23 @@
         insQ=document.getElementById('ins-q'),
         inspect=document.getElementById('inspect');
   let pinnedHL=null;
+  // ⚡ Bolt: Performance optimization
+  // 💡 What: Throttled mouseover event with requestAnimationFrame and added early return for same cell.
+  // 🎯 Why: Frequent mouseover events trigger expensive DOM updates and style recalculations unnecessarily when hovering the same cell or rapidly moving across the grid.
+  // 📊 Impact: Significantly reduces main thread blocking and layout thrashing during hover interactions, ensuring smooth performance.
+  let hoverRafId=null;
   grid.addEventListener('mouseover',e=>{
-    const cell=e.target.closest('.cell'); if(!cell)return;
-    const p=preds[+cell.dataset.idx];
-    inspect.classList.remove('empty');
-    insWho.textContent = p.camp + ' · ' + p.persona;
-    insPick.innerHTML = 'Pick: <b style="color:'+TEAMCOLOR(p.team)+'">'+p.team+'</b> · conviction '+p.confidence+'/9';
-    insQ.textContent = '“'+p.quote+'”';
-    if(pinnedHL) pinnedHL.classList.remove('hl');
-    cell.classList.add('hl'); pinnedHL=cell;
+    const cell=e.target.closest('.cell'); if(!cell || cell === pinnedHL)return;
+    if(hoverRafId) cancelAnimationFrame(hoverRafId);
+    hoverRafId = requestAnimationFrame(() => {
+      const p=preds[+cell.dataset.idx];
+      inspect.classList.remove('empty');
+      insWho.textContent = p.camp + ' · ' + p.persona;
+      insPick.innerHTML = 'Pick: <b style="color:'+TEAMCOLOR(p.team)+'">'+p.team+'</b> · conviction '+p.confidence+'/9';
+      insQ.textContent = '“'+p.quote+'”';
+      if(pinnedHL) pinnedHL.classList.remove('hl');
+      cell.classList.add('hl'); pinnedHL=cell;
+    });
   });
 
   // reveal animation + live tally
