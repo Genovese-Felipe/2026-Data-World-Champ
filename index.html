@@ -433,6 +433,14 @@
   const rankFrag = document.createDocumentFragment();
   const top8=D.top8;
   const maxProb=Math.max(...top8.map(r=>r.prob));
+
+  // ⚡ Bolt: Performance optimization
+  // 💡 What: Cached `.bar` and `.cv` DOM nodes during creation and batched all countUp animations into a single requestAnimationFrame loop.
+  // 🎯 Why: Querying DOM elements after appending them triggers unnecessary layout reads. Calling requestAnimationFrame independently for 8 different elements causes multiple render cycles per frame.
+  // 📊 Impact: Eliminates querySelectorAll overhead and prevents layout thrashing by synchronizing animation updates into one single browser render frame.
+  const cachedBars = [];
+  const cachedCVs = [];
+
   top8.forEach((r,i)=>{
     const row=document.createElement('div');
     row.className='row'+(i===0?' lead':'');
@@ -442,7 +450,12 @@
       '<div class="bar-track"><div class="bar" style="background:'+TEAMCOLOR(r.team)+'"></div></div>'+
       '<div class="val"><span class="cv" data-to="'+r.prob+'">0.0</span><span class="pct"> %</span></div>';
     rankFrag.appendChild(row);
-    row.querySelector('.bar').dataset.w = (r.prob/maxProb*100).toFixed(1);
+
+    const bar = row.querySelector('.bar');
+    bar.dataset.w = (r.prob/maxProb*100).toFixed(1);
+    cachedBars.push(bar);
+    cachedCVs.push({el: row.querySelector('.cv'), to: r.prob});
+
     // small subline with vote count
     const sub=document.createElement('div');
     sub.className='sub';
@@ -452,8 +465,8 @@
   rank.appendChild(rankFrag);
 
   function runRanking(){
-    rank.querySelectorAll('.bar').forEach(b=>{ b.style.width=b.dataset.w+'%'; });
-    rank.querySelectorAll('.cv').forEach(el=>countUp(el, parseFloat(el.dataset.to), 1150));
+    cachedBars.forEach(b=>{ b.style.width=b.dataset.w+'%'; });
+    countUpAll(cachedCVs, 1150);
   }
   io(document.getElementById('result'), runRanking, .2);
 
@@ -549,13 +562,17 @@
     },{threshold:threshold||.2});
     obs.observe(el);
   }
-  function countUp(el,to,dur){
+  function countUpAll(items, dur){
     const start=performance.now(), from=0;
     const tick=now=>{
       const t=Math.min(1,(now-start)/dur);
       const e=1-Math.pow(1-t,3);
-      el.textContent=(from+(to-from)*e).toFixed(1);
-      if(t<1)requestAnimationFrame(tick); else el.textContent=to.toFixed(1);
+      items.forEach(item => {
+        item.el.textContent=(from+(item.to-from)*e).toFixed(1);
+      });
+      if(t<1)requestAnimationFrame(tick); else {
+        items.forEach(item => { item.el.textContent=item.to.toFixed(1); });
+      }
     };
     requestAnimationFrame(tick);
   }
