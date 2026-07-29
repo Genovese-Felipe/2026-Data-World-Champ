@@ -115,8 +115,24 @@
   /* feed */
   .feed-card{background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;height:100%}
   .feed-head{padding:13px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}
-  .feed-head .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(168,132,43,.5);animation:pulse 1.8s infinite}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(168,132,43,.45)}70%{box-shadow:0 0 0 7px rgba(168,132,43,0)}100%{box-shadow:0 0 0 0 rgba(168,132,43,0)}}
+
+  /* ⚡ Bolt: Performance optimization
+     💡 What: Replaced box-shadow animation with a ::after pseudo-element using transform and opacity.
+     🎯 Why: box-shadow triggers expensive layout/paint recalculations on the main thread for every frame of the infinite animation, causing constant CPU overhead. Transform and opacity are GPU-accelerated and do not trigger repaints.
+     📊 Impact: Eliminates continuous main-thread repainting during the idle state.
+     🔬 Measurement: Use Chrome DevTools Performance tab (Rendering > Paint flashing) to verify the area no longer constantly repaints. */
+  .feed-head .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);position:relative}
+  .feed-head .dot::after{
+    content:"";position:absolute;top:0;left:0;right:0;bottom:0;
+    border-radius:50%;background:rgba(168,132,43,1);
+    animation:pulse 1.8s infinite;
+    z-index:-1;
+  }
+  @keyframes pulse{
+    0%{transform:scale(1);opacity:0.45}
+    70%{transform:scale(3);opacity:0}
+    100%{transform:scale(1);opacity:0}
+  }
   .feed-head .t{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
   .feed-view{position:relative;height:430px;overflow:hidden;mask-image:linear-gradient(180deg,transparent,#000 9%,#000 91%,transparent)}
   .feed-track{position:absolute;top:0;left:0;right:0;display:flex;flex-direction:column;animation:scrollfeed 38s linear infinite}
