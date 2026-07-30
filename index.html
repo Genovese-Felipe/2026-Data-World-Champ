@@ -115,11 +115,20 @@
   /* feed */
   .feed-card{background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;height:100%}
   .feed-head{padding:13px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}
-  .feed-head .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(168,132,43,.5);animation:pulse 1.8s infinite}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(168,132,43,.45)}70%{box-shadow:0 0 0 7px rgba(168,132,43,0)}100%{box-shadow:0 0 0 0 rgba(168,132,43,0)}}
+  /* ⚡ Bolt: Performance optimization
+     💡 What: Replaced box-shadow pulse animation with a pseudo-element using transform scale and opacity.
+     🎯 Why: Animating box-shadow triggers expensive layout recalculations and repaints on the main thread for every frame. Transform/opacity are GPU-accelerated and only trigger composite operations.
+     📊 Impact: Eliminates constant main-thread layout thrashing caused by the infinite pulse animation, freeing up CPU during rendering. */
+  .feed-head .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);position:relative}
+  .feed-head .dot::after{content:"";position:absolute;inset:0;border-radius:50%;background:rgba(168,132,43,.5);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%{transform:scale(1);opacity:.9}70%{transform:scale(3);opacity:0}100%{transform:scale(1);opacity:0}}
   .feed-head .t{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
   .feed-view{position:relative;height:430px;overflow:hidden;mask-image:linear-gradient(180deg,transparent,#000 9%,#000 91%,transparent)}
-  .feed-track{position:absolute;top:0;left:0;right:0;display:flex;flex-direction:column;animation:scrollfeed 38s linear infinite}
+  /* ⚡ Bolt: Performance optimization
+     💡 What: Added will-change: transform to the continuous scrolling container.
+     🎯 Why: Promotes the scrolling list to its own compositor layer ahead of time, preventing layout thrashing and allowing the GPU to handle the continuous transform.
+     📊 Impact: Eliminates continuous main thread repaints during the infinite scroll animation. */
+  .feed-track{position:absolute;top:0;left:0;right:0;display:flex;flex-direction:column;animation:scrollfeed 38s linear infinite;will-change:transform}
   .feed-view:hover .feed-track{animation-play-state:paused}
   @keyframes scrollfeed{from{transform:translateY(0)}to{transform:translateY(-50%)}}
   .take{padding:14px 16px;border-bottom:1px solid var(--line)}
