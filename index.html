@@ -521,6 +521,11 @@
   // toggle
   document.getElementById('toggle').addEventListener('click',e=>{
     const b=e.target.closest('button'); if(!b)return;
+    // ⚡ Bolt: Performance optimization
+    // 💡 What: Add an early return if the clicked button is already active.
+    // 🎯 Why: Re-clicking the active tab triggers unnecessary querySelectorAll, DOM class toggles, and layout recalculations.
+    // 📊 Impact: Saves CPU cycles and prevents redundant layout thrashing when clicking the active view state.
+    if(b.classList.contains('active')) return;
     document.querySelectorAll('#toggle button').forEach(x=>x.classList.remove('active'));
     b.classList.add('active');
     const heatMode=b.dataset.mode==='heat';
@@ -551,11 +556,20 @@
   }
   function countUp(el,to,dur){
     const start=performance.now(), from=0;
+    // ⚡ Bolt: Performance optimization
+    // 💡 What: Cache the previously rendered value to avoid redundant DOM writes.
+    // 🎯 Why: The requestAnimationFrame loop runs at ~60fps, but the displayed value (toFixed(1)) changes less frequently. el.textContent is an expensive JS-DOM boundary crossing.
+    // 📊 Impact: Eliminates redundant DOM updates, reducing layout thrashing and CPU usage during the animation.
+    let lastVal = null;
     const tick=now=>{
       const t=Math.min(1,(now-start)/dur);
       const e=1-Math.pow(1-t,3);
-      el.textContent=(from+(to-from)*e).toFixed(1);
-      if(t<1)requestAnimationFrame(tick); else el.textContent=to.toFixed(1);
+      const newVal = (from+(to-from)*e).toFixed(1);
+      if (newVal !== lastVal) {
+        el.textContent = newVal;
+        lastVal = newVal;
+      }
+      if(t<1)requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
   }
