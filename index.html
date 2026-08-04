@@ -451,9 +451,25 @@
   });
   rank.appendChild(rankFrag);
 
+  // ⚡ Bolt: Performance optimization
+  // 💡 What: Batched multiple independent `requestAnimationFrame` loops into a single centralized animation loop for the heat ranking counters.
+  // 🎯 Why: Previously, each of the 8 ranking counters started its own independent rAF loop. Firing 8 separate callbacks per frame increases CPU overhead.
+  // 📊 Impact: Reduces rAF callbacks from 8 per frame down to 1, significantly decreasing animation scheduling overhead.
   function runRanking(){
     rank.querySelectorAll('.bar').forEach(b=>{ b.style.width=b.dataset.w+'%'; });
-    rank.querySelectorAll('.cv').forEach(el=>countUp(el, parseFloat(el.dataset.to), 1150));
+    const cvs = Array.from(rank.querySelectorAll('.cv')).map(el => ({
+      el, to: parseFloat(el.dataset.to), from: 0
+    }));
+    if(!cvs.length) return;
+    const start=performance.now(), dur=1150;
+    const tick=now=>{
+      const t=Math.min(1,(now-start)/dur);
+      const e=1-Math.pow(1-t,3);
+      cvs.forEach(c => c.el.textContent=(c.from+(c.to-c.from)*e).toFixed(1));
+      if(t<1) requestAnimationFrame(tick);
+      else cvs.forEach(c => c.el.textContent=c.to.toFixed(1));
+    };
+    requestAnimationFrame(tick);
   }
   io(document.getElementById('result'), runRanking, .2);
 
@@ -549,16 +565,7 @@
     },{threshold:threshold||.2});
     obs.observe(el);
   }
-  function countUp(el,to,dur){
-    const start=performance.now(), from=0;
-    const tick=now=>{
-      const t=Math.min(1,(now-start)/dur);
-      const e=1-Math.pow(1-t,3);
-      el.textContent=(from+(to-from)*e).toFixed(1);
-      if(t<1)requestAnimationFrame(tick); else el.textContent=to.toFixed(1);
-    };
-    requestAnimationFrame(tick);
-  }
+
   function hexA(hex,a){
     hex=hex.replace('#','');
     if(hex.length===3)hex=hex.split('').map(c=>c+c).join('');
