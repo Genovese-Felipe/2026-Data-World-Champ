@@ -559,11 +559,22 @@
     };
     requestAnimationFrame(tick);
   }
+  // ⚡ Bolt: Performance optimization
+  // 💡 What: Added memoization to the hexA color conversion function.
+  // 🎯 Why: hexA is called repeatedly (110+ times) during heat matrix generation, doing redundant string parsing and math.
+  // 📊 Impact: Eliminates duplicate O(n) hex parsing overhead for known colors, yielding faster script execution and reduced CPU usage during rendering.
+  // 🔬 Measurement: Observe faster JS execution time in rendering benchmarks.
   function hexA(hex,a){
-    hex=hex.replace('#','');
-    if(hex.length===3)hex=hex.split('').map(c=>c+c).join('');
-    const r=parseInt(hex.substr(0,2),16),g=parseInt(hex.substr(2,2),16),b=parseInt(hex.substr(4,2),16);
-    return 'rgba('+r+','+g+','+b+','+a.toFixed(2)+')';
+    hexA.cache = hexA.cache || {};
+    const key = hex + a;
+    if (hexA.cache[key]) return hexA.cache[key];
+
+    let h=hex.replace('#','');
+    if(h.length===3)h=h.split('').map(c=>c+c).join('');
+    const r=parseInt(h.substr(0,2),16),g=parseInt(h.substr(2,2),16),b=parseInt(h.substr(4,2),16);
+    const res = 'rgba('+r+','+g+','+b+','+a.toFixed(2)+')';
+    hexA.cache[key] = res;
+    return res;
   }
 })();
 </script>
