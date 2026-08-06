@@ -6,3 +6,6 @@
 ## 2026-07-24 - Optimize Rapid Mouseover Events
 **Learning:** In a dense grid (300+ items), using `innerHTML` inside a `mouseover` event handler creates a measurable CPU overhead because it triggers synchronous HTML parsing on every rapid interaction. Also, failing to early-return when the same element is hovered causes redundant DOM updates.
 **Action:** For high-frequency events like `mouseover`, avoid `innerHTML`. Use `textContent` or modify existing DOM nodes directly. Always check if the target has actually changed before updating the DOM.
+## 2026-08-06 - O(N*C) Aggregation Scales Poorly
+**Learning:** Computing distributions per category using nested list comprehensions (iterating N times over all items for C categories) scales poorly ($O(N \times C)$).
+**Action:** Use a single-pass iteration with dictionary aggregation (like `defaultdict`) to reduce algorithmic complexity to $O(N)$.
