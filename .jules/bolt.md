@@ -6,3 +6,6 @@
 ## 2026-07-24 - Optimize Rapid Mouseover Events
 **Learning:** In a dense grid (300+ items), using `innerHTML` inside a `mouseover` event handler creates a measurable CPU overhead because it triggers synchronous HTML parsing on every rapid interaction. Also, failing to early-return when the same element is hovered causes redundant DOM updates.
 **Action:** For high-frequency events like `mouseover`, avoid `innerHTML`. Use `textContent` or modify existing DOM nodes directly. Always check if the target has actually changed before updating the DOM.
+## 2026-11-20 - Avoid box-shadow animation
+**Learning:** Animating `box-shadow` properties continuously via `@keyframes` triggers expensive layout repaints on the main thread, leading to wasted CPU cycles and degraded performance, especially in battery-constrained environments.
+**Action:** Replace `box-shadow` animations with a pseudo-element (`::after` or `::before`) that mimics the shadow, and apply GPU-accelerated properties like `transform: scale()` and `opacity` to animate it.

@@ -115,8 +115,16 @@
   /* feed */
   .feed-card{background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;height:100%}
   .feed-head{padding:13px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}
-  .feed-head .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(168,132,43,.5);animation:pulse 1.8s infinite}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(168,132,43,.45)}70%{box-shadow:0 0 0 7px rgba(168,132,43,0)}100%{box-shadow:0 0 0 0 rgba(168,132,43,0)}}
+  /* ⚡ Bolt: Performance optimization
+     💡 What: Replaced box-shadow animation with GPU-accelerated pseudo-element transform/opacity.
+     🎯 Why: Animating box-shadow triggers continuous repaints and paints on the main thread, wasting CPU and battery. CSS transforms are GPU-accelerated and skip layout/paint phases. */
+  .feed-head .dot { position: relative; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+  .feed-head .dot::after {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 50%; background: var(--gold);
+    animation: pulse 1.8s infinite;
+  }
+  @keyframes pulse { 0% { transform: scale(1); opacity: 0.45; } 70% { transform: scale(3); opacity: 0; } 100% { transform: scale(1); opacity: 0; } }
   .feed-head .t{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
   .feed-view{position:relative;height:430px;overflow:hidden;mask-image:linear-gradient(180deg,transparent,#000 9%,#000 91%,transparent)}
   .feed-track{position:absolute;top:0;left:0;right:0;display:flex;flex-direction:column;animation:scrollfeed 38s linear infinite}
@@ -318,10 +326,14 @@
   // ⚡ Bolt: Cache computed CSS variables to prevent synchronous DOM access and reflows
   // during large iteration loops (e.g. rendering 300+ grid items or heat matrix cells).
   // This avoids expensive O(n) styling recalculations.
+  // ⚡ Bolt: Performance optimization
+  // 💡 What: Hoisted getComputedStyle(document.documentElement) outside the iteration function.
+  // 🎯 Why: getComputedStyle is slow. Doing it once instead of on every cache miss prevents unnecessary main thread blocking and speeds up initial execution.
+  let __docStyle;
   const TEAMCOLOR = t => {
     if (!__colorCache[t]) {
-      const docStyle = getComputedStyle(document.documentElement);
-      __colorCache[t] = docStyle.getPropertyValue('--t-'+t).trim() || docStyle.getPropertyValue('--t-default').trim();
+      if (!__docStyle) __docStyle = getComputedStyle(document.documentElement);
+      __colorCache[t] = __docStyle.getPropertyValue('--t-'+t).trim() || __docStyle.getPropertyValue('--t-default').trim();
     }
     return __colorCache[t];
   };
