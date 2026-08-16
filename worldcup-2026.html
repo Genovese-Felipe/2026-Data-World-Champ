@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>300 Analysts · One Question — Who Wins WC 2026</title>
+<style>
+  :root{
+    --cream:#f7f2e8;
+    --cream-2:#f1ead9;
+    --paper:#fcf9f1;
+    --ink:#1b2440;
+    --ink-soft:#454f6b;
+    --ink-faint:#8b91a3;
+    --line:#e0d8c5;
+    --line-2:#d3c9b2;
+    --gold:#a8842b;          /* champion gold — key numbers only */
+    --gold-deep:#8a6c1d;
+    /* muted, low-saturation team hues */
+    --t-France:#34507e;
+    --t-Morocco:#9c4a3f;
+    --t-Spain:#c2973f;
+    --t-Brazil:#5b7c52;
+    --t-Argentina:#6f8fb0;
+    --t-Germany:#777b86;
+    --t-USA:#8a5a72;
+    --t-Portugal:#a85a4e;
+    --t-Norway:#4f7b86;
+    --t-Mexico:#5d7d6a;
+    --t-England:#9298a8;
+    --t-default:#b3a98f;
+    --mono:ui-monospace,"SF Mono","SFMono-Regular",Menlo,Consolas,"Liberation Mono",monospace;
+    --sans:"Helvetica Neue",Inter,Arial,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--cream);color:var(--ink);
+    font-family:var(--sans);line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:rgba(168,132,43,.25)}
+  a{color:inherit}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+
+  /* ---------- nav ---------- */
+  nav.top{
+    position:sticky;top:0;z-index:60;
+    background:rgba(247,242,232,.86);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:18px}
+  nav.top .brand{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+  nav.top .brand b{color:var(--gold);font-weight:700}
+  nav.top .links{display:flex;gap:4px;flex-wrap:wrap}
+  nav.top .links a{
+    font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    text-decoration:none;color:var(--ink-soft);padding:7px 12px;border-radius:999px;
+    border:1px solid transparent;transition:.18s;
+  }
+  nav.top .links a:hover{border-color:var(--line-2);background:var(--paper);color:var(--ink)}
+
+  /* ---------- hero ---------- */
+  header.hero{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:20px}
+  h1{
+    font-size:clamp(40px,7vw,86px);line-height:.96;margin:0;
+    text-transform:uppercase;letter-spacing:-.015em;font-weight:800;
+  }
+  h1 .num{color:var(--gold)}
+  .lede{max-width:680px;margin:26px 0 0;font-size:18px;color:var(--ink-soft)}
+  .meta-row{display:flex;flex-wrap:wrap;gap:30px;margin-top:34px}
+  .meta{display:flex;flex-direction:column;gap:3px}
+  .meta .v{font-family:var(--mono);font-size:30px;font-weight:700;color:var(--ink)}
+  .meta .v.gold{color:var(--gold)}
+  .meta .l{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+
+  section{padding:66px 0;border-bottom:1px solid var(--line)}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:8px;flex-wrap:wrap}
+  .sec-tag{font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:.18em}
+  h2{font-size:clamp(26px,3.6vw,40px);margin:0;text-transform:uppercase;letter-spacing:-.01em;font-weight:800}
+  .sec-sub{max-width:640px;color:var(--ink-soft);margin:14px 0 34px;font-size:16px}
+
+  /* ---------- process view ---------- */
+  .proc{display:grid;grid-template-columns:1.55fr 1fr;gap:34px;align-items:start}
+  @media(max-width:860px){.proc{grid-template-columns:1fr}}
+  .proc-status{display:flex;align-items:baseline;gap:14px;margin-bottom:16px;flex-wrap:wrap}
+  .proc-status .count{font-family:var(--mono);font-weight:700;font-size:34px;color:var(--gold);font-variant-numeric:tabular-nums}
+  .proc-status .of{font-family:var(--mono);font-size:14px;color:var(--ink-faint)}
+  .proc-status .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+  .grid{
+    display:grid;grid-template-columns:repeat(25,1fr);gap:5px;
+    background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px;
+  }
+  @media(max-width:560px){.grid{grid-template-columns:repeat(20,1fr)}}
+  .cell{
+    aspect-ratio:1/1;border-radius:3px;background:#e7e0d0;
+    transform:scale(.55);opacity:.35;transition:transform .3s ease,opacity .3s ease,background .3s ease;
+    cursor:pointer;
+  }
+  .cell.on{transform:scale(1);opacity:1;background:var(--c,#cfc6b2)}
+  .cell.dim{opacity:.16!important;transform:scale(.86)}
+  .cell.hl{outline:2px solid var(--ink);outline-offset:1px}
+
+  .inspect{
+    margin-top:16px;min-height:96px;border:1px dashed var(--line-2);border-radius:10px;
+    padding:14px 16px;background:rgba(252,249,241,.6);
+  }
+  .inspect .who{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+  .inspect .pick{font-weight:700;margin:4px 0 6px;font-size:15px}
+  .inspect .pick b{font-weight:800}
+  .inspect .q{font-size:14px;color:var(--ink-soft);font-style:italic}
+  .inspect.empty .q{color:var(--ink-faint)}
+
+  /* feed */
+  .feed-card{background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;height:100%}
+  .feed-head{padding:13px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}
+  .feed-head .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(168,132,43,.5);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(168,132,43,.45)}70%{box-shadow:0 0 0 7px rgba(168,132,43,0)}100%{box-shadow:0 0 0 0 rgba(168,132,43,0)}}
+  .feed-head .t{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+  .feed-view{position:relative;height:430px;overflow:hidden;mask-image:linear-gradient(180deg,transparent,#000 9%,#000 91%,transparent)}
+  .feed-track{position:absolute;top:0;left:0;right:0;display:flex;flex-direction:column;animation:scrollfeed 38s linear infinite}
+  .feed-view:hover .feed-track{animation-play-state:paused}
+  @keyframes scrollfeed{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+  .take{padding:14px 16px;border-bottom:1px solid var(--line)}
+  .take .camp{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);display:flex;align-items:center;gap:7px}
+  .take .swatch{width:9px;height:9px;border-radius:2px;display:inline-block}
+  .take .line{margin-top:6px;font-size:14.5px;color:var(--ink)}
+  .take .line b{color:var(--ink);font-weight:800}
+
+  /* ---------- result view ---------- */
+  .rank{display:flex;flex-direction:column;gap:14px;margin-top:6px}
+  .row{display:grid;grid-template-columns:30px 132px 1fr 92px;align-items:center;gap:14px}
+  @media(max-width:620px){.row{grid-template-columns:24px 96px 1fr 70px};.row .team-n{font-size:14px}}
+  .row .pos{font-family:var(--mono);font-size:13px;color:var(--ink-faint);text-align:right}
+  .row .team-n{font-weight:800;text-transform:uppercase;letter-spacing:.01em;font-size:16px;display:flex;align-items:center;gap:9px}
+  .row .team-n .chip{width:12px;height:12px;border-radius:3px;flex:none}
+  .bar-track{height:30px;background:var(--cream-2);border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+  .bar{height:100%;width:0;border-radius:5px;transition:width 1.25s cubic-bezier(.22,1,.36,1)}
+  .row .val{font-family:var(--mono);font-weight:700;text-align:right;font-variant-numeric:tabular-nums;font-size:17px}
+  .row.lead .val{color:var(--gold);font-size:19px}
+  .row .val .pct{font-size:11px;color:var(--ink-faint);font-weight:400}
+  .row .sub{grid-column:2 / -1;font-family:var(--mono);font-size:11px;color:var(--ink-faint);margin-top:-6px}
+
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:42px}
+  @media(max-width:720px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:24px;position:relative;overflow:hidden}
+  .card .tag{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}
+  .card .big{font-size:30px;font-weight:800;text-transform:uppercase;margin:8px 0 2px;display:flex;align-items:center;gap:12px}
+  .card .big .chip{width:16px;height:16px;border-radius:4px}
+  .card .stat{font-family:var(--mono);color:var(--gold);font-weight:700;font-size:14px;margin-bottom:12px}
+  .card .desc{color:var(--ink-soft);font-size:15px}
+  .card .edge{position:absolute;left:0;top:0;bottom:0;width:5px}
+
+  /* ---------- divergence view ---------- */
+  .toggle{display:inline-flex;border:1px solid var(--line-2);border-radius:999px;overflow:hidden;margin-bottom:26px}
+  .toggle button{
+    font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    background:transparent;border:0;padding:9px 18px;color:var(--ink-soft);cursor:pointer;transition:.18s;
+  }
+  .toggle button.active{background:var(--ink);color:var(--cream)}
+
+  .camp-rows{display:flex;flex-direction:column;gap:18px}
+  .camp-row .ch{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;gap:12px}
+  .camp-row .cname{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+  .camp-row .ctop{font-family:var(--mono);font-size:11px;color:var(--ink-faint)}
+  .camp-row .ctop b{color:var(--gold)}
+  .stack{display:flex;height:26px;border-radius:6px;overflow:hidden;border:1px solid var(--line);background:var(--cream-2)}
+  .seg{height:100%;position:relative;transition:flex-grow .8s ease;min-width:0}
+  .seg:hover{filter:brightness(1.08)}
+
+  .legend{display:flex;flex-wrap:wrap;gap:7px 16px;margin-top:30px}
+  .legend .li{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px;color:var(--ink-soft)}
+  .legend .li .chip{width:11px;height:11px;border-radius:3px}
+
+  /* heatmap */
+  .heat-wrap{overflow-x:auto}
+  table.heat{border-collapse:collapse;font-family:var(--mono);font-size:11px;min-width:560px;width:100%}
+  table.heat th{font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;padding:7px 6px;text-align:center;font-size:10px}
+  table.heat th.camp-h{text-align:left;white-space:nowrap}
+  table.heat td{text-align:center;padding:0}
+  table.heat td.camp-c{text-align:left;font-size:10.5px;color:var(--ink);white-space:nowrap;padding-right:10px;letter-spacing:.04em}
+  .hcell{width:42px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:4px;margin:2px auto;color:#fff;font-weight:700}
+  .hcell.zero{color:var(--ink-faint);font-weight:400}
+
+  .hidden{display:none!important}
+
+  /* ---------- footer ---------- */
+  footer{padding:50px 0 70px}
+  .disclaimer{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ink-faint);max-width:760px;line-height:1.8}
+  .disclaimer a{color:var(--gold-deep)}
+  .snapshot{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:10px;padding:16px 20px;margin-bottom:26px;max-width:760px}
+  .snapshot .h{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:6px}
+  .snapshot p{margin:0;font-size:14px;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <div class="brand"><b>300</b> ANALYSTS · WC2026</div>
+    <div class="links">
+      <a href="#process">Process</a>
+      <a href="#result">Heat Ranking</a>
+      <a href="#divergence">Divergence</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">2026 FIFA World Cup · Title-Probability Engine</div>
+    <h1>Three Hundred<br>Analysts.<br>One <span class="num">Question.</span></h1>
+    <p class="lede">Ten camps — data nerds, old-school romantics, odds-makers, the superstition crowd, manager-watchers, injury &amp; fixture wonks, youth scouts, climate &amp; travel hawks, form trackers and dark-horse hunters — each fielded 30 independent analysts. All 300 named one winner. Here is the spread.</p>
+    <div class="meta-row">
+      <div class="meta"><span class="v gold" id="m-agents">300</span><span class="l">Analysts polled</span></div>
+      <div class="meta"><span class="v" id="m-camps">10</span><span class="l">Lenses / camps</span></div>
+      <div class="meta"><span class="v" id="m-teams">11</span><span class="l">Teams receiving votes</span></div>
+      <div class="meta"><span class="v gold" id="m-fav">—</span><span class="l">Consensus favorite</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== PROCESS ===================== -->
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-tag">01 / PROCESS</span><h2>300 Verdicts, Landing Live</h2></div>
+    <p class="sec-sub">Each tile is one analyst. They report in parallel and light up in their pick's colour as the verdict lands. Hover any tile to read the take; hover the feed to pause it.</p>
+
+    <div class="proc">
+      <div>
+        <div class="proc-status">
+          <span class="count" id="proc-count">0</span>
+          <span class="of">/ 300</span>
+          <span class="lbl">analysts reported</span>
+        </div>
+        <div class="grid" id="grid" aria-label="300 analyst tiles"></div>
+        <div class="inspect empty" id="inspect">
+          <div class="who" id="ins-who">Hover a tile</div>
+          <div class="pick" id="ins-pick" style="display:none">Pick: <b id="ins-pick-team"></b> <span id="ins-pick-conf"></span></div>
+          <div class="q" id="ins-q">Each of the 300 tiles carries a persona, a pick, and a one-line argument.</div>
+        </div>
+      </div>
+
+      <div class="feed-card">
+        <div class="feed-head"><span class="dot"></span><span class="t">Live camp wire</span></div>
+        <div class="feed-view"><div class="feed-track" id="feed"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RESULT ===================== -->
+<section id="result">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-tag">02 / HEAT RANKING</span><h2>Title-Probability Heat</h2></div>
+    <p class="sec-sub">A blended score: 70% raw consensus (share of votes) + 30% conviction (mean confidence). Bars grow and numbers count up on entry. Gold marks the leader.</p>
+    <div class="rank" id="rank"></div>
+
+    <div class="cards">
+      <div class="card" id="card-fav">
+        <div class="edge"></div>
+        <div class="tag">Biggest favorite</div>
+        <div class="big"><span class="chip"></span><span class="name">—</span></div>
+        <div class="stat"></div>
+        <div class="desc"></div>
+      </div>
+      <div class="card" id="card-dark">
+        <div class="edge"></div>
+        <div class="tag">Most underrated dark horse</div>
+        <div class="big"><span class="chip"></span><span class="name">—</span></div>
+        <div class="stat"></div>
+        <div class="desc"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DIVERGENCE ===================== -->
+<section id="divergence">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-tag">03 / DIVERGENCE</span><h2>Who Backed Whom</h2></div>
+    <p class="sec-sub">An average hides the argument. Here is the real spread across all 300 verdicts, camp by camp — the data nerds and form trackers love Spain, the romantics ride Messi, climate hawks bet altitude, dark-horse hunters call Morocco.</p>
+
+    <div class="toggle" id="toggle">
+      <button data-mode="bars" class="active">Stacked by camp</button>
+      <button data-mode="heat">Heat matrix</button>
+    </div>
+
+    <div id="view-bars"><div class="camp-rows" id="camp-rows"></div></div>
+    <div id="view-heat" class="hidden"><div class="heat-wrap"><table class="heat" id="heat"></table></div></div>
+
+    <div class="legend" id="legend"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="snapshot">
+      <div class="h">Reality check · live market, mid-June 2026</div>
+      <p>The room's pick lines up with the bookies: after Spain's opening 0–0 with Cape Verde and France's 3–1 win over Senegal, France sits alone atop the real-world oddsboard, with Spain and Portugal next. Our 300 analysts reached the same head of the table independently.</p>
+    </div>
+    <p class="disclaimer">
+      For entertainment only — no wagering advice. The 300 verdicts are AI-generated analyst personas across ten lenses; figures are a snapshot of opinion, not a forecast. Market context via
+      <a href="https://www.foxsports.com/stories/soccer/world-cup-2026-champion-odds" target="_blank" rel="noopener">FOX Sports</a> and
+      <a href="https://oddspedia.com/insights/football/world-cup-2026-outright-odds" target="_blank" rel="noopener">Oddspedia</a>,
+      mid-June 2026. Built as a single openable page.
+    </p>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script>
+(function(){
+  const D = window.WC_DATA;
+  const __colorCache = {};
+
+  // ⚡ Bolt: Cache computed CSS variables to prevent synchronous DOM access and reflows
+  // during large iteration loops (e.g. rendering 300+ grid items or heat matrix cells).
+  // This avoids expensive O(n) styling recalculations.
+  const TEAMCOLOR = t => {
+    if (!__colorCache[t]) {
+      const docStyle = getComputedStyle(document.documentElement);
+      __colorCache[t] = docStyle.getPropertyValue('--t-'+t).trim() || docStyle.getPropertyValue('--t-default').trim();
+    }
+    return __colorCache[t];
+  };
+
+  // ---------- hero meta ----------
+  const teamsWithVotes = D.ranking.length;
+  document.getElementById('m-agents').textContent = D.total_agents;
+  document.getElementById('m-camps').textContent = D.n_camps;
+  document.getElementById('m-teams').textContent = teamsWithVotes;
+  document.getElementById('m-fav').textContent = D.insights.favorite.team;
+
+  // ---------- PROCESS: grid ----------
+  // shuffle a copy so colours land in a scattered, organic order
+  const preds = D.predictions.slice();
+  const order = preds.map((_,i)=>i);
+  for(let i=order.length-1;i>0;i--){const j=(Math.random()*(i+1))|0;[order[i],order[j]]=[order[j],order[i]];}
+
+  const grid = document.getElementById('grid');
+  // ⚡ Bolt: Performance optimization
+  // 💡 What: Replaced direct DOM appendChild in a loop with a DocumentFragment.
+  // 🎯 Why: Appending directly to the live DOM on each iteration causes repeated, synchronous reflows and repaints (layout thrashing).
+  // 📊 Impact: Significantly reduces initial render time by batching 300 DOM insertions into a single layout calculation.
+  const gridFrag = document.createDocumentFragment();
+  const cells = [];
+  preds.forEach((p,i)=>{
+    const c = document.createElement('div');
+    c.className='cell';
+    c.dataset.idx=i;
+    c.style.setProperty('--c', TEAMCOLOR(p.team));
+    gridFrag.appendChild(c);
+    cells.push(c);
+  });
+  grid.appendChild(gridFrag);
+
+  // inspect on hover
+  const insWho=document.getElementById('ins-who'),
+        insPick=document.getElementById('ins-pick'),
+        insPickTeam=document.getElementById('ins-pick-team'),
+        insPickConf=document.getElementById('ins-pick-conf'),
+        insQ=document.getElementById('ins-q'),
+        inspect=document.getElementById('inspect');
+  let pinnedHL=null;
+  grid.addEventListener('mouseover',e=>{
+    const cell=e.target.closest('.cell'); if(!cell)return;
+    // ⚡ Bolt: Performance optimization
+    // 💡 What: Added early return if hovering the already active cell, and replaced innerHTML with targeted textContent updates on pre-created elements.
+    // 🎯 Why: Rapid mouseover events triggering innerHTML cause expensive synchronous HTML parsing and DOM rebuilding, which can lead to jank in dense UI components.
+    // 📊 Impact: Eliminates redundant DOM updates and reduces CPU time per hover event.
+    if (cell === pinnedHL) return;
+    const p=preds[+cell.dataset.idx];
+    inspect.classList.remove('empty');
+    insWho.textContent = p.camp + ' · ' + p.persona;
+    insPick.style.display = 'block';
+    insPickTeam.textContent = p.team;
+    insPickTeam.style.color = TEAMCOLOR(p.team);
+    insPickConf.textContent = ' · conviction ' + p.confidence + '/9';
+    insQ.textContent = '“'+p.quote+'”';
+    if(pinnedHL) pinnedHL.classList.remove('hl');
+    cell.classList.add('hl'); pinnedHL=cell;
+  });
+
+  // reveal animation + live tally
+  const procCount=document.getElementById('proc-count');
+  let revealed=false;
+  function reveal(){
+    if(revealed)return; revealed=true;
+    let k=0;
+    const step=()=>{
+      const batch=Math.max(1, Math.round(3+k/40));
+      for(let b=0;b<batch && k<order.length;b++,k++){
+        cells[order[k]].classList.add('on');
+      }
+      procCount.textContent=Math.min(k,300);
+      if(k<order.length) requestAnimationFrame(step);
+      else procCount.textContent=300;
+    };
+    requestAnimationFrame(step);
+  }
+  io(document.getElementById('grid'), reveal, .25);
+
+  // ---------- PROCESS: feed ----------
+  const feed=document.getElementById('feed');
+  // camp reps + a few high-conviction highlights for texture
+  const highlights = D.predictions
+      .filter(p=>p.confidence>=8)
+      .sort(()=>Math.random()-.5).slice(0,6);
+  const items = [];
+  D.feed.forEach(f=>items.push({camp:f.camp,team:f.team,who:f.persona,line:f.quote}));
+  highlights.forEach(h=>items.push({camp:h.camp,team:h.team,who:h.persona,line:h.quote}));
+  const buildTake = it => {
+    const el=document.createElement('div'); el.className='take';
+    el.innerHTML='<div class="camp"><span class="swatch" style="background:'+TEAMCOLOR(it.team)+'"></span>'
+      +it.camp+' → '+it.team+'</div><div class="line">“'+it.line+'”</div>';
+    return el;
+  };
+  // duplicate the list for a seamless -50% loop
+  // ⚡ Bolt: Performance optimization
+  // 💡 What: Using DocumentFragment for batching feed item insertions.
+  // 📊 Impact: Prevents sequential repaints when rendering the live camp wire list.
+  const feedFrag = document.createDocumentFragment();
+  [...items, ...items].forEach(it=>feedFrag.appendChild(buildTake(it)));
+  feed.appendChild(feedFrag);
+
+  // ---------- RESULT: heat ranking ----------
+  const rank=document.getElementById('rank');
+  // ⚡ Bolt: Performance optimization
+  // 💡 What: Using DocumentFragment for batching ranking row insertions.
+  // 📊 Impact: Avoids multiple layout recalculations during ranking UI render.
+  const rankFrag = document.createDocumentFragment();
+  const top8=D.top8;
+  const maxProb=Math.max(...top8.map(r=>r.prob));
+  top8.forEach((r,i)=>{
+    const row=document.createElement('div');
+    row.className='row'+(i===0?' lead':'');
+    row.innerHTML =
+      '<div class="pos">'+String(i+1).padStart(2,'0')+'</div>'+
+      '<div class="team-n"><span class="chip" style="background:'+TEAMCOLOR(r.team)+'"></span>'+r.team+'</div>'+
+      '<div class="bar-track"><div class="bar" style="background:'+TEAMCOLOR(r.team)+'"></div></div>'+
+      '<div class="val"><span class="cv" data-to="'+r.prob+'">0.0</span><span class="pct"> %</span></div>';
+    rankFrag.appendChild(row);
+    row.querySelector('.bar').dataset.w = (r.prob/maxProb*100).toFixed(1);
+    // small subline with vote count
+    const sub=document.createElement('div');
+    sub.className='sub';
+    sub.textContent = r.votes+' of 300 votes · avg conviction '+r.avg_conf+'/9';
+    row.appendChild(sub);
+  });
+  rank.appendChild(rankFrag);
+
+  function runRanking(){
+    rank.querySelectorAll('.bar').forEach(b=>{ b.style.width=b.dataset.w+'%'; });
+    rank.querySelectorAll('.cv').forEach(el=>countUp(el, parseFloat(el.dataset.to), 1150));
+  }
+  io(document.getElementById('result'), runRanking, .2);
+
+  // ---------- RESULT: insight cards ----------
+  const fav=D.insights.favorite, dark=D.insights.dark_horse;
+  fillCard('card-fav', fav.team,
+    fav.prob+'% heat · '+fav.votes+'/300 votes',
+    'France top six of the ten lenses and never finished outside the top three of any camp. The odds-makers, manager-watchers, superstition crowd and injury wonks all converged here — depth wins a 7-game war of attrition, and their bench alone would be seeded.');
+  fillCard('card-dark', dark.team,
+    'avg conviction '+dark.avg_conf+'/9 · only '+dark.votes+'/300 votes',
+    'Low vote share but the highest conviction of any longshot — every analyst who picked Argentina did so with a near-favorite\'s certainty. The romantics and load-management nerds know something the consensus is discounting: a rested Messi in his last dance, defending the crown.');
+
+  function fillCard(id, team, stat, desc){
+    const c=document.getElementById(id), col=TEAMCOLOR(team);
+    c.querySelector('.edge').style.background=col;
+    c.querySelector('.chip').style.background=col;
+    c.querySelector('.name').textContent=team;
+    c.querySelector('.stat').textContent=stat;
+    c.querySelector('.desc').textContent=desc;
+  }
+
+  // ---------- DIVERGENCE: stacked bars ----------
+  const campRows=document.getElementById('camp-rows');
+  // ⚡ Bolt: Performance optimization
+  // 💡 What: Using DocumentFragment for batching divergence row insertions.
+  // 📊 Impact: Batches insertions of camp breakdown elements into a single DOM update.
+  const campRowsFrag = document.createDocumentFragment();
+  D.camps.forEach(camp=>{
+    const dist=D.camp_distribution[camp]||{};
+    const entries=Object.entries(dist).sort((a,b)=>b[1]-a[1]);
+    const top=entries[0];
+    const row=document.createElement('div'); row.className='camp-row';
+    const stack=entries.map(([team,n])=>
+      '<div class="seg" title="'+camp+' → '+team+': '+n+'/30" style="background:'+TEAMCOLOR(team)+';flex-grow:'+n+'"></div>'
+    ).join('');
+    row.innerHTML =
+      '<div class="ch"><span class="cname">'+camp+'</span>'+
+      '<span class="ctop">leans <b>'+top[0]+'</b> ('+top[1]+'/30)</span></div>'+
+      '<div class="stack">'+stack+'</div>';
+    campRowsFrag.appendChild(row);
+  });
+  campRows.appendChild(campRowsFrag);
+
+  // ---------- DIVERGENCE: heat matrix ----------
+  const teamsByRank = D.ranking.map(r=>r.team); // most-backed first
+  const heat=document.getElementById('heat');
+  let thead='<tr><th class="camp-h">Camp \\ Team</th>'+teamsByRank.map(t=>'<th>'+t+'</th>').join('')+'</tr>';
+  let maxCell=0;
+  D.camps.forEach(c=>teamsByRank.forEach(t=>{maxCell=Math.max(maxCell,(D.camp_distribution[c]||{})[t]||0);}));
+  let body='';
+  D.camps.forEach(camp=>{
+    body+='<tr><td class="camp-c">'+camp+'</td>';
+    teamsByRank.forEach(t=>{
+      const n=(D.camp_distribution[camp]||{})[t]||0;
+      const a=n===0?0:(0.18+0.82*(n/maxCell));
+      const col=TEAMCOLOR(t);
+      body+= '<td>'+(n===0
+        ? '<div class="hcell zero" style="background:#efe9da">·</div>'
+        : '<div class="hcell" style="background:'+hexA(col,a)+'">'+n+'</div>')+'</td>';
+    });
+    body+='</tr>';
+  });
+  heat.innerHTML=thead+body;
+
+  // toggle
+  document.getElementById('toggle').addEventListener('click',e=>{
+    const b=e.target.closest('button'); if(!b)return;
+    document.querySelectorAll('#toggle button').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    const heatMode=b.dataset.mode==='heat';
+    document.getElementById('view-heat').classList.toggle('hidden',!heatMode);
+    document.getElementById('view-bars').classList.toggle('hidden',heatMode);
+  });
+
+  // legend
+  const legend=document.getElementById('legend');
+  // ⚡ Bolt: Performance optimization
+  // 💡 What: Using DocumentFragment for batching divergence legend insertions.
+  // 📊 Impact: Prevents sequential layout calculations for the legend layout items.
+  const legendFrag = document.createDocumentFragment();
+  D.ranking.forEach(r=>{
+    const li=document.createElement('span'); li.className='li';
+    li.innerHTML='<span class="chip" style="background:'+TEAMCOLOR(r.team)+'"></span>'+r.team+' · '+r.votes;
+    legendFrag.appendChild(li);
+  });
+  legend.appendChild(legendFrag);
+
+  // ---------- helpers ----------
+  function io(el, cb, threshold){
+    if(!('IntersectionObserver' in window)){cb();return;}
+    const obs=new IntersectionObserver((ents)=>{
+      ents.forEach(en=>{ if(en.isIntersecting){cb(); obs.disconnect();} });
+    },{threshold:threshold||.2});
+    obs.observe(el);
+  }
+  function countUp(el,to,dur){
+    const start=performance.now(), from=0;
+    const tick=now=>{
+      const t=Math.min(1,(now-start)/dur);
+      const e=1-Math.pow(1-t,3);
+      el.textContent=(from+(to-from)*e).toFixed(1);
+      if(t<1)requestAnimationFrame(tick); else el.textContent=to.toFixed(1);
+    };
+    requestAnimationFrame(tick);
+  }
+  function hexA(hex,a){
+    hex=hex.replace('#','');
+    if(hex.length===3)hex=hex.split('').map(c=>c+c).join('');
+    const r=parseInt(hex.substr(0,2),16),g=parseInt(hex.substr(2,2),16),b=parseInt(hex.substr(4,2),16);
+    return 'rgba('+r+','+g+','+b+','+a.toFixed(2)+')';
+  }
+})();
+</script>
+</body>
+</html>
