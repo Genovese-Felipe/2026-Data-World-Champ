@@ -61,6 +61,7 @@ var global = window;
   var QUALITY_KEY = "high";
   var container, renderer, scene, camera, controls, sun, sunLight, starField;
   var bodyMeshes = {};      // name -> { mesh, group, data, ringMesh?, moonMesh? }
+  var bodyList = [];        // flat array for faster iteration in animate
   var raycaster, pointer, onSelectCb;
   var autoOrbit = false;
   var autoAngle = 0;
@@ -319,6 +320,7 @@ var global = window;
     sun.add(sunLight);
     scene.add(sun);
     bodyMeshes["sun"] = { mesh: sun, group: sun, data: BODIES[0], mat: sunBuilt.mat };
+    bodyList.push(bodyMeshes["sun"]);
 
     // a faint ambient so the dark sides aren't pure black
     scene.add(new THREE.AmbientLight(0x222233, 0.4));
@@ -376,6 +378,7 @@ var global = window;
       scene.add(group);
 
       bodyMeshes[b.name] = { mesh: mesh, group: group, data: b, orbitRing: orbitRing, ringMesh: ringMesh, moonMesh: moonMesh };
+      bodyList.push(bodyMeshes[b.name]);
     });
 
     // starfield
@@ -440,13 +443,17 @@ var global = window;
     if (sunMat && sunMat.uniforms) sunMat.uniforms.uTime.value = t * 0.001;
 
     // rotate + orbit planets
-    Object.keys(bodyMeshes).forEach(function (name) {
-      var b = bodyMeshes[name];
-      if (b.data.sun) { b.mesh.rotation.y += b.data.spin * dt; return; }
+    // ⚡ Bolt: Performance optimization
+    // 💡 What: Replaced Object.keys().forEach with a traditional for-loop over a pre-populated flat array.
+    // 🎯 Why: Calling Object.keys() and creating a new closure for .forEach inside a requestAnimationFrame loop (running 60+ times per second) causes continuous memory allocation, leading to garbage collection pressure and micro-stutters.
+    // 📊 Impact: Eliminates array allocation and closure creation per frame, reducing main thread jank.
+    for (var i = 0, len = bodyList.length; i < len; i++) {
+      var b = bodyList[i];
+      if (b.data.sun) { b.mesh.rotation.y += b.data.spin * dt; continue; }
       b.group.rotation.y += b.data.orb * dt;
       b.mesh.rotation.y += b.data.spin * dt;
       if (b.moonMesh) b.moonMesh.position.applyAxisAngle(new THREE.Vector3(0,1,0), 0.02 * dt);
-    });
+    }
 
     if (starField) starField.rotation.y += 0.00005 * dt;
 
@@ -509,6 +516,7 @@ var global = window;
         renderer.domElement.parentNode.removeChild(renderer.domElement);
     }
     bodyMeshes = {};
+    bodyList = [];
     if (controls) controls.dispose();
     window.removeEventListener("resize", onResize);
   }
