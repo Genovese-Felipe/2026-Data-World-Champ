@@ -61,6 +61,13 @@ var global = window;
   var QUALITY_KEY = "high";
   var container, renderer, scene, camera, controls, sun, sunLight, starField;
   var bodyMeshes = {};      // name -> { mesh, group, data, ringMesh?, moonMesh? }
+  // ⚡ Bolt: Pre-allocated arrays and reused vectors to eliminate GC overhead in animate()
+  // Why: Object.keys() and new THREE.Vector3() at 60 FPS cause memory churn and frame drops.
+  // Impact: ~100% reduction in per-frame heap allocations for body iteration and vectors.
+  var bodyList = [];
+  var bodyMeshList = [];
+  var MOON_AXIS = new THREE.Vector3(0, 1, 0);
+  var autoOrbitOffset = new THREE.Vector3();
   var raycaster, pointer, onSelectCb;
   var autoOrbit = false;
   var autoAngle = 0;
@@ -389,6 +396,9 @@ var global = window;
 
     window.addEventListener("resize", onResize, false);
 
+    bodyList = Object.keys(bodyMeshes).map(function(k) { return bodyMeshes[k]; });
+    bodyMeshList = bodyList.map(function(b) { return b.mesh; });
+
     animate(0);
   }
 
@@ -397,7 +407,7 @@ var global = window;
     pointer.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
     pointer.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
     raycaster.setFromCamera(pointer, camera);
-    var meshes = Object.keys(bodyMeshes).map(function (k) { return bodyMeshes[k].mesh; });
+    var meshes = bodyMeshList;
     var hits = raycaster.intersectObjects(meshes, false);
     if (hits.length) {
       var name = hits[0].object.userData.name;
@@ -440,13 +450,13 @@ var global = window;
     if (sunMat && sunMat.uniforms) sunMat.uniforms.uTime.value = t * 0.001;
 
     // rotate + orbit planets
-    Object.keys(bodyMeshes).forEach(function (name) {
-      var b = bodyMeshes[name];
-      if (b.data.sun) { b.mesh.rotation.y += b.data.spin * dt; return; }
+    for (var i = 0; i < bodyList.length; i++) {
+      var b = bodyList[i];
+      if (b.data.sun) { b.mesh.rotation.y += b.data.spin * dt; continue; }
       b.group.rotation.y += b.data.orb * dt;
       b.mesh.rotation.y += b.data.spin * dt;
-      if (b.moonMesh) b.moonMesh.position.applyAxisAngle(new THREE.Vector3(0,1,0), 0.02 * dt);
-    });
+      if (b.moonMesh) b.moonMesh.position.applyAxisAngle(MOON_AXIS, 0.02 * dt);
+    }
 
     if (starField) starField.rotation.y += 0.00005 * dt;
 
@@ -454,8 +464,8 @@ var global = window;
       autoAngle += 0.0015 * dt;
       var r = camera.position.distanceTo(controls.target);
       // orbit the camera around the target
-      var offset = new THREE.Vector3(Math.cos(autoAngle) * r, camera.position.y - controls.target.y, Math.sin(autoAngle) * r);
-      camera.position.copy(controls.target).add(offset);
+      autoOrbitOffset.set(Math.cos(autoAngle) * r, camera.position.y - controls.target.y, Math.sin(autoAngle) * r);
+      camera.position.copy(controls.target).add(autoOrbitOffset);
     }
 
     controls.update();
@@ -509,6 +519,8 @@ var global = window;
         renderer.domElement.parentNode.removeChild(renderer.domElement);
     }
     bodyMeshes = {};
+    bodyList = [];
+    bodyMeshList = [];
     if (controls) controls.dispose();
     window.removeEventListener("resize", onResize);
   }
