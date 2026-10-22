@@ -68,6 +68,12 @@ var global = window;
   var lastFrame = 0;
   var externalRenderHook = null; // set by video recorder
 
+  // ⚡ Bolt: Cache object keys and pre-allocate vectors to eliminate garbage collection
+  // pressure inside the requestAnimationFrame render loop (animate).
+  var bodyKeys = [];
+  var Y_AXIS = new THREE.Vector3(0, 1, 0);
+  var autoOrbitOffset = new THREE.Vector3();
+
   // ---- procedural textures (canvas) --------------------------------------
   function makeRockTexture(baseColor, craters) {
     var c = document.createElement("canvas");
@@ -378,6 +384,9 @@ var global = window;
       bodyMeshes[b.name] = { mesh: mesh, group: group, data: b, orbitRing: orbitRing, ringMesh: ringMesh, moonMesh: moonMesh };
     });
 
+    // ⚡ Bolt: Pre-calculate body keys once during init instead of every frame
+    bodyKeys = Object.keys(bodyMeshes);
+
     // starfield
     starField = makeStarfield(q.stars);
     scene.add(starField);
@@ -440,13 +449,16 @@ var global = window;
     if (sunMat && sunMat.uniforms) sunMat.uniforms.uTime.value = t * 0.001;
 
     // rotate + orbit planets
-    Object.keys(bodyMeshes).forEach(function (name) {
+    // ⚡ Bolt: Use a standard for-loop with cached keys and pre-allocated vectors.
+    // This avoids creating new anonymous functions and Vector3 objects every frame.
+    for (var i = 0; i < bodyKeys.length; i++) {
+      var name = bodyKeys[i];
       var b = bodyMeshes[name];
-      if (b.data.sun) { b.mesh.rotation.y += b.data.spin * dt; return; }
+      if (b.data.sun) { b.mesh.rotation.y += b.data.spin * dt; continue; }
       b.group.rotation.y += b.data.orb * dt;
       b.mesh.rotation.y += b.data.spin * dt;
-      if (b.moonMesh) b.moonMesh.position.applyAxisAngle(new THREE.Vector3(0,1,0), 0.02 * dt);
-    });
+      if (b.moonMesh) b.moonMesh.position.applyAxisAngle(Y_AXIS, 0.02 * dt);
+    }
 
     if (starField) starField.rotation.y += 0.00005 * dt;
 
@@ -454,8 +466,8 @@ var global = window;
       autoAngle += 0.0015 * dt;
       var r = camera.position.distanceTo(controls.target);
       // orbit the camera around the target
-      var offset = new THREE.Vector3(Math.cos(autoAngle) * r, camera.position.y - controls.target.y, Math.sin(autoAngle) * r);
-      camera.position.copy(controls.target).add(offset);
+      autoOrbitOffset.set(Math.cos(autoAngle) * r, camera.position.y - controls.target.y, Math.sin(autoAngle) * r);
+      camera.position.copy(controls.target).add(autoOrbitOffset);
     }
 
     controls.update();
@@ -509,6 +521,7 @@ var global = window;
         renderer.domElement.parentNode.removeChild(renderer.domElement);
     }
     bodyMeshes = {};
+    bodyKeys = [];
     if (controls) controls.dispose();
     window.removeEventListener("resize", onResize);
   }
