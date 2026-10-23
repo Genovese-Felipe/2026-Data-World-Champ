@@ -6,3 +6,7 @@
 ## 2026-07-24 - Optimize Rapid Mouseover Events
 **Learning:** In a dense grid (300+ items), using `innerHTML` inside a `mouseover` event handler creates a measurable CPU overhead because it triggers synchronous HTML parsing on every rapid interaction. Also, failing to early-return when the same element is hovered causes redundant DOM updates.
 **Action:** For high-frequency events like `mouseover`, avoid `innerHTML`. Use `textContent` or modify existing DOM nodes directly. Always check if the target has actually changed before updating the DOM.
+
+## 2024-05-24 - Zero-Allocation render loops in Three.js
+**Learning:** Instantiating objects (like `new THREE.Vector3`) or using closures (like `Object.keys().forEach`) inside `requestAnimationFrame` puts immense pressure on the Javascript Garbage Collector (GC), causing stutter and dropped frames in Three.js scenes, especially on lower-end devices.
+**Action:** Always pre-allocate math objects (vectors, quaternions, matrices) in the module scope and reuse them in `animate()` using mutating methods (e.g. `.set()`, `.copy()`). Use static standard `for` loops with pre-cached arrays instead of dynamic map/forEach/Object.keys inside the render loop.
