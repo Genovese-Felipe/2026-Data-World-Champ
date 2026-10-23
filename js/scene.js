@@ -64,6 +64,10 @@ var global = window;
   var raycaster, pointer, onSelectCb;
   var autoOrbit = false;
   var autoAngle = 0;
+  // ⚡ Bolt: Cache vectors to avoid instantiation in render loop and list array to avoid Object.keys per frame
+  var moonAxis = new THREE.Vector3(0, 1, 0);
+  var autoOrbitOffset = new THREE.Vector3();
+  var bodyMeshesList = [];
   var rafId;
   var lastFrame = 0;
   var externalRenderHook = null; // set by video recorder
@@ -389,6 +393,8 @@ var global = window;
 
     window.addEventListener("resize", onResize, false);
 
+
+    bodyMeshesList = Object.keys(bodyMeshes).map(function(k) { return bodyMeshes[k]; });
     animate(0);
   }
 
@@ -440,13 +446,15 @@ var global = window;
     if (sunMat && sunMat.uniforms) sunMat.uniforms.uTime.value = t * 0.001;
 
     // rotate + orbit planets
-    Object.keys(bodyMeshes).forEach(function (name) {
-      var b = bodyMeshes[name];
-      if (b.data.sun) { b.mesh.rotation.y += b.data.spin * dt; return; }
+    // ⚡ Bolt: Use pre-allocated list to avoid object keys / closure allocations per frame
+    for (var i = 0; i < bodyMeshesList.length; i++) {
+      var b = bodyMeshesList[i];
+      if (b.data.sun) { b.mesh.rotation.y += b.data.spin * dt; continue; }
       b.group.rotation.y += b.data.orb * dt;
       b.mesh.rotation.y += b.data.spin * dt;
-      if (b.moonMesh) b.moonMesh.position.applyAxisAngle(new THREE.Vector3(0,1,0), 0.02 * dt);
-    });
+      // ⚡ Bolt: Reuse vector instead of instantiating new THREE.Vector3(0,1,0) per frame
+      if (b.moonMesh) b.moonMesh.position.applyAxisAngle(moonAxis, 0.02 * dt);
+    }
 
     if (starField) starField.rotation.y += 0.00005 * dt;
 
@@ -454,8 +462,9 @@ var global = window;
       autoAngle += 0.0015 * dt;
       var r = camera.position.distanceTo(controls.target);
       // orbit the camera around the target
-      var offset = new THREE.Vector3(Math.cos(autoAngle) * r, camera.position.y - controls.target.y, Math.sin(autoAngle) * r);
-      camera.position.copy(controls.target).add(offset);
+      // ⚡ Bolt: Reuse offset vector instead of instantiating per frame
+      autoOrbitOffset.set(Math.cos(autoAngle) * r, camera.position.y - controls.target.y, Math.sin(autoAngle) * r);
+      camera.position.copy(controls.target).add(autoOrbitOffset);
     }
 
     controls.update();
