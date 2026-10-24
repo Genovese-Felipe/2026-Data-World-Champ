@@ -68,6 +68,14 @@ var global = window;
   var lastFrame = 0;
   var externalRenderHook = null; // set by video recorder
 
+  // 💡 What: Pre-allocated variables for render loop/events
+  // 🎯 Why: Avoids constant instantiation and GC pressure inside `requestAnimationFrame`
+  var _yAxis = new THREE.Vector3(0, 1, 0);
+  var _autoOffset = new THREE.Vector3();
+  var _focusTarget = new THREE.Vector3();
+  var _focusOffset = new THREE.Vector3();
+  var _bodyKeys = [];
+
   // ---- procedural textures (canvas) --------------------------------------
   function makeRockTexture(baseColor, craters) {
     var c = document.createElement("canvas");
@@ -389,6 +397,10 @@ var global = window;
 
     window.addEventListener("resize", onResize, false);
 
+    // 💡 What: Cache keys for rapid iteration
+    // 🎯 Why: Avoids calling `Object.keys()` every single frame in the render loop
+    _bodyKeys = Object.keys(bodyMeshes);
+
     animate(0);
   }
 
@@ -413,13 +425,12 @@ var global = window;
     var b = bodyMeshes[name];
     if (!b) return;
     // get world position of the body
-    var target = new THREE.Vector3();
-    b.mesh.getWorldPosition(target);
-    controls.target.copy(target);
+    b.mesh.getWorldPosition(_focusTarget);
+    controls.target.copy(_focusTarget);
     // move camera closer, offset
     var dist = Math.max(8, b.data.r * 4);
-    var offset = new THREE.Vector3(dist, dist * 0.5, dist);
-    camera.position.copy(target.clone().add(offset));
+    _focusOffset.set(dist, dist * 0.5, dist);
+    camera.position.copy(_focusTarget).add(_focusOffset);
     if (global.COSMOS_AUDIO) global.COSMOS_AUDIO.sfx("warp");
   }
 
@@ -440,13 +451,13 @@ var global = window;
     if (sunMat && sunMat.uniforms) sunMat.uniforms.uTime.value = t * 0.001;
 
     // rotate + orbit planets
-    Object.keys(bodyMeshes).forEach(function (name) {
-      var b = bodyMeshes[name];
-      if (b.data.sun) { b.mesh.rotation.y += b.data.spin * dt; return; }
+    for (var i = 0; i < _bodyKeys.length; i++) {
+      var b = bodyMeshes[_bodyKeys[i]];
+      if (b.data.sun) { b.mesh.rotation.y += b.data.spin * dt; continue; }
       b.group.rotation.y += b.data.orb * dt;
       b.mesh.rotation.y += b.data.spin * dt;
-      if (b.moonMesh) b.moonMesh.position.applyAxisAngle(new THREE.Vector3(0,1,0), 0.02 * dt);
-    });
+      if (b.moonMesh) b.moonMesh.position.applyAxisAngle(_yAxis, 0.02 * dt);
+    }
 
     if (starField) starField.rotation.y += 0.00005 * dt;
 
@@ -454,8 +465,8 @@ var global = window;
       autoAngle += 0.0015 * dt;
       var r = camera.position.distanceTo(controls.target);
       // orbit the camera around the target
-      var offset = new THREE.Vector3(Math.cos(autoAngle) * r, camera.position.y - controls.target.y, Math.sin(autoAngle) * r);
-      camera.position.copy(controls.target).add(offset);
+      _autoOffset.set(Math.cos(autoAngle) * r, camera.position.y - controls.target.y, Math.sin(autoAngle) * r);
+      camera.position.copy(controls.target).add(_autoOffset);
     }
 
     controls.update();
