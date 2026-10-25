@@ -61,6 +61,12 @@ var global = window;
   var QUALITY_KEY = "high";
   var container, renderer, scene, camera, controls, sun, sunLight, starField;
   var bodyMeshes = {};      // name -> { mesh, group, data, ringMesh?, moonMesh? }
+  // ⚡ Bolt: Cache array and vectors to avoid GC pressure in render loop
+  // 💡 What: Moved instantiations to module scope
+  // 🎯 Why: Instantiating objects in requestAnimationFrame causes memory churn
+  var cachedBodyMeshes = [];
+  var Y_AXIS = new THREE.Vector3(0, 1, 0);
+  var orbitOffset = new THREE.Vector3();
   var raycaster, pointer, onSelectCb;
   var autoOrbit = false;
   var autoAngle = 0;
@@ -378,6 +384,9 @@ var global = window;
       bodyMeshes[b.name] = { mesh: mesh, group: group, data: b, orbitRing: orbitRing, ringMesh: ringMesh, moonMesh: moonMesh };
     });
 
+    // ⚡ Bolt: Cache values to a pre-allocated array for faster iteration
+    cachedBodyMeshes = Object.keys(bodyMeshes).map(function(k) { return bodyMeshes[k]; });
+
     // starfield
     starField = makeStarfield(q.stars);
     scene.add(starField);
@@ -440,13 +449,17 @@ var global = window;
     if (sunMat && sunMat.uniforms) sunMat.uniforms.uTime.value = t * 0.001;
 
     // rotate + orbit planets
-    Object.keys(bodyMeshes).forEach(function (name) {
-      var b = bodyMeshes[name];
-      if (b.data.sun) { b.mesh.rotation.y += b.data.spin * dt; return; }
+    // ⚡ Bolt: Iterate over pre-allocated array instead of Object.keys().forEach()
+    // 💡 What: Used standard for loop and cached array
+    // 🎯 Why: Avoids creating new arrays and closures every frame
+    for (var i = 0; i < cachedBodyMeshes.length; i++) {
+      var b = cachedBodyMeshes[i];
+      if (b.data.sun) { b.mesh.rotation.y += b.data.spin * dt; continue; }
       b.group.rotation.y += b.data.orb * dt;
       b.mesh.rotation.y += b.data.spin * dt;
-      if (b.moonMesh) b.moonMesh.position.applyAxisAngle(new THREE.Vector3(0,1,0), 0.02 * dt);
-    });
+      // ⚡ Bolt: Reuse module-scope vector instead of new THREE.Vector3(0,1,0)
+      if (b.moonMesh) b.moonMesh.position.applyAxisAngle(Y_AXIS, 0.02 * dt);
+    }
 
     if (starField) starField.rotation.y += 0.00005 * dt;
 
@@ -454,8 +467,9 @@ var global = window;
       autoAngle += 0.0015 * dt;
       var r = camera.position.distanceTo(controls.target);
       // orbit the camera around the target
-      var offset = new THREE.Vector3(Math.cos(autoAngle) * r, camera.position.y - controls.target.y, Math.sin(autoAngle) * r);
-      camera.position.copy(controls.target).add(offset);
+      // ⚡ Bolt: Update module-scope vector in place instead of creating new one
+      orbitOffset.set(Math.cos(autoAngle) * r, camera.position.y - controls.target.y, Math.sin(autoAngle) * r);
+      camera.position.copy(controls.target).add(orbitOffset);
     }
 
     controls.update();
@@ -509,6 +523,7 @@ var global = window;
         renderer.domElement.parentNode.removeChild(renderer.domElement);
     }
     bodyMeshes = {};
+    cachedBodyMeshes = []; // ⚡ Bolt: clear cache
     if (controls) controls.dispose();
     window.removeEventListener("resize", onResize);
   }
