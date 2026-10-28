@@ -68,6 +68,12 @@ var global = window;
   var lastFrame = 0;
   var externalRenderHook = null; // set by video recorder
 
+  // ⚡ Bolt: Cache objects to prevent GC pressure in render loop
+  var UP_AXIS = new THREE_ref.Vector3(0, 1, 0);
+  var autoOrbitOffset = new THREE_ref.Vector3();
+  var bodyMeshesList = [];
+
+
   // ---- procedural textures (canvas) --------------------------------------
   function makeRockTexture(baseColor, craters) {
     var c = document.createElement("canvas");
@@ -375,8 +381,13 @@ var global = window;
       group.rotation.y = Math.random() * Math.PI * 2;
       scene.add(group);
 
+
       bodyMeshes[b.name] = { mesh: mesh, group: group, data: b, orbitRing: orbitRing, ringMesh: ringMesh, moonMesh: moonMesh };
     });
+
+    // ⚡ Bolt: Cache array of bodies for zero-allocation loop in animate()
+    bodyMeshesList = Object.keys(bodyMeshes).map(function(k){ return bodyMeshes[k]; });
+
 
     // starfield
     starField = makeStarfield(q.stars);
@@ -440,13 +451,14 @@ var global = window;
     if (sunMat && sunMat.uniforms) sunMat.uniforms.uTime.value = t * 0.001;
 
     // rotate + orbit planets
-    Object.keys(bodyMeshes).forEach(function (name) {
-      var b = bodyMeshes[name];
-      if (b.data.sun) { b.mesh.rotation.y += b.data.spin * dt; return; }
+    // ⚡ Bolt: Zero-allocation loop and cached vector
+    for (var i = 0; i < bodyMeshesList.length; i++) {
+      var b = bodyMeshesList[i];
+      if (b.data.sun) { b.mesh.rotation.y += b.data.spin * dt; continue; }
       b.group.rotation.y += b.data.orb * dt;
       b.mesh.rotation.y += b.data.spin * dt;
-      if (b.moonMesh) b.moonMesh.position.applyAxisAngle(new THREE.Vector3(0,1,0), 0.02 * dt);
-    });
+      if (b.moonMesh) b.moonMesh.position.applyAxisAngle(UP_AXIS, 0.02 * dt);
+    }
 
     if (starField) starField.rotation.y += 0.00005 * dt;
 
@@ -454,8 +466,9 @@ var global = window;
       autoAngle += 0.0015 * dt;
       var r = camera.position.distanceTo(controls.target);
       // orbit the camera around the target
-      var offset = new THREE.Vector3(Math.cos(autoAngle) * r, camera.position.y - controls.target.y, Math.sin(autoAngle) * r);
-      camera.position.copy(controls.target).add(offset);
+      // ⚡ Bolt: Use cached vector to avoid allocation
+      autoOrbitOffset.set(Math.cos(autoAngle) * r, camera.position.y - controls.target.y, Math.sin(autoAngle) * r);
+      camera.position.copy(controls.target).add(autoOrbitOffset);
     }
 
     controls.update();
