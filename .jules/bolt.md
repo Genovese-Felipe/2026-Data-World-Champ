@@ -6,3 +6,7 @@
 ## 2026-07-24 - Optimize Rapid Mouseover Events
 **Learning:** In a dense grid (300+ items), using `innerHTML` inside a `mouseover` event handler creates a measurable CPU overhead because it triggers synchronous HTML parsing on every rapid interaction. Also, failing to early-return when the same element is hovered causes redundant DOM updates.
 **Action:** For high-frequency events like `mouseover`, avoid `innerHTML`. Use `textContent` or modify existing DOM nodes directly. Always check if the target has actually changed before updating the DOM.
+
+## 2026-08-01 - Prevent Garbage Collection Pauses in requestAnimationFrame
+**Learning:** Instantiating objects (e.g., `new THREE.Vector3`) or creating arrays dynamically (e.g., `Object.keys(obj)`) inside a high-frequency `requestAnimationFrame` loop creates constant, unnecessary memory allocations. This puts continuous pressure on the JavaScript Garbage Collector, eventually triggering noticeable GC pauses and dropped frames.
+**Action:** Pre-allocate frequently used objects (like vectors, quaternions) at the module or class scope and update their values in-place using methods like `.set()` or `.copy()`. Pre-compute static object keys into arrays and iterate over those arrays with standard `for` loops instead of creating new arrays on every frame.
