@@ -61,6 +61,10 @@ var global = window;
   var QUALITY_KEY = "high";
   var container, renderer, scene, camera, controls, sun, sunLight, starField;
   var bodyMeshes = {};      // name -> { mesh, group, data, ringMesh?, moonMesh? }
+  var bodyMeshesList = [];  // pre-allocated array of bodies to avoid Object.keys() GC in animate loop
+  // pre-allocated vectors to avoid GC pressure in requestAnimationFrame
+  var moonAxis = new THREE.Vector3(0, 1, 0);
+  var orbitOffset = new THREE.Vector3();
   var raycaster, pointer, onSelectCb;
   var autoOrbit = false;
   var autoAngle = 0;
@@ -319,6 +323,7 @@ var global = window;
     sun.add(sunLight);
     scene.add(sun);
     bodyMeshes["sun"] = { mesh: sun, group: sun, data: BODIES[0], mat: sunBuilt.mat };
+    bodyMeshesList.push(bodyMeshes["sun"]);
 
     // a faint ambient so the dark sides aren't pure black
     scene.add(new THREE.AmbientLight(0x222233, 0.4));
@@ -376,6 +381,7 @@ var global = window;
       scene.add(group);
 
       bodyMeshes[b.name] = { mesh: mesh, group: group, data: b, orbitRing: orbitRing, ringMesh: ringMesh, moonMesh: moonMesh };
+      bodyMeshesList.push(bodyMeshes[b.name]);
     });
 
     // starfield
@@ -440,13 +446,15 @@ var global = window;
     if (sunMat && sunMat.uniforms) sunMat.uniforms.uTime.value = t * 0.001;
 
     // rotate + orbit planets
-    Object.keys(bodyMeshes).forEach(function (name) {
-      var b = bodyMeshes[name];
-      if (b.data.sun) { b.mesh.rotation.y += b.data.spin * dt; return; }
+    // Bolt: Use pre-allocated list to prevent Object.keys() GC pressure every frame
+    for (var i = 0; i < bodyMeshesList.length; i++) {
+      var b = bodyMeshesList[i];
+      if (b.data.sun) { b.mesh.rotation.y += b.data.spin * dt; continue; }
       b.group.rotation.y += b.data.orb * dt;
       b.mesh.rotation.y += b.data.spin * dt;
-      if (b.moonMesh) b.moonMesh.position.applyAxisAngle(new THREE.Vector3(0,1,0), 0.02 * dt);
-    });
+      // Bolt: Use pre-allocated moonAxis instead of new THREE.Vector3 to avoid GC
+      if (b.moonMesh) b.moonMesh.position.applyAxisAngle(moonAxis, 0.02 * dt);
+    }
 
     if (starField) starField.rotation.y += 0.00005 * dt;
 
@@ -454,8 +462,9 @@ var global = window;
       autoAngle += 0.0015 * dt;
       var r = camera.position.distanceTo(controls.target);
       // orbit the camera around the target
-      var offset = new THREE.Vector3(Math.cos(autoAngle) * r, camera.position.y - controls.target.y, Math.sin(autoAngle) * r);
-      camera.position.copy(controls.target).add(offset);
+      // Bolt: Use pre-allocated orbitOffset instead of new THREE.Vector3 to avoid GC
+      orbitOffset.set(Math.cos(autoAngle) * r, camera.position.y - controls.target.y, Math.sin(autoAngle) * r);
+      camera.position.copy(controls.target).add(orbitOffset);
     }
 
     controls.update();
@@ -509,6 +518,7 @@ var global = window;
         renderer.domElement.parentNode.removeChild(renderer.domElement);
     }
     bodyMeshes = {};
+    bodyMeshesList = [];
     if (controls) controls.dispose();
     window.removeEventListener("resize", onResize);
   }
