@@ -6,3 +6,7 @@
 ## 2026-07-24 - Optimize Rapid Mouseover Events
 **Learning:** In a dense grid (300+ items), using `innerHTML` inside a `mouseover` event handler creates a measurable CPU overhead because it triggers synchronous HTML parsing on every rapid interaction. Also, failing to early-return when the same element is hovered causes redundant DOM updates.
 **Action:** For high-frequency events like `mouseover`, avoid `innerHTML`. Use `textContent` or modify existing DOM nodes directly. Always check if the target has actually changed before updating the DOM.
+
+## 2026-08-01 - Avoid Object Instantiations in requestAnimationFrame
+**Learning:** Instantiating new objects (e.g., `new THREE.Vector3`) or performing operations that generate arrays (like `Object.keys(bodyMeshes)`) inside the `requestAnimationFrame` render loop creates continuous garbage collection pressure. This can lead to GC spikes and visible jank, especially in high-refresh-rate 3D scenes.
+**Action:** Pre-allocate frequently used objects (like vectors for offsets or axes) in the module scope and mutate them (using `.set()`) during the render loop. Cache dictionary values into arrays during initialization to iterate using standard `for` loops without reallocating arrays each frame.
