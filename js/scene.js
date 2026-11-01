@@ -60,6 +60,14 @@ var global = window;
 
   var QUALITY_KEY = "high";
   var container, renderer, scene, camera, controls, sun, sunLight, starField;
+
+  // ⚡ Bolt Optimization:
+  // What: Pre-allocate variables `bodyKeys`, `moonAxis` and `autoOrbitOffset`.
+  // Why: To avoid garbage collection pressure in the `requestAnimationFrame` loop.
+  // Impact: Prevents micro-stutters by eliminating per-frame object instantiations.
+  var bodyKeys = [];
+  var moonAxis = new THREE.Vector3(0,1,0);
+  var autoOrbitOffset = new THREE.Vector3();
   var bodyMeshes = {};      // name -> { mesh, group, data, ringMesh?, moonMesh? }
   var raycaster, pointer, onSelectCb;
   var autoOrbit = false;
@@ -382,6 +390,12 @@ var global = window;
     starField = makeStarfield(q.stars);
     scene.add(starField);
 
+    // ⚡ Bolt Optimization:
+    // What: Cache object keys once instead of every frame.
+    // Why: `Object.keys()` allocates a new array each time it's called.
+    // Impact: Reduces garbage collection pressure in the hot path.
+    bodyKeys = Object.keys(bodyMeshes);
+
     // interaction
     raycaster = new THREE.Raycaster();
     pointer = new THREE.Vector2();
@@ -440,13 +454,17 @@ var global = window;
     if (sunMat && sunMat.uniforms) sunMat.uniforms.uTime.value = t * 0.001;
 
     // rotate + orbit planets
-    Object.keys(bodyMeshes).forEach(function (name) {
-      var b = bodyMeshes[name];
-      if (b.data.sun) { b.mesh.rotation.y += b.data.spin * dt; return; }
+    // ⚡ Bolt Optimization:
+    // What: Replace closure and Object.keys with a simple for-loop and cached keys.
+    // Why: Avoids recreating function closures and recomputing keys on every frame.
+    // Impact: Faster iteration and elimination of per-frame closure allocations.
+    for (var i = 0; i < bodyKeys.length; i++) {
+      var b = bodyMeshes[bodyKeys[i]];
+      if (b.data.sun) { b.mesh.rotation.y += b.data.spin * dt; continue; }
       b.group.rotation.y += b.data.orb * dt;
       b.mesh.rotation.y += b.data.spin * dt;
-      if (b.moonMesh) b.moonMesh.position.applyAxisAngle(new THREE.Vector3(0,1,0), 0.02 * dt);
-    });
+      if (b.moonMesh) b.moonMesh.position.applyAxisAngle(moonAxis, 0.02 * dt);
+    }
 
     if (starField) starField.rotation.y += 0.00005 * dt;
 
@@ -454,8 +472,12 @@ var global = window;
       autoAngle += 0.0015 * dt;
       var r = camera.position.distanceTo(controls.target);
       // orbit the camera around the target
-      var offset = new THREE.Vector3(Math.cos(autoAngle) * r, camera.position.y - controls.target.y, Math.sin(autoAngle) * r);
-      camera.position.copy(controls.target).add(offset);
+      // ⚡ Bolt Optimization:
+      // What: Reuse pre-allocated Vector3.
+      // Why: Eliminates object creation during auto-orbit.
+      // Impact: Reduces GC spikes.
+      autoOrbitOffset.set(Math.cos(autoAngle) * r, camera.position.y - controls.target.y, Math.sin(autoAngle) * r);
+      camera.position.copy(controls.target).add(autoOrbitOffset);
     }
 
     controls.update();
