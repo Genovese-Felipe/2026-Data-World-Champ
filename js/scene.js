@@ -61,6 +61,10 @@ var global = window;
   var QUALITY_KEY = "high";
   var container, renderer, scene, camera, controls, sun, sunLight, starField;
   var bodyMeshes = {};      // name -> { mesh, group, data, ringMesh?, moonMesh? }
+  var activeBodies = [];
+  var Y_AXIS = new THREE.Vector3(0, 1, 0);
+  var autoOrbitOffset = new THREE.Vector3();
+
   var raycaster, pointer, onSelectCb;
   var autoOrbit = false;
   var autoAngle = 0;
@@ -386,11 +390,13 @@ var global = window;
     raycaster = new THREE.Raycaster();
     pointer = new THREE.Vector2();
     renderer.domElement.addEventListener("pointerdown", onPointerDown, false);
-
     window.addEventListener("resize", onResize, false);
+
+    activeBodies = Object.keys(bodyMeshes).map(function (k) { return bodyMeshes[k]; });
 
     animate(0);
   }
+
 
   function onPointerDown(e) {
     var rect = renderer.domElement.getBoundingClientRect();
@@ -438,15 +444,18 @@ var global = window;
 
     var sunMat = bodyMeshes["sun"].mat;
     if (sunMat && sunMat.uniforms) sunMat.uniforms.uTime.value = t * 0.001;
-
     // rotate + orbit planets
-    Object.keys(bodyMeshes).forEach(function (name) {
-      var b = bodyMeshes[name];
-      if (b.data.sun) { b.mesh.rotation.y += b.data.spin * dt; return; }
+    // ⚡ Bolt: Cache array length and avoid .forEach closure allocation per frame to reduce GC overhead.
+    // Impact: Eliminates ~10 function allocations and iterator overhead per requestAnimationFrame.
+    for (var i = 0; i < activeBodies.length; i++) {
+      var b = activeBodies[i];
+      if (b.data.sun) { b.mesh.rotation.y += b.data.spin * dt; continue; }
       b.group.rotation.y += b.data.orb * dt;
       b.mesh.rotation.y += b.data.spin * dt;
-      if (b.moonMesh) b.moonMesh.position.applyAxisAngle(new THREE.Vector3(0,1,0), 0.02 * dt);
-    });
+      // ⚡ Bolt: Use pre-allocated Y_AXIS instead of new THREE.Vector3(0,1,0) per frame.
+      // Impact: Eliminates GC pressure from temporary Vector3 allocations in the render loop.
+      if (b.moonMesh) b.moonMesh.position.applyAxisAngle(Y_AXIS, 0.02 * dt);
+    }
 
     if (starField) starField.rotation.y += 0.00005 * dt;
 
@@ -454,8 +463,10 @@ var global = window;
       autoAngle += 0.0015 * dt;
       var r = camera.position.distanceTo(controls.target);
       // orbit the camera around the target
-      var offset = new THREE.Vector3(Math.cos(autoAngle) * r, camera.position.y - controls.target.y, Math.sin(autoAngle) * r);
-      camera.position.copy(controls.target).add(offset);
+      // ⚡ Bolt: Reuse module-scoped autoOrbitOffset vector instead of instantiating new THREE.Vector3.
+      // Impact: Reduces GC pressure by preventing object creation every frame during auto-orbit.
+      autoOrbitOffset.set(Math.cos(autoAngle) * r, camera.position.y - controls.target.y, Math.sin(autoAngle) * r);
+      camera.position.copy(controls.target).add(autoOrbitOffset);
     }
 
     controls.update();
