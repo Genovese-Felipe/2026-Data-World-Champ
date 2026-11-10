@@ -61,6 +61,13 @@ var global = window;
   var QUALITY_KEY = "high";
   var container, renderer, scene, camera, controls, sun, sunLight, starField;
   var bodyMeshes = {};      // name -> { mesh, group, data, ringMesh?, moonMesh? }
+  // Bolt: Optimize render loop garbage collection
+  // What: Pre-allocate array for fast iteration and vectors for math
+  // Why: Reduces GC pressure in requestAnimationFrame
+  // Impact: Eliminates object allocation pauses, keeping framerate stable
+  var bodyMeshesArray = [];
+  var UP_AXIS = new THREE.Vector3(0, 1, 0);
+  var autoOrbitOffset = new THREE.Vector3();
   var raycaster, pointer, onSelectCb;
   var autoOrbit = false;
   var autoAngle = 0;
@@ -389,6 +396,8 @@ var global = window;
 
     window.addEventListener("resize", onResize, false);
 
+    // Bolt: Populate pre-allocated array for hot-path iteration
+    bodyMeshesArray = Object.keys(bodyMeshes).map(function (k) { return bodyMeshes[k]; });
     animate(0);
   }
 
@@ -439,14 +448,16 @@ var global = window;
     var sunMat = bodyMeshes["sun"].mat;
     if (sunMat && sunMat.uniforms) sunMat.uniforms.uTime.value = t * 0.001;
 
-    // rotate + orbit planets
-    Object.keys(bodyMeshes).forEach(function (name) {
-      var b = bodyMeshes[name];
-      if (b.data.sun) { b.mesh.rotation.y += b.data.spin * dt; return; }
+    // Bolt: Iterate using standard for loop over pre-allocated array
+    // What: Avoid Object.keys().forEach and new Vector3() per frame
+    // Why: Prevents GC pauses during render loop
+    for (var i = 0; i < bodyMeshesArray.length; i++) {
+      var b = bodyMeshesArray[i];
+      if (b.data.sun) { b.mesh.rotation.y += b.data.spin * dt; continue; }
       b.group.rotation.y += b.data.orb * dt;
       b.mesh.rotation.y += b.data.spin * dt;
-      if (b.moonMesh) b.moonMesh.position.applyAxisAngle(new THREE.Vector3(0,1,0), 0.02 * dt);
-    });
+      if (b.moonMesh) b.moonMesh.position.applyAxisAngle(UP_AXIS, 0.02 * dt);
+    }
 
     if (starField) starField.rotation.y += 0.00005 * dt;
 
@@ -454,8 +465,9 @@ var global = window;
       autoAngle += 0.0015 * dt;
       var r = camera.position.distanceTo(controls.target);
       // orbit the camera around the target
-      var offset = new THREE.Vector3(Math.cos(autoAngle) * r, camera.position.y - controls.target.y, Math.sin(autoAngle) * r);
-      camera.position.copy(controls.target).add(offset);
+      // Bolt: Use pre-allocated vector
+      autoOrbitOffset.set(Math.cos(autoAngle) * r, camera.position.y - controls.target.y, Math.sin(autoAngle) * r);
+      camera.position.copy(controls.target).add(autoOrbitOffset);
     }
 
     controls.update();
@@ -509,6 +521,7 @@ var global = window;
         renderer.domElement.parentNode.removeChild(renderer.domElement);
     }
     bodyMeshes = {};
+    bodyMeshesArray = []; // Bolt: clear cache
     if (controls) controls.dispose();
     window.removeEventListener("resize", onResize);
   }
