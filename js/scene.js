@@ -61,6 +61,12 @@ var global = window;
   var QUALITY_KEY = "high";
   var container, renderer, scene, camera, controls, sun, sunLight, starField;
   var bodyMeshes = {};      // name -> { mesh, group, data, ringMesh?, moonMesh? }
+  // ⚡ Bolt: Cache array representations of bodies to prevent allocating arrays on every frame/click
+  // 💡 What: Cached array representations of body meshes
+  // 🎯 Why: Avoids Object.keys(bodyMeshes) in the tight render loop
+  // 📊 Impact: Eliminates array allocation overhead during requestAnimationFrame
+  var bodyMeshesList = [];
+  var interactableMeshes = [];
   var raycaster, pointer, onSelectCb;
   var autoOrbit = false;
   var autoAngle = 0;
@@ -378,6 +384,10 @@ var global = window;
       bodyMeshes[b.name] = { mesh: mesh, group: group, data: b, orbitRing: orbitRing, ringMesh: ringMesh, moonMesh: moonMesh };
     });
 
+    // ⚡ Bolt: Populate the cached arrays only once at initialization
+    bodyMeshesList = Object.keys(bodyMeshes).map(function(k) { return bodyMeshes[k]; });
+    interactableMeshes = bodyMeshesList.map(function(b) { return b.mesh; });
+
     // starfield
     starField = makeStarfield(q.stars);
     scene.add(starField);
@@ -397,7 +407,8 @@ var global = window;
     pointer.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
     pointer.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
     raycaster.setFromCamera(pointer, camera);
-    var meshes = Object.keys(bodyMeshes).map(function (k) { return bodyMeshes[k].mesh; });
+    // ⚡ Bolt: Use pre-cached interactableMeshes to avoid re-allocating an array on every click
+    var meshes = interactableMeshes;
     var hits = raycaster.intersectObjects(meshes, false);
     if (hits.length) {
       var name = hits[0].object.userData.name;
@@ -431,6 +442,13 @@ var global = window;
   }
 
   // ---- animation loop ----------------------------------------------------
+  // ⚡ Bolt: Pre-allocate reusable objects to prevent GC spikes
+  // 💡 What: Pre-allocated variables for calculations in animate()
+  // 🎯 Why: Avoids calling `new THREE.Vector3()` 60 times a second
+  // 📊 Impact: Significantly reduces garbage collection pauses and frame drops
+  var moonAxis = new THREE.Vector3(0, 1, 0);
+  var orbitOffset = new THREE.Vector3();
+
   function animate(t) {
     rafId = requestAnimationFrame(animate);
     var dt = lastFrame ? (t - lastFrame) / 16.67 : 1;
@@ -439,14 +457,15 @@ var global = window;
     var sunMat = bodyMeshes["sun"].mat;
     if (sunMat && sunMat.uniforms) sunMat.uniforms.uTime.value = t * 0.001;
 
-    // rotate + orbit planets
-    Object.keys(bodyMeshes).forEach(function (name) {
-      var b = bodyMeshes[name];
-      if (b.data.sun) { b.mesh.rotation.y += b.data.spin * dt; return; }
+    // ⚡ Bolt: Iterate over cached array using a raw for-loop rather than Object.keys().forEach()
+    for (var i = 0; i < bodyMeshesList.length; i++) {
+      var b = bodyMeshesList[i];
+      if (b.data.sun) { b.mesh.rotation.y += b.data.spin * dt; continue; }
       b.group.rotation.y += b.data.orb * dt;
       b.mesh.rotation.y += b.data.spin * dt;
-      if (b.moonMesh) b.moonMesh.position.applyAxisAngle(new THREE.Vector3(0,1,0), 0.02 * dt);
-    });
+      // ⚡ Bolt: Use pre-allocated moonAxis to prevent per-frame object allocation
+      if (b.moonMesh) b.moonMesh.position.applyAxisAngle(moonAxis, 0.02 * dt);
+    }
 
     if (starField) starField.rotation.y += 0.00005 * dt;
 
@@ -454,8 +473,9 @@ var global = window;
       autoAngle += 0.0015 * dt;
       var r = camera.position.distanceTo(controls.target);
       // orbit the camera around the target
-      var offset = new THREE.Vector3(Math.cos(autoAngle) * r, camera.position.y - controls.target.y, Math.sin(autoAngle) * r);
-      camera.position.copy(controls.target).add(offset);
+      // ⚡ Bolt: Use pre-allocated orbitOffset instead of instantiating a new vector every frame
+      orbitOffset.set(Math.cos(autoAngle) * r, camera.position.y - controls.target.y, Math.sin(autoAngle) * r);
+      camera.position.copy(controls.target).add(orbitOffset);
     }
 
     controls.update();
@@ -509,6 +529,9 @@ var global = window;
         renderer.domElement.parentNode.removeChild(renderer.domElement);
     }
     bodyMeshes = {};
+    // ⚡ Bolt: clear cached arrays to avoid memory leaks
+    bodyMeshesList = [];
+    interactableMeshes = [];
     if (controls) controls.dispose();
     window.removeEventListener("resize", onResize);
   }
