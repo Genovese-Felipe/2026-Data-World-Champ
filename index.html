@@ -425,10 +425,10 @@
   const fav=D.insights.favorite, dark=D.insights.dark_horse;
   fillCard('card-fav', fav.team,
     fav.prob+'% heat · '+fav.votes+'/300 votes',
-    'France top six of the ten lenses and never finished outside the top three of any camp. The odds-makers, manager-watchers, superstition crowd and injury wonks all converged here — depth wins a 7-game war of attrition, and their bench alone would be seeded.');
+    'The top pick in 4 of 10 camps — odds-makers, manager-watchers, the superstition crowd and injury wonks — with Spain leading 3 (data, youth, form). The common thread: squad depth wins a 7-game war of attrition.');
   fillCard('card-dark', dark.team,
     'avg conviction '+dark.avg_conf+'/9 · only '+dark.votes+'/300 votes',
-    'Low vote share but the highest conviction of any longshot — every analyst who picked Argentina did so with a near-favorite\'s certainty. The romantics and load-management nerds know something the consensus is discounting: a rested Messi in his last dance, defending the crown.');
+    'Low vote share but the highest average conviction of any longshot (7.1/9). Picked mainly by the old-school romantics (10 of 30) on a rested Messi\'s last dance — a story the consensus may be discounting.');
 
   function fillCard(id, team, stat, desc){
     const c=document.getElementById(id), col=TEAMCOLOR(team);
